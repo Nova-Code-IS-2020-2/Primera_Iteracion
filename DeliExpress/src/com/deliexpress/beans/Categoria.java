@@ -2,8 +2,8 @@ package com.deliexpress.beans;
 
 public class Categoria {
 	
-	private int id_cat;
-	private String nombre_cat;
+	public int id_cat;
+	public String nombre_cat;
 	
 	public Categoria() {
 	}
@@ -21,10 +21,10 @@ public class Categoria {
 	}
 	
 	public String getNombre(){
-		return nombre_cat;
+		return this.nombre_cat;
 	}
 	
 	public void setNombre(String nombre){
-		nombre_cat=nombre;
+		this.nombre_cat=nombre;
 	}
 }

@@ -43,12 +43,12 @@ public class CategoriaDAO {
 		 
 		            aCat.setId(rs.getInt("id_cat"));
 		            aCat.setNombre(rs.getString("nombre_cat"));
+		            
 		 
 		            return aCat;
 			 }
 		 
 		});
-		 
 		    return listaCat;
 	}
 	public Categoria get(int id){    
