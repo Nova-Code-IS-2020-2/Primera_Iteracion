@@ -23,11 +23,11 @@ public class CategoriaDAO {
 	}    
 	public int save(Categoria c){    
 	    String sql="insert into Categoria(id_cat, nombre_cat) values(?,?)";    
-	    return template.update(sql,c.getId(),c.getName());    
+	    return template.update(sql,c.getId(),c.getNombre());    
 	}    
 	public int update(Categoria c){    
 	    String sql="update Categoria set nombre_cat=? where id_cat=?";    
-	    return template.update(sql,c.getName(),c.getId());    
+	    return template.update(sql,c.getNombre(),c.getId());    
 	}    
 	public int delete(int id){    
 	    String sql="delete from Categoria where id_cat=?";    
@@ -42,7 +42,7 @@ public class CategoriaDAO {
 		            Categoria aCat = new Categoria();
 		 
 		            aCat.setId(rs.getInt("id_cat"));
-		            aCat.setName(rs.getString("nombre_cat"));
+		            aCat.setNombre(rs.getString("nombre_cat"));
 		 
 		            return aCat;
 			 }

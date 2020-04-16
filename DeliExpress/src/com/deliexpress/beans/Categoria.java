@@ -20,11 +20,11 @@ public class Categoria {
 		this.id_cat=id_cat;
 	}
 	
-	public String getName(){
+	public String getNombre(){
 		return nombre_cat;
 	}
 	
-	public void setName(String nombre){
+	public void setNombre(String nombre){
 		nombre_cat=nombre;
 	}
 }

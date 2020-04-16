@@ -47,7 +47,7 @@
 		</tr>
 		<tr>
 			<td><a>Nombre:</a></td>		
-			<td><form:input  path="Name"  /></td>	
+			<td><form:input  path="Nombre"  /></td>	
 		</tr>		
 		</table>
 		<br>
