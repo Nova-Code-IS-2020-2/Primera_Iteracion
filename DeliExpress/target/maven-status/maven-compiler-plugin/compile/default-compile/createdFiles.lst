@@ -1,1 +1,4 @@
+com/deliexpress/dao/CatDao.class
 com/deliexpress/controller/Ejemplo.class
+com/deliexpress/beans/Categoria.class
+com/deliexpress/controller/CategoriaController.class
