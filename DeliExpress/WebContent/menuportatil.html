@@ -1,0 +1,101 @@
+<!DOCTYPE htlm>
+<html lang = "es">
+    <head>
+        <title>Equipo 11</title>
+        <style type="text/css">
+        	body{
+			   	 margin: 0;
+			    font-family: sans-serif;
+			}
+			header{
+			    width: 100%;
+			    background:  #6C3313;
+			}
+			
+			#btn-menu{
+			    display: none;
+			}
+			
+			header label{
+			    display: none;
+			    width: 30px;
+			    height: 30px;
+			    padding: 10px;
+			    border-right: 1px solid #fff;
+			}
+			
+			header label:hover{
+			    cursor: pointer;
+			    background: rgba(0,0,0,0.3);
+			}
+			
+			.menu ul{
+			    margin: 0;
+			    list-style: none;
+			    padding: 0;
+			    display: flex;
+			}
+			
+			.menu li{
+			    border-right: 1px solid #fff;
+			}
+			
+			.menu li:hover{
+			    background: rgba(0,0,0,0.3);
+			    
+			}
+			
+			.menu li a{
+			    display: block;
+			    padding: 15px 20px;
+			    color: #ffffff;
+			    text-decoration: none;
+			    
+			}
+			
+			@media (max-width: 1800px){
+			    header label{
+			        display: block;
+			    }
+			    
+			    .menu{
+			        position: absolute;
+			        background: #6C3313;
+			        width: 70%;
+			        margin-left: -70%;
+			        transition: all 0.4s;
+			    }
+			    
+			    .menu ul{
+			        flex-direction: column;
+			    }
+			    
+			    .menu il{
+			        border-top: 1px solid #fff;
+			    }
+			    
+			    #btn-menu:checked ~ .menu {
+			        margin: 0;
+			    }
+			
+			}
+        </style>
+        <meta charset="utf-8">
+        <meta name = "viewport" content="width=devise-width, user-scalable=no, initial-scale=1,maximum-scale=1,minimum-scale = 1">
+        <link rel="stylesheet" href = css/estilo-menu.css>
+    </head>
+    <body>
+        <header>
+            <input type= "checkbox" id="btn-menu">
+            <label for = "btn-menu"><img src = "imagenes/menu-2.png" alt=""></label>
+            <nav class="menu">
+                <ul>
+                    <li><a href = "menuAdmin.php">Inicio</a>    </li>
+                    <li><a href = "inventarios.php">Mi Perfil</a></li>
+                    <li><a href = "agregar.php">Carrito</a></li>
+                    <li><a href = "edita.php">Historial</a></li>
+                </ul>
+            </nav>
+        </header>
+    </body>
+</html>
