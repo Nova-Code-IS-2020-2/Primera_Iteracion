@@ -15,7 +15,6 @@ body {
 		</h2>
 		<h3>
 			<a href="welcome">Hola</a>
-			<a href="agregarCategoria">Agregar Categoria</a>
 		</h3>
 		<h3>
 			<a href="menuAdmin">Menu de Alimentos</a>

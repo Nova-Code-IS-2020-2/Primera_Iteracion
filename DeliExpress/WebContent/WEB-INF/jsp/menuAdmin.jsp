@@ -21,9 +21,9 @@
                     <td>${status.index + 1}</td>
                     <td>${categoria.getNombre()}</td>
                     <td>
-                        <a href="/editContact?id=${categoria.getId()}">Edit</a>
+                        <a href="/DeliExpress/editarCategoria?id=${categoria.getId()}">Editar</a>
                         &nbsp;&nbsp;&nbsp;&nbsp;
-                        <a href="/deleteContact?id=${categoria.getId()}">Delete</a>
+                        <a href="/DeliExpress/borrarCategoria?id=${categoria.getId()}">Borrar</a>
                     </td>
                              
                 </tr>
