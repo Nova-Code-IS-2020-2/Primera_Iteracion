@@ -87,7 +87,8 @@ $(function(){
                     </tr>
                 </tbody>
             </table>
-        	</div><button class="btn btn-primary border rounded" type="submit" name="guardarCategoria" style="background-color: #6c3313;">Confirmar</button></div>
+        	</div><button class="btn btn-primary border rounded" type="submit" name="guardarCategoria" style="background-color: #6c3313;">Confirmar</button>
+   			<a href="menuAdmin" class="btn btn-primary border rounded" role="button" style="background-color: #6c3313;">Cancelar</a></div>
    			</form:form>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>

@@ -3,48 +3,92 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
     "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<html style="font-family: ABeeZee, sans-serif;font-size: 20px;">
+<style type="text/css">
+body {
+  margin: 0;
+  font-family: ABeeZee, sans-serif;
+  font-size: 20px;
+  color: #bd6d10;
+  text-align: left;
+  background-color: #ffffff;
+}
+.h1, h1 {
+  color: #bd6d10;
+}
+
+
+.page-name {
+  text-align: center;
+  padding: 60px 0;
+}
+
+form {
+}
+
+.cat-alim {
+  color: #6C3313;
+}
+
+.nombre {
+  font-family: SeoulNamsan CBL;
+  font-style: normal;
+  font-weight: normal;
+  color: #6c3313;
+}
+
+.id_cat {
+  color: #6C3313;
+  font-family: SeoulNamsan CBL;
+  font-style: normal;
+  font-weight: normal;
+}
+
+.border {
+  border: 1px solid #6c3313!important;
+  border-style: groove;
+}
+</style>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Editar Categoría</title>
+<title>Crear Categoría</title>
 <script src="//code.jquery.com/jquery-1.10.2.js"></script>
 <script> 
 $(function(){
   $("#header").load("menuportatil.html");
 });
 </script>
-<script type="text/javascript"
-	src="/bower_components/jquery/jquery.min.js"></script>
-<script type="text/javascript"
-	src="/bower_components/moment/min/moment.min.js"></script>
-<script type="text/javascript"
-	src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-<script type="text/javascript"
-	src="/bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
-<link rel="stylesheet"
-	href="/bower_components/bootstrap/dist/css/bootstrap.min.css" />
-<link rel="stylesheet"
-	href="/bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" />
-
-
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=ABeeZee">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abhaya+Libre">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Actor">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Amiko">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 </head>
+
 <body>
 	<div id="header"></div>
-	<h1>Editar Categoría</h1>
-	<form:form  action="actualizarCategoria" method="post" modelAttribute="categoria">
-		<table border="1" align="center">
-		<form:hidden  path="id" />
-		<tr>
-			<td><a>Nombre:</a></td>		
-			<td><form:input  path="Nombre" value="${categoria.getNombre()}" /></td>	
-		</tr>		
-		</table>
-		<br>
-		<table border="0" align="center">
-		<tr>
-			<td><input type="submit" value="Actualizar" name="actualizarCategoria"></td>	
-		</tr>
-		</table>
-	</form:form>
+	<div class="container page-name">
+		<h1 style="font-family: ABeeZee, sans-serif;">DeliExpress</h1>
+		<h3 class="cat-alim" style="font-family: Actor, sans-serif;">Editar categoría de Alimento:</h3>
+		<div class="table-responsive table-bordered text-center shadow">
+			<form:form  action="actualizarCategoria" method="post" modelAttribute="categoria">
+			<table class="table table-bordered">
+				<form:hidden  path="id" />
+				<tbody>
+					<tr>
+						<td class="text-left nombre" style="font-family: Actor, sans-serif;">Nombre de la categoría:</td>	
+						<td class="text-left"><form:input  path="Nombre" value="${categoria.getNombre()}" /></td>	
+					</tr>
+				</tbody>		
+			</table>
+			</div><button class="btn btn-primary border rounded" type="submit" name="actualizarCategoria" style="background-color: #6c3313;">Confirmar</button>
+   			<a href="menuAdmin" class="btn btn-primary border rounded" role="button" style="background-color: #6c3313;">Cancelar</a></div>
+   			</form:form>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
 </body>
+
 </html>
