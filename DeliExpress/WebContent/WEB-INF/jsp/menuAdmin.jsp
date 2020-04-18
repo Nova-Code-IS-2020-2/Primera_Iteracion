@@ -7,8 +7,15 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Administrar Menú</title>
+        <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+		<script> 
+			$(function(){
+ 			$("#header").load("menuportatil.html");
+			});
+		</script>
     </head>
     <body>
+    	<div id="header"></div>
         <div align="center">
             <h1>Categorías</h1>
             <h3><a href="/DeliExpress/agregarCategoria">Agregar Categoría</a></h3>

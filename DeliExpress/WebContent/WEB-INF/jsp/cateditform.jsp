@@ -6,22 +6,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Crear Categoría</title>
-<link rel="stylesheet" href="css/bootstrap.min.css">
-<!---- boostrap.min link local ----->
-
-<link rel="stylesheet" href="css/style.css">
-<!---- boostrap.min link local ----->
-
-<script src="js/bootstrap.min.js"></script>
-<!---- Boostrap js link local ----->
-
-<link rel="icon" href="images/icon.png" type="image/x-icon" />
-<!---- Icon link local ----->
-
-<link href="https://fonts.googleapis.com/css?family=Lobster"
-	rel="stylesheet">
-<!---- Font awesom link local ----->
+<title>Editar Categoría</title>
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script> 
+$(function(){
+  $("#header").load("menuportatil.html");
+});
+</script>
 <script type="text/javascript"
 	src="/bower_components/jquery/jquery.min.js"></script>
 <script type="text/javascript"
@@ -38,6 +29,7 @@
 
 </head>
 <body>
+	<div id="header"></div>
 	<h1>Editar Categoría</h1>
 	<form:form  action="actualizarCategoria" method="post" modelAttribute="categoria">
 		<table border="1" align="center">
