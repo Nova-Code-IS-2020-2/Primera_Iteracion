@@ -17,13 +17,13 @@ body {
   color: #bd6d10;
 }
 
-
+.border.rounded-0.id-input {
+	border: 1px solid #6c3313!important;
+	border-style: groove;
+}
 .page-name {
   text-align: center;
   padding: 60px 0;
-}
-
-form {
 }
 
 .cat-alim {
@@ -80,7 +80,7 @@ $(function(){
 				<tbody>
 					<tr>
 						<td class="text-left nombre" style="font-family: Actor, sans-serif;">Nombre de la categoría:</td>	
-						<td class="text-left"><form:input  path="Nombre" value="${categoria.getNombre()}" /></td>	
+						<td class="text-left"><form:input class="border rounded-0 id-input" path="Nombre" value="${categoria.getNombre()}" /></td>	
 					</tr>
 				</tbody>		
 			</table>

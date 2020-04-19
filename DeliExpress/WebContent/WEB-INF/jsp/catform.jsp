@@ -30,6 +30,13 @@ form {
   color: #6C3313;
 }
 
+.border.rounded-0.id-input {
+	border: 1px solid #6c3313!important;
+	border-style: groove;
+}
+
+
+
 .nombre {
   font-family: SeoulNamsan CBL;
   font-style: normal;
@@ -79,11 +86,11 @@ $(function(){
                 <tbody>
                     <tr>
                         <td class="text-left id_cat" style="font-family: Actor, sans-serif;">Id:</td>
-                        <td class="text-left"><form:input  path ="id" /></td>
+                        <td class="text-left"><form:input class="border rounded-0 id-input" path ="id" /></td>
                     </tr>
                     <tr>
                         <td class="text-left nombre" style="font-family: Actor, sans-serif;">Nombre de la categoría:</td>
-                        <td class="text-left"><form:input path="Nombre" /></td>
+                        <td class="text-left"><form:input class="border rounded-0 id-input" path="Nombre" /></td>
                     </tr>
                 </tbody>
             </table>
