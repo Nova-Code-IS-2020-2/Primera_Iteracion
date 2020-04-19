@@ -61,9 +61,9 @@ form {
 <title>Crear Categoría</title>
 <script src="//code.jquery.com/jquery-1.10.2.js"></script>
 <script> 
-$(function(){
-  $("#header").load("menuportatil.html");
-});
+	$(function(){
+  	$("#header").load("menuportatil.html");
+	});
 </script>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=ABeeZee">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abhaya+Libre">

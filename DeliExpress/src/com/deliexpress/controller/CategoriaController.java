@@ -19,6 +19,11 @@ public class CategoriaController{
 	
 	@Autowired
     private CategoriaDAO categoriaDAO;
+	
+	@RequestMapping("/principalAdmin")
+	public ModelAndView principalAdmin() {
+		return new ModelAndView();
+	}
  
 	@RequestMapping(value="/menuAdmin")
 	public ModelAndView listaCategoria(ModelAndView model) throws IOException{
