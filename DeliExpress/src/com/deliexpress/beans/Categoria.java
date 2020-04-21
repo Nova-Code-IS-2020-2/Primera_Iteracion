@@ -2,8 +2,8 @@ package com.deliexpress.beans;
 
 public class Categoria {
 	
-	public int id_cat;
-	public String nombre_cat;
+	private int id_cat;
+	private String nombre_cat;
 	
 	public Categoria() {
 	}
