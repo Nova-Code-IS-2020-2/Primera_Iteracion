@@ -16,6 +16,8 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import com.deliexpress.dao.IniciarSesionDAO;
 import com.deliexpress.model.Cliente;
+import com.deliexpress.model.Repartidor;
+import com.deliexpress.model.Administrador;
 
 @Controller
 public class IniciarSesion extends HttpServlet{
@@ -30,13 +32,7 @@ public class IniciarSesion extends HttpServlet{
 	public ModelAndView iniciarSesion() {
 		return new ModelAndView("iniciarsesion");
 	}
-  
-    @RequestMapping("/home")
-   	public ModelAndView home() {
-   		return new ModelAndView("home");
-   	}
-    
-   
+ 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public ModelAndView loginProcess(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String email = request.getParameter("email");
@@ -45,11 +41,20 @@ public class IniciarSesion extends HttpServlet{
         IniciarSesionDAO isDAO = new IniciarSesionDAO();
         ModelAndView mav = null;
         try {
-            Cliente user = isDAO.checkLogin(email, password);
-            if (user != null) {
-            	 mav = new ModelAndView("home");
+            Cliente cliente = isDAO.checkLogin(email, password);
+            Repartidor rep = isDAO.checkLoginRepartidor(email,password);
+            Administrador admin = isDAO.checkLoginAdmin(email,password);
+            
+            if (cliente != null) {
+            	 mav = new ModelAndView("menucliente");
                 
-            } else {
+            } else if(admin != null){
+            	mav = new ModelAndView("principaladmin");
+            }else if(rep != null) {
+            	mav = new ModelAndView("seleccionarcomida");
+            }else {
+            	String message = "Invalid email/password";
+                request.setAttribute("message", message);
             	mav = new ModelAndView("iniciarsesion");
             }
             return mav;
