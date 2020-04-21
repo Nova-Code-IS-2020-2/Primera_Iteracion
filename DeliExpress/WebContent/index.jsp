@@ -19,6 +19,9 @@ body {
 		<h3>
 			<a href="/DeliExpress/principalAdmin">Principal Admin</a>
 		</h3>
+		<h3>
+			<a href="/DeliExpress/ordenes">Ver Ordenes Rep</a>
+		</h3>
 	</div>
 </body>
 </html>

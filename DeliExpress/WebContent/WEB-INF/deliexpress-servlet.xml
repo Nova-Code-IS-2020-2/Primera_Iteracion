@@ -35,9 +35,17 @@
 		<property name="dataSource" ref="ds"></property>    
 	</bean> 
 	
-	<bean id="dao" class="com.deliexpress.dao.CategoriaDAO">    
+	<bean id="daocat" class="com.deliexpress.dao.CategoriaDAO">    
 		<property name="template" ref="jt"></property>    
-	</bean>       
+	</bean>     
+	
+	<bean id="daoclient" class="com.deliexpress.dao.ClienteDAO">    
+		<property name="template" ref="jt"></property>    
+	</bean> 
+	
+	<bean id="daoord" class="com.deliexpress.dao.OrdenDAO">    
+		<property name="template" ref="jt"></property>    
+	</bean>   
 	   
  
 </beans>
