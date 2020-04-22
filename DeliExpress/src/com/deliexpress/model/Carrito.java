@@ -1,14 +1,31 @@
 package com.deliexpress.model;
 
 public class Carrito {
-	private int cantidad;
-	private int idAlimento;
-	private int idOrden;
+	public float precio;
+	public String nombre;	
+	public int cantidad;
 	
-	public Carrito(int cantidad, int idAlimento, int idOrden) {
+	public Carrito() {};
+	public Carrito(float precio, String nombre, int cantidad) {
 		this.cantidad = cantidad;
-		this.idAlimento = idAlimento;
-		this.idOrden = idOrden;
+		this.nombre = nombre;
+		this.cantidad = cantidad;
+	}
+
+	public float getPrecio() {
+		return precio;
+	}
+
+	public void setPrecio(float precio) {
+		this.precio = precio;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
 	}
 
 	public int getCantidad() {
@@ -19,21 +36,9 @@ public class Carrito {
 		this.cantidad = cantidad;
 	}
 
-	public int getIdAlimento() {
-		return idAlimento;
-	}
-
-	public void setIdAlimento(int idAlimento) {
-		this.idAlimento = idAlimento;
-	}
-
-	public int getIdOrden() {
-		return idOrden;
-	}
-
-	public void setIdOrden(int idOrden) {
-		this.idOrden = idOrden;
-	}
+	public String toString() {
+		return "El carrito tiene: \n cantidad = " + this.getCantidad() + "\nNombre = " +this.getNombre() + "\nPrecio"+ this.getPrecio();
+	} 
 	
 	
 }

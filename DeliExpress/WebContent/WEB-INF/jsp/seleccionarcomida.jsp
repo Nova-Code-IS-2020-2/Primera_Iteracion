@@ -9,7 +9,7 @@
 <body>
     <div style="text-align: center">
         <h1>Welcome to Deli Express Repartidor</h1>
-        <b>${rep.nombre} (${rep.ap_pat})</b>
+        <b>${rep.nombre} (${repartidor.ap_pat})</b>
         <br><br>
         <a href="/logout">Logout</a>
     </div>

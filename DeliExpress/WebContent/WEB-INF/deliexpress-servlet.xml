@@ -37,6 +37,9 @@
 	
 	<bean id="dao" class="com.deliexpress.dao.CategoriaDAO">    
 		<property name="template" ref="jt"></property>    
+	</bean>   
+	<bean id="daoc" class="com.deliexpress.dao.CarritoDao">    
+		<property name="template" ref="jt"></property>    
 	</bean>       
 	   
  

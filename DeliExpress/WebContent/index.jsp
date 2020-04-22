@@ -31,7 +31,9 @@
 			<tr >
 				<td align="center"><a href="agregarCategoria">Agregar Categoria</a></td>
 			</tr>
-			
+			<tr >
+				<td align="center"><a href="carrito">Carrito</a></td>			
+			</tr>
 		</table>
 
 	

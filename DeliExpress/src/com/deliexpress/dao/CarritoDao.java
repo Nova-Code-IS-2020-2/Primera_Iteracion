@@ -1,119 +1,52 @@
 package com.deliexpress.dao;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.List;
+import java.sql.ResultSet;    
+import java.sql.SQLException;    
+import java.util.List;   
+import javax.sql.DataSource;
+
+import org.springframework.dao.DataAccessException;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;    
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.ResultSetExtractor;
+import org.springframework.jdbc.core.RowMapper;
 
 import com.deliexpress.model.*;
+import com.mysql.jdbc.Connection;
 
 public class CarritoDao {
-	private Conexion con;
-	private Connection connection;
-
-	public CarritoDao(String jdbcURL, String jdbcUsername, String jdbcPassword) throws SQLException {
-		System.out.println(jdbcURL);
-		con = new Conexion(jdbcURL, jdbcUsername, jdbcPassword);
-	}
-
-	// insertar artículo
-	public boolean insertar(Carrito carrito) throws SQLException {
-		String sql = "INSERT INTO carrito (cantidad, idAlimento, idOrden) VALUES (?, ?, ?)";
-		System.out.println("hola");
-		con.conectar();
-		connection = con.getJdbcConnection();
-		PreparedStatement statement = connection.prepareStatement(sql);
-		statement.setInt(1, carrito.getCantidad());
-		statement.setInt(2, carrito.getIdAlimento());
-		statement.setInt(3, carrito.getIdOrden());
-		System.out.println("hola");
-		boolean rowInserted = statement.executeUpdate() > 0;
-		statement.close();
-		con.desconectar();
-		return rowInserted;
-	}
-
-	// listar todos los productos
-	public List<Carrito> listarCarritos() throws SQLException {
-
-		List<Carrito> listaCarritos = new ArrayList<Carrito>();
-		String sql = "SELECT * FROM carrito";
-		con.conectar();
-		connection = con.getJdbcConnection();
-		Statement statement = connection.createStatement();
-		ResultSet resulSet = statement.executeQuery(sql);
-		while (resulSet.next()) {
-			int cantidad = resulSet.getInt("cantidad");
-			int idAlimento  = resulSet.getInt("idAlimento");
-			int idOrden = resulSet.getInt("idOrden");
-			Carrito carrito = new Carrito(cantidad,idAlimento,idOrden);
-			listaCarritos.add(carrito);
-		}
-		con.desconectar();
-		return listaCarritos;
-	}
-
-	// obtener por id
-	public Carrito obtenerPorId(int id) throws SQLException {
-		Carrito carrito = null;
-
-		String sql = "SELECT * FROM carrito WHERE Alimento_id_alim= ? ";
-		con.conectar();
-		connection = con.getJdbcConnection();
-		PreparedStatement statement = connection.prepareStatement(sql);
-		statement.setInt(1, id);
-
-		ResultSet res = statement.executeQuery();
-		if (res.next()) {
-			carrito = new Carrito(res.getInt("cantidad"), res.getInt("idAlimento"), res.getInt("idOrden"));
-		}
-		res.close();
-		con.desconectar();
-
-		return carrito;
-	}
-
-	// actualizar
-	public boolean aumentar(Carrito carrito) throws SQLException {
-		boolean rowActualizar = false;
-		String sql = "UPDATE carrito SET cantidad=? WHERE Alimento_id_alim=?=?";
-		con.conectar();
-		connection = con.getJdbcConnection();
-		PreparedStatement statement = connection.prepareStatement(sql);
-		statement.setInt(1, carrito.getCantidad());
-		rowActualizar = statement.executeUpdate() > 0;
-		statement.close();
-		con.desconectar();
-		return rowActualizar;
-	}
 	
-	public boolean disminuir(Carrito carrito) throws SQLException {
-		boolean rowActualizar = false;
-		String sql = "UPDATE carrito SET cantidad=? WHERE Alimento_id_alim=?";
-		con.conectar();
-		connection = con.getJdbcConnection();
-		PreparedStatement statement = connection.prepareStatement(sql);
-		statement.setInt(1, carrito.getCantidad());
-		rowActualizar = statement.executeUpdate() > 0;
-		statement.close();
-		con.desconectar();
-		return rowActualizar;
+	private JdbcTemplate template;
+
+	public CarritoDao(DataSource datasource) {
+		this.template=new JdbcTemplate(datasource);
+	}
+	public void setTemplate(JdbcTemplate template) {    
+	    this.template = template;    
+	}  
+	public List<Carrito> muestraCarrito(){
+		System.out.println("MUESTRACARRITO");
+		String sql = "SELECT a1.precio_al, a1.nombre_alim, c1.cantidad\r\n" + 
+				"FROM contenerordalim AS c1, alimento AS a1, orden, cliente\r\n" + 
+				"where orden.id_orden = c1.orden_id_orden AND cliente.id_cliente = 3 group by a1.id_alim;";
+		List<Carrito> listaCarrito = template.query(sql, new RowMapper<Carrito>() { 
+			
+			@Override
+		        public Carrito mapRow(ResultSet rs, int rowNum) throws SQLException {
+				 	
+				 	Carrito aCat = new Carrito();
+				 	System.out.println("mapRow");
+				 	
+				 	
+		            aCat.setPrecio(rs.getFloat("precio_al"));
+		            aCat.setNombre(rs.getString("nombre_alim"));
+		            aCat.setCantidad(rs.getInt("cantidad"));
+		            System.out.println(aCat.toString());
+		            return aCat;
+			 }
+		 
+		});
+		    return listaCarrito;
 	}
 	
 	
-	//eliminar
-	public boolean eliminar(Carrito carrito) throws SQLException {
-		boolean rowEliminar = false;
-		String sql = "DELETE * FROM carrito ";
-		con.conectar();
-		connection = con.getJdbcConnection();
-		PreparedStatement statement = connection.prepareStatement(sql);
-		rowEliminar = statement.executeUpdate() > 0;
-		statement.close();
-		con.desconectar();
-
-		return rowEliminar;
-	}
 }
