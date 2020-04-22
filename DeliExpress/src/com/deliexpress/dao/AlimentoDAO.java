@@ -13,19 +13,19 @@ import org.springframework.jdbc.core.RowMapper;
 
 import com.deliexpress.beans.Categoria;
 
-public class CategoriaDAO {
+public class AlimentoDAO {
 
 	private JdbcTemplate template;    
 	
-	public CategoriaDAO(DataSource datasource) {
+	public AlimentoDAO(DataSource datasource) {
 		this.template=new JdbcTemplate(datasource);
 	}
     
 	public void setTemplate(JdbcTemplate template) {    
 	    this.template = template;    
 	}    
-	public int save(Categoria c){    
-	    String sql="insert into Categoria(id_cat, nombre_cat) values(?,?)";    
+	public int save(Alimento c){    
+	    String sql="insert into Categoria(id, nombre, x) values(?,?)";    
 	    return template.update(sql,c.getId(),c.getNombre());    
 	}    
 	public int update(Categoria c){    

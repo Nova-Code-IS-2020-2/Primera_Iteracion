@@ -45,7 +45,7 @@
   </style>
   <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>menuAdmin</title>
+        <title>menu</title>
         <script src="//code.jquery.com/jquery-1.10.2.js"></script>
         <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=ABeeZee">
@@ -65,13 +65,6 @@
 	<div id="header"></div>
     <div class="container page-name">
       <h1 style="font-family: ABeeZee, sans-serif;">DeliExpress</h1>
-      <div class="btn-toolbar">
-        <div class="btn-group" role="group">
-          <a  href="/DeliExpress/agregarCategoria"
-            class="btn btn-primary border rounded shadow-sm" role="button" style="color: #6c3313; background-color: #ffffff; border: 1px solid #6c3313!important; ">+Categoría</a>
-          <a class="btn btn-primary border rounded shadow-sm" role="button" style="color: #6c3313; background-color: #ffffff; border: 1px solid #6c3313!important;">+Alimento</a></div>
-          <div class="btn-group" role="group"></div>
-      </div>
       <h3 class="categorias" style="font-family: Actor, sans-serif;">Menú de alimentos </h3>
       <div class="table-responsive table-bordered border rounded shadow">
           <table class="table table-striped table-bordered" >
@@ -85,11 +78,6 @@
                   <tr>
                       <td style="border: 1px solid #ffffff!important;">${categoria.getId()}</td>
                       <td style="border: 1px solid #ffffff!important;">${categoria.getNombre()}</td>
-                      <td style="border: 1px solid #ffffff!important;">
-                          <a href="/DeliExpress/editarCategoria?id=${categoria.getId()}">Editar</a>
-                          &nbsp;&nbsp;&nbsp;&nbsp;
-                          <a href="/DeliExpress/borrarCategoria?id=${categoria.getId()}">Borrar</a>
-                      </td>
 
                   </tr>
                   	 <table class="table table-striped table-bordered" >
@@ -104,16 +92,10 @@
 			                  <c:forEach var="alimento" items="${listAlim(categoria)}" varStatus="status">
 			                  <tr>
 			                      <td style="border: 1px solid #ffffff!important;">${alilmento.getId()}</td>
-			                      <td style="border: 1px solid #ffffff!important;">${alilmento.getFoto()}</td>
+			                      <td style="border: 1px solid #ffffff!important;"><img src=${alilmento.getFoto()} alt=${alimento.getNombre()}></td>
 			                      <td style="border: 1px solid #ffffff!important;">${alimento.getNombre()}</td>
 			                      <td style="border: 1px solid #ffffff!important;">${alilmento.getDescripcion()}</td>
 			                      <td style="border: 1px solid #ffffff!important;">${alilmento.getPrecio()}</td>
-			                      <td style="border: 1px solid #ffffff!important;">
-			                          <a href="/DeliExpress/editarAlimento?id=${alimento.getId()}">Editar</a>
-			                          &nbsp;&nbsp;&nbsp;&nbsp;
-			                          <a href="/DeliExpress/menuAdmin?id=${eliminaAlimento(alimento.getId())}">Borrar</a>
-			                      </td>
-			
 			                  </tr>
 			                  </c:forEach>
 			              </thead>

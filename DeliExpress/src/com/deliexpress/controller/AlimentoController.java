@@ -7,7 +7,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.deliexpress.beans.Categoria;
-import com.deliexpress.dao.CategoriaDAO;
+import com.deliexpress.dao.AlimentoDAO;
 
 import java.util.List;
 
@@ -15,10 +15,10 @@ import javax.servlet.http.HttpServletRequest;
 
 import java.io.*;
 @Controller
-public class CategoriaController{
+public class AlimentoController{
 	
 	@Autowired
-    private CategoriaDAO categoriaDAO;
+    private AlimentoDAO categoriaDAO;
 	
 	@RequestMapping("/principalAdmin")
 	public ModelAndView principalAdmin() {
