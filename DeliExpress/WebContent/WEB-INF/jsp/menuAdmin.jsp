@@ -111,7 +111,7 @@
 			                      <td style="border: 1px solid #ffffff!important;">
 			                          <a href="/DeliExpress/editarAlimento?id=${alimento.getId()}">Editar</a>
 			                          &nbsp;&nbsp;&nbsp;&nbsp;
-			                          <a href="/DeliExpress/menuAdmin?id=${eliminaAlimento(alimento.getId())}">Borrar</a>
+			                          <a href="/DeliExpress/menuAdmin?id=${alimento.getId()}">Borrar</a>
 			                      </td>
 			
 			                  </tr>

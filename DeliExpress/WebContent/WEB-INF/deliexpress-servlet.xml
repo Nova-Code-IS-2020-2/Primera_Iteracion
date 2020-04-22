@@ -38,8 +38,9 @@
 	<bean id="urlMapping" class="org.springframework.web.servlet.handler.SimplUrlHandlerMapping">
 		<property name="mappings">
 			<props>
-				<prop key="menuAdmin">controlador</prop>
-				<prop key="agregarAlimento">controlador</prop>
+				<prop key="menuAdmin.jsp">controlador</prop>
+				<prop key="agregarAlimento.jsp">controlador</prop>
+				<prop key="editarAlimento.jsp">controlador</prop>
 			</props>
 		</property>
 	</bean>

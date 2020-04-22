@@ -76,13 +76,13 @@ $(function(){
 		<div class="card-body">
 			<form mothod="POST">
 				<label>Nombre</label>
-				<input type="text" name="Nombre" class="form-control" value="">
+				<input type="text" name="Nombre" class="form-control" value="${lista[0].nombre}">
 				<label>Imagen</label>
-				<input type="text" name="Direccion de la imagen" class="form-control" value="">
+				<input type="text" name="Direccion de la imagen" class="form-control" value="${lista[1].direccion}">
 				<label>Descripcion</label>
-				<input type="text" name="Descripcion" class="form-control" value="">
+				<input type="text" name="Descripcion" class="form-control" value="${lista[0].descripcion}">
 				<label>Precio</label>
-				<input type="number" name="Precio" class="form-control" value="">
+				<input type="number" name="Precio" class="form-control" value="${lista[0].precio}">
 				<input type="submit" value="Actualizar" class="btn">
 				<a href="menuAdmin.jsp">Cancelar</a>
 		</div>

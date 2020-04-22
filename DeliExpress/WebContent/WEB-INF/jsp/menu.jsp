@@ -83,7 +83,6 @@
                   	 <table class="table table-striped table-bordered" >
 			              <thead>
 			                  <tr>
-			                      <th class="border border-light shadow-sm" style="color:#6C3313 ;background-color: #ffffff;" >Id</th>
 			                      <th class="border border-light shadow-sm" style="color:#6C3313 ;background-color: #ffffff;">Imagen</th>
 			                      <th class="border border-light shadow-sm" style="color:#6C3313 ;background-color: #ffffff;">Nombre</th>
 			                      <th class="border border-light shadow-sm" style="color:#6C3313 ;background-color: #ffffff;">Descripcion</th>
@@ -91,7 +90,6 @@
 			                  </tr>
 			                  <c:forEach var="alimento" items="${listAlim(categoria)}" varStatus="status">
 			                  <tr>
-			                      <td style="border: 1px solid #ffffff!important;">${alilmento.getId()}</td>
 			                      <td style="border: 1px solid #ffffff!important;"><img src=${alilmento.getFoto()} alt=${alimento.getNombre()}></td>
 			                      <td style="border: 1px solid #ffffff!important;">${alimento.getNombre()}</td>
 			                      <td style="border: 1px solid #ffffff!important;">${alilmento.getDescripcion()}</td>
