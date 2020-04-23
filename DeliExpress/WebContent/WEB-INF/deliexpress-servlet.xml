@@ -34,7 +34,7 @@
 	<bean id="jt" class="org.springframework.jdbc.core.JdbcTemplate">    
 		<property name="dataSource" ref="ds"></property>    
 	</bean> 
-	
+
 	<bean id="urlMapping" class="org.springframework.web.servlet.handler.SimplUrlHandlerMapping">
 		<property name="mappings">
 			<props>
@@ -53,8 +53,7 @@
 	<bean id="dao" class="com.deliexpress.dao.AlimentoDAO">    
 		<property name="template" ref="jt"></property>    
 	</bean>   
-	<bean name="controlador" class="com.deliexpress.Controller.AlimentoControlador">   
-	</bean>       
+	<bean name="controlador" class="com.deliexpress.Controller.AlimentoControlador"> </bean>       
 	   
  
 </beans>
