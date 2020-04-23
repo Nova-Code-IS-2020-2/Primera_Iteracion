@@ -7,8 +7,12 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.deliexpress.beans.Categoria;
+import com.deliexpress.beans.Credenciales;
+import com.deliexpress.beans.Orden;
+import com.deliexpress.beans.Repartidor;
 import com.deliexpress.dao.CategoriaDAO;
-
+import com.deliexpress.dao.OrdenDAO;
+import com.deliexpress.dao.*;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -19,7 +23,10 @@ public class CategoriaController{
 	
 	@Autowired
     private CategoriaDAO categoriaDAO;
-	
+	@Autowired 
+	private OrdenDAO ordenDAO; 
+	@Autowired 
+	private RepartidorDAO repartidorDAO; 
 	@RequestMapping("/principalAdmin")
 	public ModelAndView principalAdmin() {
 		return new ModelAndView();
@@ -57,7 +64,6 @@ public class CategoriaController{
 	    categoriaDAO.delete(catId);
 	    return new ModelAndView("redirect:/menuAdmin");
 	}
-	
 	@RequestMapping(value = "/editarCategoria", method = RequestMethod.GET)
 	public ModelAndView editarCategoria(HttpServletRequest request) {
 	    int catId = Integer.parseInt(request.getParameter("id"));
@@ -69,5 +75,7 @@ public class CategoriaController{
 	}
 	
 	
+	
+
 }
 

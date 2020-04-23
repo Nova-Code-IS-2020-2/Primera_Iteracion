@@ -20,14 +20,14 @@ public class CategoriaDAO {
 	public CategoriaDAO(DataSource datasource) {
 		this.template=new JdbcTemplate(datasource);
 	}
-    
+   
 	public void setTemplate(JdbcTemplate template) {    
 	    this.template = template;    
 	}    
 	public int save(Categoria c){    
 	    String sql="insert into Categoria(id_cat, nombre_cat) values(?,?)";    
 	    return template.update(sql,c.getId(),c.getNombre());    
-	}    
+	}  
 	public int update(Categoria c){    
 	    String sql="update Categoria set nombre_cat=? where id_cat=?";    
 	    return template.update(sql,c.getNombre(),c.getId());    
@@ -36,7 +36,6 @@ public class CategoriaDAO {
 	    String sql="delete from Categoria where id_cat=?";    
 	    return template.update(sql,id);    
 	}   
-	
 	public List<Categoria> list(){
 		String sql = "select * from Categoria";
 		List<Categoria> listaCat=template.query(sql, new RowMapper<Categoria>() {
@@ -54,7 +53,6 @@ public class CategoriaDAO {
 		});
 		    return listaCat;
 	}
-
 	public Categoria get(int id){    
 		String sql = "select * from Categoria where id_cat=" + id;
 	    return template.query(sql, new ResultSetExtractor<Categoria>() {

@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+ <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
@@ -90,7 +90,7 @@ form {
                     </tr>
                     <tr>
                         <td class="text-left nombre" style="font-family: Actor, sans-serif;">Nombre de la categoría:</td>
-                        <td class="text-left"><form:input class="border rounded-0 id-input" path="Nombre" /></td>
+                        <td class="text-left"><form:input class="border rounded-0 id-input" path="nombre" /></td>
                     </tr>
                 </tbody>
             </table>

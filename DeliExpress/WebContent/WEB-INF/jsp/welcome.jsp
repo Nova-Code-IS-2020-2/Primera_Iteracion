@@ -20,5 +20,8 @@ body {
 			href='https://crunchify.com/category/spring-mvc/' target='_blank'>here</a>
 		for all Spring MVC, Web Development examples.<br>
 	</div>
+	<div><a><href="/DeliExpress/iniciarSesionIH?tipo=1">Iniciar como Repartidor</a></div>
+    <div><a><href="/DeliExpress/iniciarSesionIH?tipo=2">Iniciar como Cliente</a></div>
+    </div>
 </body>
 </html>
