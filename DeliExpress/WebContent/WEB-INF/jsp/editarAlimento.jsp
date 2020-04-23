@@ -72,13 +72,13 @@ $(function(){
 	<div id="header"></div>
 	<div class="container page-name">
 		<h1 style="font-family: ABeeZee, sans-serif;">DeliExpress</h1>
-		<h3 class="cat-alim" style="font-family: Actor, sans-serif;">Editar Alimento:</h3>
+		<h3 class="cat-alim" style="font-family: Actor, sans-serif;">Editar Alimento</h3>
 		<div class="card-body">
 			<form mothod="POST">
 				<label>Nombre</label>
 				<input type="text" name="Nombre" class="form-control" value="${lista[0].nombre}">
 				<label>Imagen</label>
-				<input type="text" name="Direccion de la imagen" class="form-control" value="${lista[1].direccion}">
+				<input type="text" name="imgDir" class="form-control" value="${lista[1].direccion}">
 				<label>Descripcion</label>
 				<input type="text" name="Descripcion" class="form-control" value="${lista[0].descripcion}">
 				<label>Precio</label>

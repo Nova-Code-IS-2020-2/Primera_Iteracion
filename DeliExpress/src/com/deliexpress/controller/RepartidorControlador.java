@@ -57,9 +57,9 @@ public class RepartidorControlador {
 	}
 	
 	@RequestMapping(value="editarRepartidor.jsp", method=RequestMethod.POST)
-	public ModelAndView Editar(Repartidor a) {
+	public ModelAndView Editar(Repartidor r) {
 		String sql="update Repartidor set nombre=?; ap_pat=?; ap_mat=?; email=?; contr=? where id=?"+id;
-		this.jT.update(sql,r.getNombre(), r.getaPat(), r.getaMat(), r.getEmail, r.getContr());
+		this.jT.update(sql,r.getNombre(), r.getaPat(), r.getaMat(), r.getEmail(), r.getContr());
 		return new ModelAndView("redirect:/repartidorAdmin.jsp");
 	}
 	

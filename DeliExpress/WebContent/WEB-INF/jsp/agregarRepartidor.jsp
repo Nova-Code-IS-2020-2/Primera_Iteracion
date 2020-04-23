@@ -51,7 +51,7 @@ body {
 </style>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Crear Alimento</title>
+<title>Agregar Repartidor</title>
 <script src="//code.jquery.com/jquery-1.10.2.js"></script>
 <script> 
 $(function(){
@@ -72,19 +72,21 @@ $(function(){
 	<div id="header"></div>
 	<div class="container page-name">
 		<h1 style="font-family: ABeeZee, sans-serif;">DeliExpress</h1>
-		<h3 class="cat-alim" style="font-family: Actor, sans-serif;">Agregar Alimento</h3>
+		<h3 class="cat-alim" style="font-family: Actor, sans-serif;">Agregar Repartidor</h3>
 		<div class="card-body">
 			<form mothod="POST">
 				<label>Nombre</label>
 				<input type="text" name="Nombre" class="form-control">
-				<label>Imagen</label>
-				<input type="text" name="imgDir" class="form-control">
-				<label>Descripcion</label>
-				<input type="text" name="Descripcion" class="form-control">
-				<label>Precio</label>
-				<input type="number" name="Precio" class="form-control">
+				<label>Apellido Pat</label>
+				<input type="text" name="aPat" class="form-control">
+				<label>Apellido Mat</label>
+				<input type="text" name="aMat" class="form-control">
+				<label>E-Mail</label>
+				<input type="email" name="correo" class="form-control">
+				<label>Contraseña</label>
+				<input type="password" name="contra" class="form-control">
 				<input type="submit" value="Agregar" class="btn">
-				<a href="menuAdmin.jsp">Cancelar</a>
+				<a href="repartidorAdmin.jsp">Cancelar</a>
 		</div>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>

@@ -66,11 +66,7 @@
     <div class="container page-name">
       <h1 style="font-family: ABeeZee, sans-serif;">DeliExpress</h1>
       <div class="btn-toolbar">
-        <div class="btn-group" role="group">
-          <a  href="/DeliExpress/agregarCategoria"
-            class="btn btn-primary border rounded shadow-sm" role="button" style="color: #6c3313; background-color: #ffffff; border: 1px solid #6c3313!important; ">+Categoría</a>
-          <a class="btn btn-primary border rounded shadow-sm" role="button" style="color: #6c3313; background-color: #ffffff; border: 1px solid #6c3313!important;">+Alimento</a></div>
-          <div class="btn-group" role="group"></div>
+        <div class="btn-group" role="group"></div>
       </div>
       <h3 class="categorias" style="font-family: Actor, sans-serif;">Repartidores </h3>
       <div class="table-responsive table-bordered border rounded shadow">
@@ -79,7 +75,9 @@
                   <tr>
                       <th class="border border-light shadow-sm" style="color:#6C3313 ;background-color: #ffffff;" >Id</th>
                       <th class="border border-light shadow-sm" style="color:#6C3313 ;background-color: #ffffff;">Nombre</th>
-                      <th class="border border-light shadow-sm" style="color:#6C3313 ;background-color: #ffffff;"></th>
+                      <th class="border border-light shadow-sm" style="color:#6C3313 ;background-color: #ffffff;">aPAt</th>
+                      <th class="border border-light shadow-sm" style="color:#6C3313 ;background-color: #ffffff;">aMat</th>
+                      <th class="border border-light shadow-sm" style="color:#6C3313 ;background-color: #ffffff;">E-Mail</th>
                   </tr>
                   <c:forEach var="repartidores" items="${listRep}" varStatus="status">
                   <tr>
@@ -90,9 +88,9 @@
                       <td style="border: 1px solid #ffffff!important;">${repartidores.getEmail()}</td>
                       <td style="border: 1px solid #ffffff!important;">${repartidores.getContr()}</td>
                       <td style="border: 1px solid #ffffff!important;">
-                          <a href="/DeliExpress/editarRepartidor?id=${repartidores.getId_repartidor()}">Editar</a>
+                          <a href="/DeliExpress/editarRepartidor.jsp?id=${repartidores.getId_repartidor()}">Editar</a>
                           &nbsp;&nbsp;&nbsp;&nbsp;
-                          <a href="/DeliExpress/borrarRepartidor?id=${repartidores.getId_repartidor()}">Borrar</a>
+                          <a href="/DeliExpress/borrarRepartidor.jsp?id=${repartidores.getId_repartidor()}">Borrar</a>
                       </td>
                   </tr>
                   </c:forEach>

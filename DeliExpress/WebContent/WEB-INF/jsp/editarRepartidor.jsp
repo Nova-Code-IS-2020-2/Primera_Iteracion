@@ -72,18 +72,20 @@ $(function(){
 	<div id="header"></div>
 	<div class="container page-name">
 		<h1 style="font-family: ABeeZee, sans-serif;">DeliExpress</h1>
-		<h3 class="cat-alim" style="font-family: Actor, sans-serif;">Agregar Alimento</h3>
+		<h3 class="cat-alim" style="font-family: Actor, sans-serif;">Editar Perfil de Repartidor</h3>
 		<div class="card-body">
 			<form mothod="POST">
 				<label>Nombre</label>
-				<input type="text" name="Nombre" class="form-control">
-				<label>Imagen</label>
-				<input type="text" name="imgDir" class="form-control">
-				<label>Descripcion</label>
-				<input type="text" name="Descripcion" class="form-control">
-				<label>Precio</label>
-				<input type="number" name="Precio" class="form-control">
-				<input type="submit" value="Agregar" class="btn">
+				<input type="text" name="Nombre" class="form-control" value="${lista[0].nombre}">
+				<label>Apellido Paterno</label>
+				<input type="text" name="aPat" class="form-control" value="${lista[0].ap_pat}">
+				<label>Apellido Materno</label>
+				<input type="text" name="aMat" class="form-control" value="${lista[0].ap_mat}">
+				<label>Correo</label>
+				<input type="email" name="mail" class="form-control" value="${lista[0].email}">
+				<label>Contraseña</label>
+				<input type="password" name="contr" class="form-control" value="${lista[0].contr}">
+				<input type="submit" value="Actualizar" class="btn">
 				<a href="menuAdmin.jsp">Cancelar</a>
 		</div>
     <script src="assets/js/jquery.min.js"></script>

@@ -14,10 +14,10 @@ body {
 			MENU<br> <br>
 		</h2>
 		<h3>
-			<a href="welcome">Hola</a>
+			<a href="principalAdmin.jsp">Administración</a>
 		</h3>
 		<h3>
-			<a href="/DeliExpress/menuAdmin">Menu de Alimentos</a>
+			<a href="menuAdmin.jsp">Menu de Alimentos</a>
 		</h3>
 	</div>
 </body>

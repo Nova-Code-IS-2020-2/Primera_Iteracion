@@ -27,7 +27,7 @@ body {
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>principalAdmin</title>
+    <title>Deli Express - Administrador</title>
     <script src="//code.jquery.com/jquery-1.10.2.js"></script>
 	<script> 
 		$(function(){
@@ -46,8 +46,8 @@ body {
 	<div id="header"></div>
     <div class="container page_name">
         <h1 style="margin: 30 px;">DeliExpress</h1>
-        <div><a class="btn btn-primary shadow" role="button" style="margin: 10px;padding: 9px 12px;color: #6c3313;background-color: rgb(255,255,255); border: 1px solid #6c3313!important; border-style: groove;" href="">Agregar Repartidores</a></div>
-        <div><a class="btn btn-primary shadow" role="button" style="margin: 10px;padding: 9px 12px;color: #6c3313;background-color: rgb(255,255,255); border: 1px solid #6c3313!important; border-style: groove;" href="/DeliExpress/menuAdmin">Editar Menú</a></div>
+        <div><a class="btn btn-primary shadow" role="button" style="margin: 10px;padding: 9px 12px;color: #6c3313;background-color: rgb(255,255,255); border: 1px solid #6c3313!important; border-style: groove;" href="/DeliExpress/repartidorAdmin.jsp">Ver Repartidores</a></div>
+        <div><a class="btn btn-primary shadow" role="button" style="margin: 10px;padding: 9px 12px;color: #6c3313;background-color: rgb(255,255,255); border: 1px solid #6c3313!important; border-style: groove;" href="/DeliExpress/menuAdmin.jsp">Editar Menú</a></div>
         <div><a class="btn btn-primary shadow" role="button" style="margin: 10px;padding: 9px 12px;color: #6c3313;background-color: rgb(255,255,255); border: 1px solid #6c3313!important; border-style: groove;" href="">Ordenes</a></div>
     </div>
     <script src="assets/js/jquery.min.js"></script>
