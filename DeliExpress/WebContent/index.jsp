@@ -11,11 +11,13 @@ body {
 	<br>
 	<div style="text-align: center">
 		<h2>
-			Hey You..!! This is your 1st Spring MCV Tutorial..<br> <br>
+			DELIexpress<br> <br>
 		</h2>
 		<h3>
-			<a href="welcome.html">Click here to See Welcome Message... </a>(to
-			check Spring MVC Controller... @RequestMapping("/welcome"))
+			<a href="/DeliExpress/mostrarPerfil?id=1">Iniciar Sesión</a>
+		</h3>
+		<h3>
+			<a href="registrate">Registrate</a>
 		</h3>
 	</div>
 </body>
