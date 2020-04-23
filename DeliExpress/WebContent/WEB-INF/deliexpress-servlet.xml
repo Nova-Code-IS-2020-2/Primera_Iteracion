@@ -41,6 +41,9 @@
 				<prop key="menuAdmin.jsp">controlador</prop>
 				<prop key="agregarAlimento.jsp">controlador</prop>
 				<prop key="editarAlimento.jsp">controlador</prop>
+				<prop key="repartidorAdmin.jsp">controlador</prop>
+				<prop key="agregarRepartidor.jsp">controlador</prop>
+				<prop key="editarRepartidor.jsp">controlador</prop>
 			</props>
 		</property>
 	</bean>

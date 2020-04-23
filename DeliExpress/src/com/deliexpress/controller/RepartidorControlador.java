@@ -11,10 +11,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.deliexpress.dao.ConexionDB;
-import com.deliexpress.beans.Alimento;
+import com.deliexpress.beans.Repartidor;
 
 @Controller
-public class AlimentoControlador {
+public class RepartidorControlador {
 	
 
 	ConexionDB con = new ConexionDB();
@@ -25,49 +25,49 @@ public class AlimentoControlador {
 	
 	@RequestMapping("menuAdmin.jsp")
 	public ModelAndView Listar() {
-		String sql = "SELECT * FROM Alimento";
+		String sql = "SELECT * FROM Repartidor";
 		datos = this.jT.queryForList(sql);
 		mav.addObject("lista", datos);
-		mav.setViewName("menuAdmin");
+		mav.setViewName("repartidorAdmin");
 		return mav;
 	}
 	
-	@RequestMapping(value="agregarAlimento.jsp", method=RequestMethod.GET)
+	@RequestMapping(value="agregarRepartidor.jsp", method=RequestMethod.GET)
 	public ModelAndView Agregar() {
-		mav.addObject(new Alimento());
-		mav.setViewName("agregarAlimento");
+		mav.addObject(new Repartidor());
+		mav.setViewName("agregarRepartidor");
 		return mav;
 	}
 	
-	@RequestMapping(value="agregarAlimento.jsp", method=RequestMethod.POST)
-	public ModelAndView Agregar(Alimento a) {
-		String sql="insert into Alimento (nombre, direc_foto, descripcion, precio) values(?,?,?,?)";
-		this.jT.update(sql,a.getNombre(), a.getDireccionFoto(), a.getDescripcion(), a.getPrecio());
-		return new ModelAndView("redirect:/menuAdmin.jsp");
+	@RequestMapping(value="agregarRepartidor.jsp", method=RequestMethod.POST)
+	public ModelAndView Agregar(Repartidor r) {
+		String sql="insert into Repartidor (nombre, ap_pat, ap_mat, email, contr) values(?,?,?,?,?)";
+		this.jT.update(sql,r.getNombre(), r.getaPat(), r.getaMat(), r.getEmail(), r.getContr());
+		return new ModelAndView("redirect:/repartidorAdmin.jsp");
 	}
 	
 	@RequestMapping(value="editarAlimento.jsp", method=RequestMethod.GET)
 	public ModelAndView Editar(HttpServletRequest request) {
 		id=Integer.parseInt(request.getParameter("id"));
-		String sql="select * from Alimento where id="+id;
+		String sql="select * from Repartidor where id="+id;
 		datos = this.jT.queryForList(sql);
 		mav.addObject("lista",datos);
-		mav.setViewName("editarAlimento");
+		mav.setViewName("editarRepartidor");
 		return mav;
 	}
 	
-	@RequestMapping(value="editarAlimento.jsp", method=RequestMethod.POST)
-	public ModelAndView Editar(Alimento a) {
-		String sql="update Alimento set nombre=?; direc_foto=?; descripcion=?; precio=? where id=?"+id;
-		this.jT.update(sql,a.getNombre(), a.getDireccionFoto(), a.getDescripcion(), a.getPrecio());
-		return new ModelAndView("redirect:/menuAdmin.jsp");
+	@RequestMapping(value="editarRepartidor.jsp", method=RequestMethod.POST)
+	public ModelAndView Editar(Repartidor a) {
+		String sql="update Repartidor set nombre=?; ap_pat=?; ap_mat=?; email=?; contr=? where id=?"+id;
+		this.jT.update(sql,r.getNombre(), r.getaPat(), r.getaMat(), r.getEmail, r.getContr());
+		return new ModelAndView("redirect:/repartidorAdmin.jsp");
 	}
 	
 	@RequestMapping("eliminaAlimento.jsp")
 	public ModelAndView Eliminar(HttpServletRequest request) {
 		id=Integer.parseInt(request.getParameter("id"));
-		String sql="delete from Alimento where id="+id;
+		String sql="delete from Repartidor where id="+id;
 		this.jT.update(sql);
-		return new ModelAndView("redirect:/menuAdmin.jsp");
+		return new ModelAndView("redirect:/repartidorAdmin.jsp");
 	}
 }
