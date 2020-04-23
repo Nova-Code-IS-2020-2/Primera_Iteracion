@@ -38,5 +38,8 @@ public abstract class Cuenta {
 		this.contr = contr;
 	}
 	
+	public String toString() {
+		return "nombre " + nombre +" Email: " + email;
+	}
 	
 }

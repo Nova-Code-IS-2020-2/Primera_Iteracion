@@ -34,10 +34,17 @@ public class IniciarSesionDAO {
 			ResultSet result = statement.executeQuery();
 			
 			Cliente cliente = null;
-			
+		
 			if (result.next()) {
 			    cliente = new Cliente();
-			    cliente.setEmail(email);
+			    cliente.setId_cliente(result.getInt("id_cliente"));
+			    cliente.setNombre(result.getString("nombre"));
+			    cliente.setAp_mat(result.getString("ap_mat"));
+			    cliente.setAp_pat(result.getString("ap_pat"));
+			    cliente.setTelefono(result.getString("telefono"));
+			    cliente.setDireccion(result.getString("direccion"));
+			    cliente.setEmail(result.getString("email"));
+			    cliente.setContr(result.getString("contr"));
 			}
 			
 			connection.close();

@@ -17,7 +17,7 @@ public class CategoriaDAO {
 	public CategoriaDAO(DataSource datasource) {
 		this.template=new JdbcTemplate(datasource);
 	}
-    
+	
 	public void setTemplate(JdbcTemplate template) {    
 	    this.template = template;    
 	}    

@@ -46,6 +46,8 @@ public class IniciarSesion extends HttpServlet{
             Administrador admin = isDAO.checkLoginAdmin(email,password);
             
             if (cliente != null) {
+            	HttpSession session = request.getSession();
+                session.setAttribute("cliente", cliente);
             	 mav = new ModelAndView("menucliente");
                 
             } else if(admin != null){
@@ -57,6 +59,7 @@ public class IniciarSesion extends HttpServlet{
                 request.setAttribute("message", message);
             	mav = new ModelAndView("iniciarsesion");
             }
+            
             return mav;
         } catch (SQLException | ClassNotFoundException ex) {
             throw new ServletException(ex);
