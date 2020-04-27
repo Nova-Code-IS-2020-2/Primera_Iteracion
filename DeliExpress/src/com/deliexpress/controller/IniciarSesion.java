@@ -51,6 +51,8 @@ public class IniciarSesion extends HttpServlet{
             	 mav = new ModelAndView("menucliente");
                 
             } else if(admin != null){
+            	HttpSession session = request.getSession();
+                session.setAttribute("admin", admin);
             	mav = new ModelAndView("principaladmin");
             }else if(rep != null) {
             	mav = new ModelAndView("seleccionarcomida");

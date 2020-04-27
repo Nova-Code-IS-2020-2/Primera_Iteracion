@@ -20,7 +20,7 @@ public class IniciarSesionDAO {
 	
 	
 	public Cliente checkLogin(String email, String password) throws SQLException, ClassNotFoundException {
-			String jdbcURL = "jdbc:mysql://localhost:3306/deli_express";
+			String jdbcURL = "jdbc:mysql://localhost:3306/deliexpress";
 			String dbUser = "root";
 			String dbPassword = "";
 			
@@ -48,11 +48,11 @@ public class IniciarSesionDAO {
 			}
 			
 			connection.close();
-			System.out.println("CHECKLOGIN");
+			System.out.println("CHECKLOGIN CLIENTE");
 			return cliente;
 		}
 	public Repartidor checkLoginRepartidor(String email, String password) throws SQLException, ClassNotFoundException {
-		String jdbcURL = "jdbc:mysql://localhost:3306/deli_express";
+		String jdbcURL = "jdbc:mysql://localhost:3306/deliexpress";
 		String dbUser = "root";
 		String dbPassword = "";
 		
@@ -77,7 +77,7 @@ public class IniciarSesionDAO {
 		return repartidor;
 	}
 	public Administrador checkLoginAdmin(String email, String password) throws SQLException, ClassNotFoundException {
-		String jdbcURL = "jdbc:mysql://localhost:3306/deli_express";
+		String jdbcURL = "jdbc:mysql://localhost:3306/deliexpresss";
 		String dbUser = "root";
 		String dbPassword = "";
 		

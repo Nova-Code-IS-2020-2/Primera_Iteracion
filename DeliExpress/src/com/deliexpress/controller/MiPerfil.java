@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.deliexpress.model.Cliente;
+import com.deliexpress.model.*;
 import com.deliexpress.dao.CuentaDAO;
 
 import java.util.List;
@@ -70,6 +70,20 @@ public class MiPerfil{
 		return true;
 		
 	}
+	public boolean esValidaAdmin(Administrador admin) {
+		
+		
+		List<Administrador> admins = clienteDAO.listAdmin();
+		
+		
+		for(Administrador c : admins) {
+			if(c.getEmail().equals(admin.getEmail()) && c.getId_admin()!=admin.getId_admin()) {
+				return false;
+			}
+		}
+		return true;
+		
+	}
 	@RequestMapping(value = "/actualizarCliente", method = RequestMethod.POST)
 	public ModelAndView actualizarCliente(@ModelAttribute Cliente cliente) {
 		System.out.println("actualizarCliente -------------------------------"+cliente.toString());
@@ -106,5 +120,31 @@ public class MiPerfil{
 	    return model;
 	}
 	
+	@RequestMapping(value = "/mostrarPerfilAdmin", method = RequestMethod.GET)
+	public ModelAndView mostrarPerfilAdmin(HttpServletRequest request ) {
+		HttpSession session = request.getSession();
+        System.out.println(session.toString());
+		Administrador admin = new Administrador();
+        admin = (Administrador) session.getAttribute("admin");
+		System.out.println(admin.toString());
+	    ModelAndView model = new ModelAndView("admin");
+	    model.addObject("admin", admin);
+	 
+	    return model;
+	}
+	@RequestMapping(value = "/actualizarAdmin", method = RequestMethod.POST)
+	public ModelAndView actualizarCliente(@ModelAttribute Administrador admin) {
+		System.out.println("actualizarCliente -------------------------------"+admin.toString());
+	    if(esValidaAdmin(admin)) {
+	    	clienteDAO.update(admin);
+		    ModelAndView model = new ModelAndView();
+		    model.setViewName("welcome");
+		    return model;
+	    }
+	    ModelAndView model = new ModelAndView();
+	    model.addObject("id", admin.getId_admin());
+	    model.setViewName("admminNoValida");
+	    return model;
+	}
 	
 }

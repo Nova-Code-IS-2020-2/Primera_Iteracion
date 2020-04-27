@@ -11,7 +11,7 @@ import org.springframework.jdbc.core.RowMapper;
  
 
 
-import com.deliexpress.model.Cliente;
+import com.deliexpress.model.*;
 
 public class CuentaDAO {
 
@@ -34,7 +34,11 @@ public class CuentaDAO {
 	public int update(Cliente c){    
 	    String sql="update Cliente set nombre=?, ap_pat=?, ap_mat=?, email=?, contr=?, telefono=?, direccion=? where id_cliente=?";    
 	    return template.update(sql,c.getNombre(),c.getAp_pat(),c.getAp_mat(),c.getEmail(),c.getContr(),c.getTelefono(),c.getDireccion(),c.getId_cliente());    
-	}       
+	}      
+	public int update(Administrador c){    
+	    String sql="update Administrador set nombre=?, ap_pat=?, ap_mat=?, email=?, contr=? where id_cliente=?";    
+	    return template.update(sql,c.getNombre(),c.getAp_pat(),c.getAp_mat(),c.getEmail(),c.getContr(),c.getId_admin());    
+	}      
 	
 	public List<Cliente> list(){
 		String sql = "select * from Cliente";
@@ -57,7 +61,26 @@ public class CuentaDAO {
 		});
 		    return listaClientes;
 	}
-	
+	public List<Administrador> listAdmin(){
+		String sql = "select * from Administrador";
+		List<Administrador> listaAdministradors=template.query(sql, new RowMapper<Administrador>() {
+			 @Override
+		        public Administrador mapRow(ResultSet rs, int rowNum) throws SQLException {
+				 	
+		            Administrador admin = new Administrador();
+	                admin.setId_admin(rs.getInt("id_admin"));
+	                admin.setNombre(rs.getString("nombre"));
+	                admin.setAp_pat(rs.getString("ap_pat"));
+	                admin.setAp_mat(rs.getString("ap_mat"));
+	                admin.setEmail(rs.getString("email"));
+	                admin.setContr(rs.getString("contr"));
+	                
+	                return admin;
+			 }
+		 
+		});
+		    return listaAdministradors;
+	}
 	
 	public int sigId() {
 		String sql = "select AUTO_INCREMENT " + "from information_schema.TABLES " + "where TABLE_SCHEMA = \"deliexpress\" " + "and table_name = \"cliente\"";
@@ -93,6 +116,32 @@ public class CuentaDAO {
 	                cliente.setDireccion(rs.getString("direccion"));
 	                cliente.setTelefono(rs.getString("telefono"));
 	                return cliente;
+	            }
+	 
+	            return null;
+	        }
+	 
+	    });
+	}
+	
+	public Administrador getAdmin(int id){    
+		String sql = "select * from administrador where id_admin = " + id;
+		
+		
+	    return template.query(sql, new ResultSetExtractor<Administrador>() {
+	 
+	        @Override
+	        public Administrador extractData(ResultSet rs) throws SQLException,
+	                DataAccessException {
+	            if (rs.next()) {
+	                Administrador admin = new Administrador();
+	                admin.setId_admin(rs.getInt("id_admin"));
+	                admin.setNombre(rs.getString("nombre"));
+	                admin.setAp_pat(rs.getString("ap_pat"));
+	                admin.setAp_mat(rs.getString("ap_mat"));
+	                admin.setEmail(rs.getString("email"));
+	                admin.setContr(rs.getString("contr"));
+	                return admin;
 	            }
 	 
 	            return null;
