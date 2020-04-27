@@ -83,11 +83,8 @@ form {
         <div class="table-responsive table-bordered text-center shadow">
             <form:form  action="guardarCategoria" method="post" modelAttribute="categoria">
             <table class="table table-bordered">
+            	<form:hidden  path="id" />
                 <tbody>
-                    <tr>
-                        <td class="text-left id_cat" style="font-family: Actor, sans-serif;">Id:</td>
-                        <td class="text-left"><form:input class="border rounded-0 id-input" path ="id" /></td>
-                    </tr>
                     <tr>
                         <td class="text-left nombre" style="font-family: Actor, sans-serif;">Nombre de la categoría:</td>
                         <td class="text-left"><form:input class="border rounded-0 id-input" path="Nombre" /></td>
