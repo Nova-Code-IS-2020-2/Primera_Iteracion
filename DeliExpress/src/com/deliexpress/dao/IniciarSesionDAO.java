@@ -69,15 +69,21 @@ public class IniciarSesionDAO {
 		
 		if (result.next()) {
 		    repartidor = new Repartidor();
-		    repartidor.setEmail(email);
+		    repartidor.setId_repartidor(result.getInt("id_repartidor"));
+		    repartidor.setNombre(result.getString("nombre"));
+		    repartidor.setAp_mat(result.getString("ap_mat"));
+		    repartidor.setAp_pat(result.getString("ap_pat"));
+		    repartidor.setEmail(result.getString("email"));
+		    repartidor.setContr(result.getString("contr"));
 		}
 		
 		connection.close();
 		System.out.println("CHECKLOGIN REPARTIDOR");
 		return repartidor;
 	}
+	
 	public Administrador checkLoginAdmin(String email, String password) throws SQLException, ClassNotFoundException {
-		String jdbcURL = "jdbc:mysql://localhost:3306/deliexpresss";
+		String jdbcURL = "jdbc:mysql://localhost:3306/deliexpress";
 		String dbUser = "root";
 		String dbPassword = "";
 		
@@ -94,7 +100,12 @@ public class IniciarSesionDAO {
 		
 		if (result.next()) {
 		    admin = new Administrador();
-		    admin.setEmail(email);
+		    admin.setId_admin(result.getInt("id_admin"));
+		    admin.setNombre(result.getString("nombre"));
+		    admin.setAp_mat(result.getString("ap_mat"));
+		    admin.setAp_pat(result.getString("ap_pat"));
+		    admin.setEmail(result.getString("email"));
+		    admin.setContr(result.getString("contr"));
 		}
 		
 		connection.close();

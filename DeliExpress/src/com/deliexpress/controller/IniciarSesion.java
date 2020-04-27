@@ -55,6 +55,8 @@ public class IniciarSesion extends HttpServlet{
                 session.setAttribute("admin", admin);
             	mav = new ModelAndView("principaladmin");
             }else if(rep != null) {
+            	HttpSession session = request.getSession();
+                session.setAttribute("rep", rep);
             	mav = new ModelAndView("seleccionarcomida");
             }else {
             	String message = "Invalid email/password";
