@@ -84,6 +84,20 @@ public class MiPerfil{
 		return true;
 		
 	}
+public boolean esValidaRep(Repartidor rep) {
+		
+		
+		List<Repartidor> reps = clienteDAO.listaRep();
+		
+		
+		for(Repartidor c : reps) {
+			if(c.getEmail().equals(rep.getEmail()) && c.getId_repartidor()!=rep.getId_repartidor()) {
+				return false;
+			}
+		}
+		return true;
+		
+	}
 	@RequestMapping(value = "/actualizarCliente", method = RequestMethod.POST)
 	public ModelAndView actualizarCliente(@ModelAttribute Cliente cliente) {
 		System.out.println("actualizarCliente -------------------------------"+cliente.toString());
@@ -111,29 +125,34 @@ public class MiPerfil{
 	public ModelAndView mostrarPerfil(HttpServletRequest request ) {
 		HttpSession session = request.getSession();
         System.out.println(session.toString());
-		Cliente cliente = new Cliente();
-        cliente = (Cliente) session.getAttribute("cliente");
-		System.out.println(cliente.toString());
-	    ModelAndView model = new ModelAndView("perfil");
-	    model.addObject("cliente", cliente);
-	 
-	    return model;
+        Cliente cliente = new Cliente();
+        Administrador admin = new Administrador();
+        Repartidor rep = new Repartidor();
+        
+        if(session.getAttribute("cliente") != null) {
+        	cliente = (Cliente) session.getAttribute("cliente");
+        	System.out.println(cliente.toString());
+     	    ModelAndView model = new ModelAndView("perfil");
+     	    model.addObject("cliente", cliente);
+     	    return model;
+        }else if(session.getAttribute("admin") != null) {
+        	admin = (Administrador) session.getAttribute("admin");
+    		System.out.println(admin.toString());
+    	    ModelAndView model = new ModelAndView("perfiladmin");
+    	    model.addObject("admin", admin);
+    	    return model;
+        }else {
+        	rep = (Repartidor) session.getAttribute("rep");
+    		System.out.println(admin.toString());
+    	    ModelAndView model = new ModelAndView("perfilrep");
+    	    model.addObject("rep", rep);
+    	    return model;
+        }
 	}
 	
-	@RequestMapping(value = "/mostrarPerfilAdmin", method = RequestMethod.GET)
-	public ModelAndView mostrarPerfilAdmin(HttpServletRequest request ) {
-		HttpSession session = request.getSession();
-        System.out.println(session.toString());
-		Administrador admin = new Administrador();
-        admin = (Administrador) session.getAttribute("admin");
-		System.out.println(admin.toString());
-	    ModelAndView model = new ModelAndView("admin");
-	    model.addObject("admin", admin);
-	 
-	    return model;
-	}
+	
 	@RequestMapping(value = "/actualizarAdmin", method = RequestMethod.POST)
-	public ModelAndView actualizarCliente(@ModelAttribute Administrador admin) {
+	public ModelAndView actualizarAdmin(@ModelAttribute Administrador admin) {
 		System.out.println("actualizarCliente -------------------------------"+admin.toString());
 	    if(esValidaAdmin(admin)) {
 	    	clienteDAO.update(admin);
@@ -144,6 +163,21 @@ public class MiPerfil{
 	    ModelAndView model = new ModelAndView();
 	    model.addObject("id", admin.getId_admin());
 	    model.setViewName("admminNoValida");
+	    return model;
+	}
+	
+	@RequestMapping(value = "/actualizarRep", method = RequestMethod.POST)
+	public ModelAndView actualizarRep(@ModelAttribute Repartidor rep) {
+		System.out.println("actualizarRep -------------------------------"+rep.toString());
+	    if(esValidaRep(rep)) {
+	    	clienteDAO.update(rep);
+		    ModelAndView model = new ModelAndView();
+		    model.setViewName("welcome");
+		    return model;
+	    }
+	    ModelAndView model = new ModelAndView();
+	    model.addObject("id", rep.getId_repartidor() );
+	    model.setViewName("RepNoValida");
 	    return model;
 	}
 	

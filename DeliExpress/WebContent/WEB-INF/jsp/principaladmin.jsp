@@ -55,20 +55,16 @@
   		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 		<script>
-		<script>
-		$(function(){
-			$("#headera").load("portatiladmin.html");
-		});
-	</script>
+			$(function(){
+ 			$("#header").load("menuportatil.html");
+			});
 		</script>
     </head>
 <body>
-	<div id="headera"></div>
+	<div id="header"></div>
     <div style="text-align: center">
         <h1>Welcome to Deli Express Admin</h1>
-        <b>${admin.getEmail()} ${admin.getNombre()}</b>
-        <br><br>
-        <b> ${admin.getAp_mat()}</b>
+        <b>Bienvenido ${admin.getNombre()} ${admin.getAp_mat()}</b>
         <a href="/logout">Logout</a>
     </div>
 </body>

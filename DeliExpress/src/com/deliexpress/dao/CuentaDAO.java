@@ -38,7 +38,11 @@ public class CuentaDAO {
 	public int update(Administrador c){    
 	    String sql="update Administrador set nombre=?, ap_pat=?, ap_mat=?, email=?, contr=? where id_cliente=?";    
 	    return template.update(sql,c.getNombre(),c.getAp_pat(),c.getAp_mat(),c.getEmail(),c.getContr(),c.getId_admin());    
-	}      
+	}    
+	public int update(Repartidor c){    
+	    String sql="update Repartidor set nombre=?, ap_pat=?, ap_mat=?, email=?, contr=? where id_repartidor=?";    
+	    return template.update(sql,c.getNombre(),c.getAp_pat(),c.getAp_mat(),c.getEmail(),c.getContr(),c.getId_repartidor());    
+	}    
 	
 	public List<Cliente> list(){
 		String sql = "select * from Cliente";
@@ -80,6 +84,27 @@ public class CuentaDAO {
 		 
 		});
 		    return listaAdministradors;
+	}
+	
+	public List<Repartidor> listaRep(){
+		String sql = "select * from repartidor";
+		List<Repartidor> listarep=template.query(sql, new RowMapper<Repartidor>() {
+			 @Override
+		        public Repartidor mapRow(ResultSet rs, int rowNum) throws SQLException {
+				 	
+		            Repartidor rep = new Repartidor();
+		            rep.setId_repartidor(rs.getInt("id_repartidor"));
+		            rep.setNombre(rs.getString("nombre"));
+		            rep.setAp_pat(rs.getString("ap_pat"));
+		            rep.setAp_mat(rs.getString("ap_mat"));
+		            rep.setEmail(rs.getString("email"));
+		            rep.setContr(rs.getString("contr"));
+	                
+	                return rep;
+			 }
+		 
+		});
+		    return listarep;
 	}
 	
 	public int sigId() {
