@@ -24,5 +24,7 @@
         <url-pattern>/welcome.html</url-pattern>
         <url-pattern>*.html</url-pattern>
     </servlet-mapping>
+    
+
   
 </web-app>
