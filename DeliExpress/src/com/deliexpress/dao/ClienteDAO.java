@@ -11,7 +11,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.jdbc.core.RowMapper;
 
-import com.deliexpress.beans.Cliente;
+import com.deliexpress.model.Cliente;
 
 public class ClienteDAO {
 	
@@ -34,7 +34,7 @@ public class ClienteDAO {
 	                DataAccessException {
 	            if (rs.next()) {
 	                Cliente cliente = new Cliente();
-	                cliente.setId(rs.getInt("id_cliente"));
+	                cliente.setId_cliente(rs.getInt("id_cliente"));
 	                cliente.setNombre(rs.getString("nombre"));
 	                cliente.setApPat(rs.getString("ap_pat"));
 	                cliente.setApMat(rs.getString("ap_mat"));

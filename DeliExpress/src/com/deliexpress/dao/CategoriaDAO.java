@@ -11,7 +11,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.jdbc.core.RowMapper;
 
-import com.deliexpress.beans.Categoria;
+import com.deliexpress.model.Categoria;
 
 public class CategoriaDAO {
 

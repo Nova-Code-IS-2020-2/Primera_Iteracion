@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.deliexpress.beans.Cliente;
+import com.deliexpress.model.Cliente;
 import com.deliexpress.dao.ClienteDAO;
 
 import java.util.List;

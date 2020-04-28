@@ -25,9 +25,10 @@ public class CarritoDao {
 	}  
 	public List<Carrito> muestraCarrito(){
 		System.out.println("MUESTRACARRITO");
-		String sql = "SELECT a1.precio_al, a1.nombre_alim, c1.cantidad\r\n" + 
-				"FROM contenerordalim AS c1, alimento AS a1, orden, cliente\r\n" + 
-				"where orden.id_orden = c1.orden_id_orden AND cliente.id_cliente = 3 group by a1.id_alim;";
+		String sql = "SELECT a1.precio, a1.nombre_alim, c1.cantidad\r\n" + 
+				"FROM ContenerOrdAlim AS c1, Alimento AS a1, Orden, Cliente\r\n" + 
+				"where Orden.id_orden = c1.Orden_id_orden AND Cliente.id_cliente = 3 "
+				+ "group by a1.id_alim;";
 		List<Carrito> listaCarrito = template.query(sql, new RowMapper<Carrito>() { 
 			
 			@Override
