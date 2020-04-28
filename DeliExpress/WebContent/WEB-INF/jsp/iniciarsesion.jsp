@@ -59,9 +59,15 @@ input {
     	 	
     </form>
     <section></section>
-    	 <button class="btn btn-default active btn-lg" type="submit" style="font-size: 25px;font-family: Lato, sans-serif;width: 186px;height: 56px;margin: 30px;">Registrarme</button>
+    	 <button onclick="location.href = 'agregarCliente';" id="myButton" class="btn btn-default active btn-lg"  style="font-size: 25px;font-family: Lato, sans-serif;width: 186px;height: 56px;margin: 30px;">Registrarme</button>
+	    
     </div>
 </body>
+<script type="text/javascript">
+    document.getElementById("myButton").onclick = function () {
+        location.href = "agregarCliente";
+    };
+</script>
 <script type="text/javascript">
  
     $(document).ready(function() {

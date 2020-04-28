@@ -33,9 +33,9 @@ public class MiPerfil{
 		cliente.setTelefono("S/N");
 		return cliente;
 	}
+	
 	@RequestMapping(value = "/guardarCliente", method = RequestMethod.POST)
 	public ModelAndView guardarCliente(@ModelAttribute Cliente cliente) {
-		
 		if(esValida(cliente)) {
 			int id = clienteDAO.sigId();
 			clienteDAO.save(nuevaCliente(cliente));
@@ -49,7 +49,6 @@ public class MiPerfil{
 		ModelAndView model = new ModelAndView();
 	    model.setViewName("clienteNoValidaRegistro");
 	    return model;
-	    
 	}
 	public boolean esValida(Cliente cliente) {
 		
@@ -84,7 +83,7 @@ public class MiPerfil{
 		return true;
 		
 	}
-public boolean esValidaRep(Repartidor rep) {
+	public boolean esValidaRep(Repartidor rep) {
 		
 		
 		List<Repartidor> reps = clienteDAO.listaRep();
@@ -149,9 +148,6 @@ public boolean esValidaRep(Repartidor rep) {
     	    return model;
         }
 	}
-	
-	
-	@RequestMapping(value = "/actualizarAdmin", method = RequestMethod.POST)
 	public ModelAndView actualizarAdmin(@ModelAttribute Administrador admin) {
 		System.out.println("actualizarCliente -------------------------------"+admin.toString());
 	    if(esValidaAdmin(admin)) {
@@ -165,8 +161,6 @@ public boolean esValidaRep(Repartidor rep) {
 	    model.setViewName("admminNoValida");
 	    return model;
 	}
-	
-	@RequestMapping(value = "/actualizarRep", method = RequestMethod.POST)
 	public ModelAndView actualizarRep(@ModelAttribute Repartidor rep) {
 		System.out.println("actualizarRep -------------------------------"+rep.toString());
 	    if(esValidaRep(rep)) {

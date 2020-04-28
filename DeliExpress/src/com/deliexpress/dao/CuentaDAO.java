@@ -8,11 +8,10 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.jdbc.core.RowMapper;
- 
-
+import org.springframework.stereotype.Controller;
 
 import com.deliexpress.model.*;
-
+@Controller
 public class CuentaDAO {
 
 	private JdbcTemplate template;    
@@ -25,7 +24,7 @@ public class CuentaDAO {
 	    this.template = template;    
 	}    
 	public int save(Cliente c){    
-	    String sql="insert into Cliente(id_cliente, nombre, ap_pat, ap_mat, email, contr, telefono, direccion ) values(?,?,?,?,?,?,?,?)";    
+	    String sql="insert into Cliente(id_cliente,nombre, ap_pat, ap_mat, email, contr, telefono, direccion ) values(?,?,?,?,?,?,?,?)";    
 	    return template.update(sql,c.getId_cliente(),c.getNombre(),c.getAp_pat(),c.getAp_mat(),c.getEmail(),c.getContr(),c.getTelefono(),c.getDireccion());    
 	} 
 	
