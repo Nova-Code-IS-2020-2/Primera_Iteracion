@@ -59,7 +59,7 @@ public class IniciarSesion extends HttpServlet{
                 session.setAttribute("rep", rep);
             	mav = new ModelAndView("seleccionarcomida");
             }else {
-            	String message = "Invalid email/password";
+            	String message = "email/contraseña Invalido ";
                 request.setAttribute("message", message);
             	mav = new ModelAndView("iniciarsesion");
             }

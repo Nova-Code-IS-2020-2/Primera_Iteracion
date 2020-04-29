@@ -155,7 +155,7 @@
 		</div>
 		<div class="form-group">
 			<label for="contr">Contraseña</label>
-		    <form:input type="text" class="form-control" id="contr" path="contr" required="required" />
+		    <form:input type="password" class="form-control" id="contr" path="contr" required="required" />
 		</div>
 		
 		<div class="text-center">

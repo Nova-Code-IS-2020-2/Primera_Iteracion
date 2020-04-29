@@ -4,18 +4,19 @@ import java.sql.ResultSet;
 import java.sql.SQLException;      
 import javax.sql.DataSource;
 import java.util.List;
-import org.springframework.dao.DataAccessException;    
+import org.springframework.dao.DataAccessException;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Controller;
 
 import com.deliexpress.model.*;
-@Controller
+
 public class CuentaDAO {
 
 	private JdbcTemplate template;    
-	
+
 	public CuentaDAO(DataSource datasource) {
 		this.template=new JdbcTemplate(datasource);
 	}
@@ -44,7 +45,8 @@ public class CuentaDAO {
 	}    
 	
 	public List<Cliente> list(){
-		String sql = "select * from Cliente";
+		System.out.println("List");
+		String sql = "select * from cliente";
 		List<Cliente> listaClientes=template.query(sql, new RowMapper<Cliente>() {
 			 @Override
 		        public Cliente mapRow(ResultSet rs, int rowNum) throws SQLException {
@@ -62,6 +64,7 @@ public class CuentaDAO {
 			 }
 		 
 		});
+		System.out.println("List2");
 		    return listaClientes;
 	}
 	public List<Administrador> listAdmin(){
@@ -150,11 +153,8 @@ public class CuentaDAO {
 	
 	public Administrador getAdmin(int id){    
 		String sql = "select * from administrador where id_admin = " + id;
-		
-		
-	    return template.query(sql, new ResultSetExtractor<Administrador>() {
-	 
-	        @Override
+		return template.query(sql, new ResultSetExtractor<Administrador>() {
+	    	@Override
 	        public Administrador extractData(ResultSet rs) throws SQLException,
 	                DataAccessException {
 	            if (rs.next()) {
@@ -167,11 +167,75 @@ public class CuentaDAO {
 	                admin.setContr(rs.getString("contr"));
 	                return admin;
 	            }
-	 
-	            return null;
+            	return null;
 	        }
-	 
 	    });
 	}
+	
+	public boolean checkTel(String tel) {
+		System.out.println("checkTel");
+		if(tel.length() > 8) {
+			return false;
+		}
+		return true;
+	}
+	
+	public boolean checkEmail(String email) {
+		System.out.println("checkEmail");
+		if(adminEmail(email)==null)
+			return true;
+		else 
+			return false;
+	}
+	
+	public Administrador adminEmail(String email){    
+		System.out.println("admin Email");
+		String sql = "select * from administrador where email = ?";
+		return (Administrador) template.queryForObject(
+				sql,
+				new Object[]{email},
+				new BeanPropertyRowMapper(Administrador.class));
+	}
+	public Repartidor repEmail(String email){    
+		String sql = "select * from repartidor where email = " + email;
+		return template.query(sql, new ResultSetExtractor<Repartidor>() {
+	    	@Override
+	        public Repartidor extractData(ResultSet rs) throws SQLException,
+	                DataAccessException {
+	            if (rs.next()) {
+	            	Repartidor rep = new Repartidor();
+	            	rep.setId_repartidor(rs.getInt("id_repartidor"));
+	            	rep.setNombre(rs.getString("nombre"));
+	            	rep.setAp_pat(rs.getString("ap_pat"));
+	            	rep.setAp_mat(rs.getString("ap_mat"));
+	            	rep.setEmail(rs.getString("email"));
+	            	rep.setContr(rs.getString("contr"));
+	                return rep;
+	            }
+            	return null;
+	        }
+	    });
+	}
+	public Administrador adminTel(String tel){    
+		String sql = "select * from administrador where id_admin = " + tel;
+		return template.query(sql, new ResultSetExtractor<Administrador>() {
+	    	@Override
+	        public Administrador extractData(ResultSet rs) throws SQLException,
+	                DataAccessException {
+	            if (rs.next()) {
+	                Administrador admin = new Administrador();
+	                admin.setId_admin(rs.getInt("id_admin"));
+	                admin.setNombre(rs.getString("nombre"));
+	                admin.setAp_pat(rs.getString("ap_pat"));
+	                admin.setAp_mat(rs.getString("ap_mat"));
+	                admin.setEmail(rs.getString("email"));
+	                admin.setContr(rs.getString("contr"));
+	                return admin;
+	            }
+            	return null;
+	        }
+	    });
+	}
+	
 }
 	     

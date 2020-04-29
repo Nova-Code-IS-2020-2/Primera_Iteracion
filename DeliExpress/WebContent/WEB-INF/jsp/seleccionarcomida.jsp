@@ -56,7 +56,7 @@
   		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 		<script>
 			$(function(){
- 			$("#header").load("menuportatil.html");
+ 			$("#header").load("menuportatilRepartidor.html");
 			});
 		</script>
     </head>
@@ -64,7 +64,9 @@
 	<div id="header"></div>
     <div style="text-align: center">
         <h1>Welcome to Deli Express Repartidor</h1>
-        <b>Bienvenido ${rep.getNombre()} ${rep.getAp_mat()}</b>
+        <b>${rep.getEmail()} ${rep.getNombre()}</b>
+        <br><br>
+        
         <a href="/logout">Logout</a>
     </div>
 </body>

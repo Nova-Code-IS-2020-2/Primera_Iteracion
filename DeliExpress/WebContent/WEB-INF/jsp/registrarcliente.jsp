@@ -153,7 +153,7 @@
 		
 		<div class="form-group">
 			<label for="email">Dirección De correo electronico</label>
-		    <form:input type="text" class="form-control"  path="email" required="required"/>
+		    <form:input type="email" class="form-control"  path="email" required="required"/>
 			<small id="HelpBlock" class="form-text text-muted">
 				Introduce un email nuevo
 			</small>
@@ -176,10 +176,13 @@
 			<label for="direccion">Direccion</label>
 		    <form:input type="text" class="form-control"  path="direccion" required="required"/>
 		</div>
-		
+		<div class="text-center">
+			 ${message}
+		</div>
 		<div class="text-center">
 			<button class="btn btn-default active btn-lg" type="submit"value="Registrarme" name="crearCliente">Registrarme</button>
 		</div>
+	
 	
 	</form:form>
 </div>

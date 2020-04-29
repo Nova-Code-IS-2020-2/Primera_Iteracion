@@ -71,7 +71,7 @@ input {
 <script type="text/javascript">
  
     $(document).ready(function() {
-        $("#loginForm").validate({
+        $("#login").validate({
             rules: {
                 email: {
                     required: true,
