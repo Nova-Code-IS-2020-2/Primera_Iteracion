@@ -11,7 +11,7 @@ import org.springframework.jdbc.core.RowMapper;
  
 
 
-import com.deliexpress.beans.Cuenta;
+import com.deliexpress.model.*;
 
 public class CuentaDAO {
 
@@ -24,40 +24,63 @@ public class CuentaDAO {
 	public void setTemplate(JdbcTemplate template) {    
 	    this.template = template;    
 	}    
-	public int save(Cuenta c){    
+	public int save(Cliente c){    
 	    String sql="insert into Cliente(id_cliente, nombre, ap_pat, ap_mat, email, contr, telefono, direccion ) values(?,?,?,?,?,?,?,?)";    
-	    return template.update(sql,c.getId(),c.getNombre(),c.getAp_pat(),c.getAp_mat(),c.getEmail(),c.getContr(),c.getTelefono(),c.getDireccion());    
+	    return template.update(sql,c.getId_cliente(),c.getNombre(),c.getAp_pat(),c.getAp_mat(),c.getEmail(),c.getContr(),c.getTelefono(),c.getDireccion());    
 	} 
 	
 	
 	
-	public int update(Cuenta c){    
+	public int update(Cliente c){    
 	    String sql="update Cliente set nombre=?, ap_pat=?, ap_mat=?, email=?, contr=?, telefono=?, direccion=? where id_cliente=?";    
-	    return template.update(sql,c.getNombre(),c.getAp_pat(),c.getAp_mat(),c.getEmail(),c.getContr(),c.getTelefono(),c.getDireccion(),c.getId());    
-	}       
+	    return template.update(sql,c.getNombre(),c.getAp_pat(),c.getAp_mat(),c.getEmail(),c.getContr(),c.getTelefono(),c.getDireccion(),c.getId_cliente());    
+	}      
+	public int update(Administrador c){    
+	    String sql="update Administrador set nombre=?, ap_pat=?, ap_mat=?, email=?, contr=? where id_cliente=?";    
+	    return template.update(sql,c.getNombre(),c.getAp_pat(),c.getAp_mat(),c.getEmail(),c.getContr(),c.getId_admin());    
+	}      
 	
-	public List<Cuenta> list(){
+	public List<Cliente> list(){
 		String sql = "select * from Cliente";
-		List<Cuenta> listaCuentas=template.query(sql, new RowMapper<Cuenta>() {
+		List<Cliente> listaClientes=template.query(sql, new RowMapper<Cliente>() {
 			 @Override
-		        public Cuenta mapRow(ResultSet rs, int rowNum) throws SQLException {
+		        public Cliente mapRow(ResultSet rs, int rowNum) throws SQLException {
 				 	
-		            Cuenta cuenta = new Cuenta();
-	                cuenta.setId(rs.getInt("id_cliente"));
-	                cuenta.setNombre(rs.getString("nombre"));
-	                cuenta.setAp_pat(rs.getString("ap_pat"));
-	                cuenta.setAp_mat(rs.getString("ap_mat"));
-	                cuenta.setEmail(rs.getString("email"));
-	                cuenta.setContr(rs.getString("contr"));
-	                cuenta.setDireccion(rs.getString("direccion"));
-	                cuenta.setTelefono(rs.getString("telefono"));
-	                return cuenta;
+		            Cliente cliente = new Cliente();
+	                cliente.setId_cliente(rs.getInt("id_cliente"));
+	                cliente.setNombre(rs.getString("nombre"));
+	                cliente.setAp_pat(rs.getString("ap_pat"));
+	                cliente.setAp_mat(rs.getString("ap_mat"));
+	                cliente.setEmail(rs.getString("email"));
+	                cliente.setContr(rs.getString("contr"));
+	                cliente.setDireccion(rs.getString("direccion"));
+	                cliente.setTelefono(rs.getString("telefono"));
+	                return cliente;
 			 }
 		 
 		});
-		    return listaCuentas;
+		    return listaClientes;
 	}
-	
+	public List<Administrador> listAdmin(){
+		String sql = "select * from Administrador";
+		List<Administrador> listaAdministradors=template.query(sql, new RowMapper<Administrador>() {
+			 @Override
+		        public Administrador mapRow(ResultSet rs, int rowNum) throws SQLException {
+				 	
+		            Administrador admin = new Administrador();
+	                admin.setId_admin(rs.getInt("id_admin"));
+	                admin.setNombre(rs.getString("nombre"));
+	                admin.setAp_pat(rs.getString("ap_pat"));
+	                admin.setAp_mat(rs.getString("ap_mat"));
+	                admin.setEmail(rs.getString("email"));
+	                admin.setContr(rs.getString("contr"));
+	                
+	                return admin;
+			 }
+		 
+		});
+		    return listaAdministradors;
+	}
 	
 	public int sigId() {
 		String sql = "select AUTO_INCREMENT " + "from information_schema.TABLES " + "where TABLE_SCHEMA = \"deliexpress\" " + "and table_name = \"cliente\"";
@@ -73,26 +96,52 @@ public class CuentaDAO {
 		});
 	}
 	
-	public Cuenta get(int id){    
+	public Cliente get(int id){    
 		String sql = "select * from Cliente where id_cliente = " + id;
 		
 		
-	    return template.query(sql, new ResultSetExtractor<Cuenta>() {
+	    return template.query(sql, new ResultSetExtractor<Cliente>() {
 	 
 	        @Override
-	        public Cuenta extractData(ResultSet rs) throws SQLException,
+	        public Cliente extractData(ResultSet rs) throws SQLException,
 	                DataAccessException {
 	            if (rs.next()) {
-	                Cuenta cuenta = new Cuenta();
-	                cuenta.setId(rs.getInt("id_cliente"));
-	                cuenta.setNombre(rs.getString("nombre"));
-	                cuenta.setAp_pat(rs.getString("ap_pat"));
-	                cuenta.setAp_mat(rs.getString("ap_mat"));
-	                cuenta.setEmail(rs.getString("email"));
-	                cuenta.setContr(rs.getString("contr"));
-	                cuenta.setDireccion(rs.getString("direccion"));
-	                cuenta.setTelefono(rs.getString("telefono"));
-	                return cuenta;
+	                Cliente cliente = new Cliente();
+	                cliente.setId_cliente(rs.getInt("id_cliente"));
+	                cliente.setNombre(rs.getString("nombre"));
+	                cliente.setAp_pat(rs.getString("ap_pat"));
+	                cliente.setAp_mat(rs.getString("ap_mat"));
+	                cliente.setEmail(rs.getString("email"));
+	                cliente.setContr(rs.getString("contr"));
+	                cliente.setDireccion(rs.getString("direccion"));
+	                cliente.setTelefono(rs.getString("telefono"));
+	                return cliente;
+	            }
+	 
+	            return null;
+	        }
+	 
+	    });
+	}
+	
+	public Administrador getAdmin(int id){    
+		String sql = "select * from administrador where id_admin = " + id;
+		
+		
+	    return template.query(sql, new ResultSetExtractor<Administrador>() {
+	 
+	        @Override
+	        public Administrador extractData(ResultSet rs) throws SQLException,
+	                DataAccessException {
+	            if (rs.next()) {
+	                Administrador admin = new Administrador();
+	                admin.setId_admin(rs.getInt("id_admin"));
+	                admin.setNombre(rs.getString("nombre"));
+	                admin.setAp_pat(rs.getString("ap_pat"));
+	                admin.setAp_mat(rs.getString("ap_mat"));
+	                admin.setEmail(rs.getString("email"));
+	                admin.setContr(rs.getString("contr"));
+	                return admin;
 	            }
 	 
 	            return null;
@@ -101,5 +150,4 @@ public class CuentaDAO {
 	    });
 	}
 }
-	        
-
+	    

@@ -38,9 +38,26 @@
 	<bean id="daoa" class="com.deliexpress.dao.AlimentoDAO">    
 		<property name="template" ref="jt"></property>    
 	</bean>     
+
+	<bean id="daocat" class="com.deliexpress.dao.CategoriaDAO">    
+		<property name="template" ref="jt"></property>    
+	</bean>     
+	
+	<bean id="daoclient" class="com.deliexpress.dao.ClienteDAO">    
+		<property name="template" ref="jt"></property>    
+	</bean> 
+	
+	<bean id="daoord" class="com.deliexpress.dao.OrdenDAO">    
+		<property name="template" ref="jt"></property>    
+	</bean> 
+	 
+	<bean id="daoc" class="com.deliexpress.dao.CarritoDao">    
+		<property name="template" ref="jt"></property>    
+	</bean> 
 	
 	<bean id="daob" class="com.deliexpress.dao.CuentaDAO">    
 		<property name="template" ref="jt"></property>    
-	</bean> 
+	</bean>  
+
  
 </beans>

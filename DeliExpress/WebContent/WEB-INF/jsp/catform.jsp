@@ -55,35 +55,26 @@ background-size: cover;
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
-<div class="card mx-auto" style="width: 18rem;">
-<h5 class="card-header text-center">REGISTRATE</h5>
-<div class="card-body">
-	<form:form action="guardarCuenta" method="post" modelAttribute="cuenta" >
-		
-		  <div class="form-group">
-		    <form:input type="text" class="form-control" id="nombre" path="nombre" placeholder="Nombre" required="required"/>
-		  </div>
-		  <div class="form-group">
-		    <form:input type="text" class="form-control" id="ap_pat" path="ap_pat" placeholder="Apellido Paterno" required="required"/>
-		  	
-		  </div>
-		  <div class="form-group">
-		    <form:input type="text" class="form-control" id="ap_mat" path="ap_mat" placeholder="Apellido Materno" required="required"/>
-		  	
-		  </div>
-	  
-	  <div class="form-group">
-	    <form:input type="email" class="form-control" id="email" path="email" placeholder="Dirección de correo elecotronico" required="required"/>
-	  		
-	  </div>
-	  <div class="form-group">
-	    <form:input type="password" class="form-control" id="contr" path="contr" placeholder="Contraseña" required="required"/>
-	  </div>
-	  <div class="text-center">
-	  <button type="submit" class="btn btn-outline-success" value="Agregar" name="guardarCuenta">Crear Cuenta</button>
-	  </div>
-	</form:form>
-</div>
-</div>
+<body>
+    <div id="header"></div>
+    <div class="container page-name">
+        <h1 style="font-family: ABeeZee, sans-serif;">DeliExpress</h1>
+        <h3 class="cat-alim" style="font-family: Actor, sans-serif;">Crear categoría de Alimento:</h3>
+        <div class="table-responsive table-bordered text-center shadow">
+            <form:form  action="guardarCategoria" method="post" modelAttribute="categoria">
+            <table class="table table-bordered">
+            	<form:hidden  path="id" />
+                <tbody>
+                    <tr>
+                        <td class="text-left nombre" style="font-family: Actor, sans-serif;">Nombre de la categoría:</td>
+                        <td class="text-left"><form:input class="border rounded-0 id-input" path="Nombre" /></td>
+                    </tr>
+                </tbody>
+            </table>
+        	</div><button class="btn btn-primary border rounded" type="submit" name="guardarCategoria" style="background-color: #6c3313;">Confirmar</button>
+   			<a href="menuAdmin" class="btn btn-primary border rounded" role="button" style="background-color: #6c3313;">Cancelar</a></div>
+   			</form:form>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
 </body>
 </html>

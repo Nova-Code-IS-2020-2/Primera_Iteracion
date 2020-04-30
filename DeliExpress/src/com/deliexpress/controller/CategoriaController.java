@@ -8,6 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.deliexpress.beans.Cuenta;
 import com.deliexpress.dao.CuentaDAO;
+import com.deliexpress.model.Categoria;
+import com.deliexpress.dao.CategoriaDAO;
+
 
 import java.util.List;
 
@@ -105,4 +108,3 @@ public class CategoriaController{
 	
 	
 }
-
