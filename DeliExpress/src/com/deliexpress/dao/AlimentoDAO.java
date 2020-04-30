@@ -25,11 +25,11 @@ private JdbcTemplate template;
 	    this.template = template;    
 	}    
 	public int save(Alimento a){    
-	    String sql="insert into Alimento (direc_foto, desc, nombre_alim, precio, Categoria_id_cat) values(?,?,?,?,?)";    
+	    String sql="insert into Alimento (direc_foto, descripcion, nombre_alim, precio, Categoria_id_cat) values(?,?,?,?,?)";    
 	    return template.update(sql,a.getDireccionFoto(), a.getDescripcion(), a.getNombre(), a.getPrecio(), a.getCategoria());    
 	}    
 	public int update(Alimento a){    
-	    String sql="update Alimento set direc_foto=?; desc=?; nombre_alim=?; precio=? Categoria_id_cat= ? where id=?";    
+	    String sql="update Alimento set direc_foto=?; descripcion=?; nombre_alim=?; precio=? Categoria_id_cat= ? where id=?";    
 	    return template.update(sql, a.getDireccionFoto(), a.getDescripcion(), a.getNombre(), a.getPrecio(), a.getCategoria(),  a.getId());    
 
 	}    
@@ -47,10 +47,10 @@ private JdbcTemplate template;
 		 
 		            aAli.setId(rs.getInt("id_alim"));
 		            aAli.setDireccionFoto(rs.getString("direc_foto"));
-		            aAli.setDescripcion(rs.getString("desc"));
+		            aAli.setDescripcion(rs.getString("descripcion"));
 		            aAli.setNombre(rs.getString("nombre_alim"));
 		            aAli.setPrecio(rs.getFloat("precio"));
-		            aAli.setCategoria(rs.getInt("Cateforia_id_cat"));
+		            aAli.setCategoria(rs.getInt("Categoria_id_cat"));
 		 
 		            return aAli;
 			 }
