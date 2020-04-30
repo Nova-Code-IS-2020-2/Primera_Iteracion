@@ -36,7 +36,7 @@ public class CuentaDAO {
 	    return template.update(sql,c.getNombre(),c.getAp_pat(),c.getAp_mat(),c.getEmail(),c.getContr(),c.getTelefono(),c.getDireccion(),c.getId_cliente());    
 	}      
 	public int update(Administrador c){    
-	    String sql="update Administrador set nombre=?, ap_pat=?, ap_mat=?, email=?, contr=? where id_cliente=?";    
+	    String sql="update Administrador set nombre=?, ap_pat=?, ap_mat=?, email=?, contr=? where id_admin=?";    
 	    return template.update(sql,c.getNombre(),c.getAp_pat(),c.getAp_mat(),c.getEmail(),c.getContr(),c.getId_admin());    
 	}    
 	public int update(Repartidor c){    

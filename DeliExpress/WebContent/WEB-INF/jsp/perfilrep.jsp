@@ -157,7 +157,9 @@
 			<label for="contr">Contraseña</label>
 		    <form:input type="password" class="form-control" id="contr" path="contr" required="required" />
 		</div>
-		
+		<div class="text-center">
+			 ${message}
+		</div>
 		<div class="text-center">
 			<button class="btn btn-default active btn-lg" type="submit"value="Actualizar Datos" name="actualizarCuenta">Actualizar Datos</button>
 		</div>

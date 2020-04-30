@@ -170,6 +170,9 @@
 		    <form:input type="text" class="form-control" id="direccion" path="direccion" required="required"/>
 		</div>
 		<div class="text-center">
+			 ${message}
+		</div>
+		<div class="text-center">
 			<button class="btn btn-default active btn-lg" type="submit"value="Actualizar Datos" name="actualizarCuenta">Actualizar Datos</button>
 		</div>
 	
