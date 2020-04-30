@@ -69,7 +69,7 @@
         <div class="btn-group" role="group">
           <a  href="/DeliExpress/agregarCategoria"
             class="btn btn-primary border rounded shadow-sm" role="button" style="color: #6c3313; background-color: #ffffff; border: 1px solid #6c3313!important; ">+Categoría</a>
-          <a class="btn btn-primary border rounded shadow-sm" role="button" style="color: #6c3313; background-color: #ffffff; border: 1px solid #6c3313!important;">+Alimento</a></div>
+          <a href="/DeliExpress/agregarAlimento"class="btn btn-primary border rounded shadow-sm" role="button" style="color: #6c3313; background-color: #ffffff; border: 1px solid #6c3313!important;">+Alimento</a></div>
           <div class="btn-group" role="group"></div>
       </div>
       <h3 class="categorias" style="font-family: Actor, sans-serif;">Menú de alimentos </h3>

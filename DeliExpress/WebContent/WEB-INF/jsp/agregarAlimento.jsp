@@ -84,7 +84,7 @@ $(function(){
 				<label>Precio</label>
 				<input type="number" name="Precio" class="form-control">
 				<input type="submit" value="Agregar" class="btn">
-				<a href="menuAdmin.jsp">Cancelar</a>
+				<a type="submit" name="guardarCategoria" href="/menuAdmin">Cancelar</a>
 		</div>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
