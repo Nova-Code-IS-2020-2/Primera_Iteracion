@@ -89,10 +89,10 @@
                       <td style="border: 1px solid #ffffff!important;">${carrito.getNombre()}</td>
                       <td style="border: 1px solid #ffffff!important;">${carrito.getCantidad()}</td>
                     <td style="border: 1px solid #ffffff!important;" align="center" color: #fff;>
-                          <a href="/DeliExpress/editarcarrito?id=${carrito.getNombre()}">+</a></td>
+                          <a href="/DeliExpress/aumentar?nom=${carrito.getNombre()}">+</a></td>
                           &nbsp;&nbsp;&nbsp;&nbsp;
                        <td style="border: 1px solid #ffffff!important;" align="center" color: #fff;>
-                          <a href="/DeliExpress/borrarcarrito?id=${carrito.getNombre()}">-</a></td>
+                          <a href="/DeliExpress/disminuir?nom=${carrito.getNombre()}">-</a></td>
                              
                 </tr>
                 </c:forEach>             

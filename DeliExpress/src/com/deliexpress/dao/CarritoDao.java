@@ -49,5 +49,14 @@ public class CarritoDao {
 		    return listaCarrito;
 	}
 	
+	public void aumentar(int id_orden, String alim) {
+		String sql = "CALL aumentar(1,?)" ;
+		template.update(sql,alim);
+	}
+	public void disminuir(int id_orden, String alim) {
+		String sql = "CALL disminuir(1,?)" ;
+		template.update(sql,alim);
+	}
+	
 	
 }
