@@ -18,6 +18,7 @@ import com.deliexpress.dao.IniciarSesionDAO;
 import com.deliexpress.model.Cliente;
 import com.deliexpress.model.Repartidor;
 import com.deliexpress.model.Administrador;
+import com.deliexpress.model.Carrito;
 
 @Controller
 public class IniciarSesion extends HttpServlet{
@@ -69,4 +70,22 @@ public class IniciarSesion extends HttpServlet{
             throw new ServletException(ex);
         }
     }
+    
+    @RequestMapping(value="/menucliente")
+	public ModelAndView menuCliente(ModelAndView model)throws IOException {
+		model.setViewName("menucliente");
+	    return model;
+	}
+    
+    @RequestMapping(value="/principaladmin")
+	public ModelAndView menuAdmin(ModelAndView model)throws IOException {
+		model.setViewName("principaladmin");
+	    return model;
+	}
+    
+    @RequestMapping(value="/seleccionarcomida")
+	public ModelAndView menuRepartidor(ModelAndView model)throws IOException {
+		model.setViewName("seleccionarcomida");
+	    return model;
+	}
 }

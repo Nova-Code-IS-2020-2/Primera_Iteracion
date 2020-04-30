@@ -56,7 +56,7 @@
   		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 		<script>
 			$(function(){
- 			$("#header").load("menuportatil.html");
+ 			$("#header").load("menuportatilAdmin.html");
 			});
 		</script>
     </head>

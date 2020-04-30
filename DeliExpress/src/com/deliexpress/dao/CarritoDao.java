@@ -25,9 +25,10 @@ public class CarritoDao {
 	}  
 	public List<Carrito> muestraCarrito(){
 		System.out.println("MUESTRACARRITO");
-		String sql = "SELECT a1.precio_al, a1.nombre_alim, c1.cantidad\r\n" + 
+		String sql = "SELECT a1.precio , a1.nombre_alim, c1.cantidad\r\n" + 
 				"FROM contenerordalim AS c1, alimento AS a1, orden, cliente\r\n" + 
-				"where orden.id_orden = c1.orden_id_orden AND cliente.id_cliente = 3 group by a1.id_alim;";
+				"where orden.id_orden = c1.orden_id_orden AND cliente.id_cliente = 1\r\n" + 
+				"group by a1.id_alim;";
 		List<Carrito> listaCarrito = template.query(sql, new RowMapper<Carrito>() { 
 			
 			@Override
@@ -37,7 +38,7 @@ public class CarritoDao {
 				 	System.out.println("mapRow");
 				 	
 				 	
-		            aCat.setPrecio(rs.getFloat("precio_al"));
+		            aCat.setPrecio(rs.getFloat("precio"));
 		            aCat.setNombre(rs.getString("nombre_alim"));
 		            aCat.setCantidad(rs.getInt("cantidad"));
 		            System.out.println(aCat.toString());
