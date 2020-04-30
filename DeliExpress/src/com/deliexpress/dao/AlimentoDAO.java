@@ -25,15 +25,15 @@ private JdbcTemplate template;
 	    this.template = template;    
 	}    
 	public int save(Alimento a){    
-	    String sql="insert into Alimento (nombre, direc_foto, descripcion, precio) values(?,?,?,?)";    
-	    return template.update(sql,a.getNombre(), a.getDireccionFoto(), a.getDescripcion(), a.getPrecio());    
+	    String sql="insert into Alimento(nombre_alim, direc_foto, desc, precio) values(?,?,?,?);"; 
+	    return template.update(sql,a.getNombre(),a.getDireccionFoto(), a.getDescripcion(), a.getPrecio());    
 	}    
 	public int update(Alimento a){    
-	    String sql="update Alimento set nombre=?; direc_foto=?; descripcion=?; precio=? where id=?";    
+	    String sql="update Alimento set nombre_alim=?; direc_foto=?; desc=?; precio=? where id=?";    
 	    return template.update(sql,a.getNombre(), a.getDireccionFoto(), a.getDescripcion(), a.getPrecio(), a.getId());    
 	}    
 	public int delete(int id){    
-	    String sql="delete from Alimento where id_cat=?";    
+	    String sql="delete from Alimento where id_alim=?";    
 	    return template.update(sql,id);    
 	}   
 	

@@ -74,17 +74,19 @@ $(function(){
 		<h1 style="font-family: ABeeZee, sans-serif;">DeliExpress</h1>
 		<h3 class="cat-alim" style="font-family: Actor, sans-serif;">Agregar Alimento</h3>
 		<div class="card-body">
-			<form mothod="POST">
+			<form:form  action="guardarAlimento" method="post" modelAttribute="alimento">
+				<form:hidden  path="id" />
 				<label>Nombre</label>
-				<input type="text" name="Nombre" class="form-control">
+				<form:input type="text" path="Nombre" />
 				<label>Imagen</label>
-				<input type="text" name="imgDir" class="form-control">
+				<form:input type="text" path="DireccionFoto"/>
 				<label>Descripcion</label>
-				<input type="text" name="Descripcion" class="form-control">
+				<form:input type="text" path="Descripcion" />
 				<label>Precio</label>
-				<input type="number" name="Precio" class="form-control">
-				<input type="submit" value="Agregar" class="btn">
-				<a type="submit" name="guardarCategoria" href="/menuAdmin">Cancelar</a>
+				<form:input type="number" path="Precio" />
+				</div><button class="btn btn-primary border rounded" type="submit" name="guardarAlimento" style="background-color: #6c3313;">Confirmar</button>
+   				<a href="menuAdmin" class="btn btn-primary border rounded" role="button" style="background-color: #6c3313;">Cancelar</a></div>
+			</form:form>
 		</div>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
