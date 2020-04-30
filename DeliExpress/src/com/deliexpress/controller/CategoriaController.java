@@ -6,105 +6,77 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.deliexpress.beans.Cuenta;
-import com.deliexpress.dao.CuentaDAO;
 import com.deliexpress.model.Categoria;
 import com.deliexpress.dao.CategoriaDAO;
-
+import com.deliexpress.beans.Alimento;
+import com.deliexpress.dao.AlimentoDAO;
 
 import java.util.List;
+import java.util.Hashtable;
 
 import javax.servlet.http.HttpServletRequest;
 
-
+import java.io.*;
 @Controller
 public class CategoriaController{
 	
 	@Autowired
-    private CuentaDAO cuentaDAO;
- 
-	@RequestMapping(value = "/registrate", method = RequestMethod.GET)
-	public ModelAndView registrate(ModelAndView model) {
-	    Cuenta cuenta = new Cuenta();
-	    model.addObject("cuenta", cuenta);
-	    model.setViewName("catform");
-	    return model;
-	}
-	public Cuenta nuevaCuenta(Cuenta cuenta) {
-		cuenta.setDireccion("S/D");
-		cuenta.setTelefono("S/N");
-		return cuenta;
-	}
-	@RequestMapping(value = "/guardarCuenta", method = RequestMethod.POST)
-	public ModelAndView guardarCuenta(@ModelAttribute Cuenta cuenta) {
-		
-		if(esValida(cuenta)) {
-			int id = cuentaDAO.sigId();
-			cuentaDAO.save(nuevaCuenta(cuenta));
-		    ModelAndView model = new ModelAndView();
-		    System.out.println("mostrarperfil  "+id);
-		    
-		    model.addObject("id", id);
-		    model.setViewName("main");
-		    return model;
-		}
-		ModelAndView model = new ModelAndView();
-	    model.setViewName("cuentaNoValidaRegistro");
-	    return model;
-	    
-	}
-	public boolean esValida(Cuenta cuenta) {
-		
-		if(cuenta.getId()!= 0) {
-			if(cuenta.getTelefono().length() > 8) {
-				return false;
-			}
-		}
-		
-		List<Cuenta> cuentas = cuentaDAO.list();
-		
-		
-		for(Cuenta c : cuentas) {
-			if(c.getEmail().equals(cuenta.getEmail()) && c.getId()!=cuenta.getId()) {
-				return false;
-			}
-		}
-		return true;
-		
-	}
-	@RequestMapping(value = "/actualizarCuenta", method = RequestMethod.POST)
-	public ModelAndView actualizarCuenta(@ModelAttribute Cuenta cuenta) {
-		
-	    if(esValida(cuenta)) {
-	    	cuentaDAO.update(cuenta);
-		    ModelAndView model = new ModelAndView();
-		    model.setViewName("welcome");
-		    return model;
-	    }
-	    ModelAndView model = new ModelAndView();
-	    model.addObject("id", cuenta.getId());
-	    model.setViewName("cuentaNoValida");
-	    return model;
-	}
-	@RequestMapping(value = "/cancelMain", method = RequestMethod.GET)
-	public ModelAndView cancelMain(HttpServletRequest request) {
-	    int cuentaId = Integer.parseInt(request.getParameter("id"));
-	    ModelAndView model = new ModelAndView();
-	    model.addObject("id", cuentaId);
-	    model.setViewName("main");
-	    return model;
-	}
+    private CategoriaDAO categoriaDAO;
+	@Autowired
+    private AlimentoDAO alimentoDAO;
 	
-	@RequestMapping(value = "/mostrarPerfil", method = RequestMethod.GET)
-	public ModelAndView mostrarPerfil(HttpServletRequest request) {
-	    int cuentaId = Integer.parseInt(request.getParameter("id"));
-	    System.out.println("mostrarperfil  "+cuentaId);
-	    Cuenta cuenta = cuentaDAO.get(cuentaId);
-	    ModelAndView model = new ModelAndView("perfil");
-	    model.addObject("cuenta", cuenta);
+	@RequestMapping(value="/principalAdmin")
+	public ModelAndView principalAdmin() {
+		return new ModelAndView();
+	}
+ 
+	@RequestMapping(value="/menuAdmin")
+	public ModelAndView listaCategoria(ModelAndView model) throws IOException{
+		Hashtable<Categoria,List<Alimento>> menu=new Hashtable<Categoria,List<Alimento>>();
+	    List<Categoria> listCat = categoriaDAO.list();
+	    List<Alimento> alimentos;
+	    for(Categoria cat:listCat) {
+	    	alimentos=alimentoDAO.list();
+	    	menu.put(cat,alimentos);
+	    }
+	    model.addObject("menu", menu);
+	    model.setViewName("menuAdmin");
 	 
 	    return model;
 	}
+	@RequestMapping(value = "/agregarCategoria", method = RequestMethod.GET)
+	public ModelAndView agregarCategoria(ModelAndView model) {
+	    Categoria categoria = new Categoria();
+	    model.addObject("categoria", categoria);
+	    model.setViewName("catform");
+	    return model;
+	}
+	@RequestMapping(value = "/guardarCategoria", method = RequestMethod.POST)
+	public ModelAndView guardarCategoria(@ModelAttribute Categoria categoria) {
+	    categoriaDAO.save(categoria);
+	    return new ModelAndView("redirect:/menuAdmin");
+	}
+	@RequestMapping(value = "/actualizarCategoria", method = RequestMethod.POST)
+	public ModelAndView actualizarCategoria(@ModelAttribute Categoria categoria) {
+	    categoriaDAO.update(categoria);
+	    return new ModelAndView("redirect:/menuAdmin");
+	}
 	
+	@RequestMapping(value = "/borrarCategoria", method = RequestMethod.GET)
+	public ModelAndView borrarCategoria(HttpServletRequest request) {
+	    int catId = Integer.parseInt(request.getParameter("id"));
+	    categoriaDAO.delete(catId);
+	    return new ModelAndView("redirect:/menuAdmin");
+	}
+	
+	@RequestMapping(value = "/editarCategoria", method = RequestMethod.GET)
+	public ModelAndView editarCategoria(HttpServletRequest request) {
+	    int catId = Integer.parseInt(request.getParameter("id"));
+	    Categoria categoria = categoriaDAO.get(catId);
+	    ModelAndView model = new ModelAndView("cateditform");
+	    model.addObject("categoria", categoria);
+	 
+	    return model;
+	}
 	
 }

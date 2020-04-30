@@ -76,51 +76,21 @@
       <div class="table-responsive table-bordered border rounded shadow">
           <table class="table table-striped table-bordered" >
               <thead>
+                  <c:forEach var="elem" items="${menu}" varStatus="status">
                   <tr>
-                      <th class="border border-light shadow-sm" style="color:#6C3313 ;background-color: #ffffff;" >Id</th>
-                      <th class="border border-light shadow-sm" style="color:#6C3313 ;background-color: #ffffff;">Nombre</th>
-                      <th class="border border-light shadow-sm" style="color:#6C3313 ;background-color: #ffffff;"></th>
-                  </tr>
-                  <c:forEach var="categoria" items="${listCat}" varStatus="status">
-                  <tr>
-                      <td style="border: 1px solid #ffffff!important;">${categoria.getId()}</td>
-                      <td style="border: 1px solid #ffffff!important;">${categoria.getNombre()}</td>
+                      <td style="border: 1px solid #ffffff!important;">${elem.key.getNombre()}</td>
                       <td style="border: 1px solid #ffffff!important;">
-                          <a href="/DeliExpress/editarCategoria?id=${categoria.getId()}">Editar</a>
+                          <a href="/DeliExpress/editarCategoria?id=${elem.key.getId()}">Editar</a>
                           &nbsp;&nbsp;&nbsp;&nbsp;
-                          <a href="/DeliExpress/borrarCategoria?id=${categoria.getId()}">Borrar</a>
+                          <a href="/DeliExpress/borrarCategoria?id=${elem.key.getId()}">Borrar</a>
                       </td>
-
+                      <c:forEach var="alimento" items="${elem.value}" varStatus="status">
+					 <tr>
+					 	<td class="border border-light shadow-sm" style="color:#6C3313 ;background-color: #ffffff;">${alimento.getNombre() }</td>
+					 	<td class="border border-light shadow-sm" style="color:#6C3313 ;background-color: #ffffff;">${alimento.getPrecio() }</td>
+					 </tr>
+					 </c:forEach>
                   </tr>
-                  	 <table class="table table-striped table-bordered" >
-			              <thead>
-			                  <tr>
-			                      <th class="border border-light shadow-sm" style="color:#6C3313 ;background-color: #ffffff;" >Id</th>
-			                      <th class="border border-light shadow-sm" style="color:#6C3313 ;background-color: #ffffff;">Imagen</th>
-			                      <th class="border border-light shadow-sm" style="color:#6C3313 ;background-color: #ffffff;">Nombre</th>
-			                      <th class="border border-light shadow-sm" style="color:#6C3313 ;background-color: #ffffff;">Descripcion</th>
-			                      <th class="border border-light shadow-sm" style="color:#6C3313 ;background-color: #ffffff;">Precio</th>
-			                  </tr>
-			                  <c:forEach var="alimento" items="${listAlim(categoria)}" varStatus="status">
-			                  <tr>
-			                      <td style="border: 1px solid #ffffff!important;">${alilmento.getId()}</td>
-			                      <td style="border: 1px solid #ffffff!important;">${alilmento.getFoto()}</td>
-			                      <td style="border: 1px solid #ffffff!important;">${alimento.getNombre()}</td>
-			                      <td style="border: 1px solid #ffffff!important;">${alilmento.getDescripcion()}</td>
-			                      <td style="border: 1px solid #ffffff!important;">${alilmento.getPrecio()}</td>
-			                      <td style="border: 1px solid #ffffff!important;">
-			                          <a href="/DeliExpress/editarAlimento?id=${alimento.getId()}">Editar</a>
-			                          &nbsp;&nbsp;&nbsp;&nbsp;
-			                          <a href="/DeliExpress/menuAdmin?id=${alimento.getId()}">Borrar</a>
-			                      </td>
-			
-			                  </tr>
-			                  </c:forEach>
-			              </thead>
-			              <tbody>
-			                  <tr></tr>
-			              </tbody>
-			          </table>
                   </c:forEach>
               </thead>
               <tbody>

@@ -20,20 +20,7 @@ public class AlimentoControlador {
 
 	@Autowired
     private AlimentoDAO alimentoDAO;
-	
-	@RequestMapping("/principalAdmin")
-	public ModelAndView principalAdmin() {
-		return new ModelAndView();
-	}
  
-	@RequestMapping(value="/menuAdmin")
-	public ModelAndView listaAlimento(ModelAndView model) throws IOException{
-	    List<Alimento> listAlim = alimentoDAO.list();
-	    model.addObject("listAlim", listAlim);
-	    model.setViewName("menuAdmin");
-	 
-	    return model;
-	}
 	@RequestMapping(value = "/agregarAlimento", method = RequestMethod.GET)
 	public ModelAndView agregarAlimento(ModelAndView model) {
 	    Alimento alimento = new Alimento();
