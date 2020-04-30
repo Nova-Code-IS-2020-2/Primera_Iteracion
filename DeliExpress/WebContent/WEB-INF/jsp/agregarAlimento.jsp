@@ -79,6 +79,8 @@ $(function(){
 				<label>Nombre</label>
 				<form:input type="text" path="Nombre" />
 				<label>Imagen</label>
+				<form:input type="text" path="Categoria"/>
+				<label>Id Categoría</label>
 				<form:input type="text" path="DireccionFoto"/>
 				<label>Descripcion</label>
 				<form:input type="text" path="Descripcion" />
