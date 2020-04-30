@@ -18,15 +18,16 @@ import com.deliexpress.model.Cuenta;
 
 public class IniciarSesionDAO {
 	
+	private JdbcTemplate template;
 	
 	public Cliente checkLogin(String email, String password) throws SQLException, ClassNotFoundException {
 			String jdbcURL = "jdbc:mysql://localhost:3306/deliexpress";
 			String dbUser = "root";
-			String dbPassword = "";
+			String dbPassword = "deliPollo04";
 			
 			Class.forName("com.mysql.jdbc.Driver");
 			Connection connection = DriverManager.getConnection(jdbcURL, dbUser, dbPassword);
-			String sql = "select * from cliente where email = ? && contr = ?";
+			String sql = "select * from Cliente where email = ? && contr = ?";
 			PreparedStatement statement = connection.prepareStatement(sql);
 			statement.setString(1, email);
 			statement.setString(2, password);
@@ -49,16 +50,18 @@ public class IniciarSesionDAO {
 			
 			connection.close();
 			System.out.println("CHECKLOGIN CLIENTE");
+			System.out.println(cliente.getNombre());
 			return cliente;
-		}
+	}
+		
 	public Repartidor checkLoginRepartidor(String email, String password) throws SQLException, ClassNotFoundException {
 		String jdbcURL = "jdbc:mysql://localhost:3306/deliexpress";
 		String dbUser = "root";
-		String dbPassword = "";
+		String dbPassword = "deliPollo04";
 		
 		Class.forName("com.mysql.jdbc.Driver");
 		Connection connection = DriverManager.getConnection(jdbcURL, dbUser, dbPassword);
-		String sql = "select * from repartidor where email = ? && contr = ?";
+		String sql = "select * from Repartidor where email = ? && contr = ?";
 		PreparedStatement statement = connection.prepareStatement(sql);
 		statement.setString(1, email);
 		statement.setString(2, password);
@@ -85,11 +88,11 @@ public class IniciarSesionDAO {
 	public Administrador checkLoginAdmin(String email, String password) throws SQLException, ClassNotFoundException {
 		String jdbcURL = "jdbc:mysql://localhost:3306/deliexpress";
 		String dbUser = "root";
-		String dbPassword = "";
+		String dbPassword = "deliPollo04";
 		
 		Class.forName("com.mysql.jdbc.Driver");
 		Connection connection = DriverManager.getConnection(jdbcURL, dbUser, dbPassword);
-		String sql = "select * from administrador where email = ? && contr = ?";
+		String sql = "select * from Administrador where email = ? && contr = ?";
 		PreparedStatement statement = connection.prepareStatement(sql);
 		statement.setString(1, email);
 		statement.setString(2, password);
