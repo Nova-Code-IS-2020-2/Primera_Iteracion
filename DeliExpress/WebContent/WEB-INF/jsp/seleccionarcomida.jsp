@@ -63,10 +63,21 @@
 <body>
 	<div id="header"></div>
     <div style="text-align: center">
-        <h1>Welcome to Deli Express Repartidor</h1>
-        <b>${rep.getEmail()} ${rep.getNombre()}</b>
+        <h1>Welcome to Deli Express Repartidor ${rep.getId_repartidor()}</h1>
+     </div>
+     <div align="center">
         <br><br>
-        
+         <table border="1">
+                <th>Dirección</th>
+                <th></th>
+                 
+                <c:forEach var="dirId" items="${dirs}" varStatus="status">
+                <tr>
+                    <td>${dirId[0]}</td>
+                    <td><a href="/DeliExpress/seleccionarComida?id_orden=${dirId[1]}">Seleccionar</a></td>
+                </tr>
+                </c:forEach>             
+            </table>
         <a href="/logout">Logout</a>
     </div>
 </body>

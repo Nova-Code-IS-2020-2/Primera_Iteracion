@@ -58,6 +58,8 @@ public class IniciarSesion extends HttpServlet{
             }else if(rep != null) {
             	HttpSession session = request.getSession();
                 session.setAttribute("rep", rep);
+                List<String[]> dirs = isDAO.dirIdOrd(); 
+                session.setAttribute("dirs",dirs );
             	mav = new ModelAndView("seleccionarcomida");
             }else {
             	String message = "email/contraseña Invalido ";
