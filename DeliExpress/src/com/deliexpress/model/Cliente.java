@@ -8,8 +8,7 @@ public class Cliente extends Cuenta{
 	
 	public Cliente() {}
 	
-	public Cliente(int id_cliente, String nombre, String ap_pat, String ap_mat, String email, String contr, String telefono, String direccion) {
-		this.id_cliente = id_cliente;
+	public Cliente(String nombre, String ap_pat, String ap_mat, String email, String contr, String telefono, String direccion) {
 		this.nombre = nombre;
 		this.ap_pat = ap_pat;
 		this.ap_mat = ap_mat;
