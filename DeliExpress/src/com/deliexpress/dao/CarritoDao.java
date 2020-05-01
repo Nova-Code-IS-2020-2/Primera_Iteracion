@@ -58,5 +58,24 @@ public class CarritoDao {
 		template.update(sql,alim);
 	}
 	
+	public float precioTotal(int id_carrito) {
+		String sql = "";
+		return template.queryForObject(sql,new Object[] {id_carrito}, Float.class);
+		
+
+	}
 	
+	public int sigId() {
+		String sql = "select AUTO_INCREMENT " + "from information_schema.TABLES " + "where TABLE_SCHEMA = \"deliexpress\" " + "and table_name = \"cliente\"";
+		return template.query(sql, new ResultSetExtractor<Integer>() {
+			@Override
+			public Integer extractData(ResultSet rs) throws SQLException, 
+			DataAccessException{
+					if(rs.next()) {
+						return rs.getInt("AUTO_INCREMENT");
+					}
+					return null;
+				}
+		});
+	}
 }

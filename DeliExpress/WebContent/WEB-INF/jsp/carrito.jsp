@@ -30,6 +30,11 @@
       color: #6C3313;
       font-family: Actor, sans-serif;
     }
+    .h5, h5{
+    	color: #6C3313;
+      	font-family: Actor, sans-serif;
+      	
+    }
     table.table-striped.table-bordered{
       color:#ffffff;
       background-color: #6C3313;
@@ -69,8 +74,9 @@
           <a  href="/DeliExpress/agregarCategoria"
             class="btn btn-primary border rounded shadow-sm" role="button" style="color: #6c3313; background-color: #ffffff; border: 1px solid #6c3313!important; ">Vaciar</a>
           <a class="btn btn-primary border rounded shadow-sm" role="button" style="color: #6c3313; background-color: #ffffff; border: 1px solid #6c3313!important;">Ordenar</a></div>
+
           <div class="btn-group" role="group"></div>
-      </div>
+      </div>     
       <h3 class="categorias" style="font-family: Actor, sans-serif;">Carrito </h3>
       <div class="table-responsive table-bordered border rounded shadow">
             <table class="table table-striped table-bordered" >
@@ -97,6 +103,7 @@
                 </tr>
                 </c:forEach>             
             </table>
+        <h5> Total: $ ${precio}</h5>
         </div>
       </div>
       <script src="assets/js/jquery.min.js"></script>

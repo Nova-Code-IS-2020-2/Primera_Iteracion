@@ -25,10 +25,14 @@ public class CarritoControlador {
 	private CarritoDao carritoDAO;
 	
 	@RequestMapping(value="/carrito")
-		public ModelAndView listaCarrito(ModelAndView model)throws IOException {
+		public ModelAndView listaCarrito(ModelAndView model,HttpServletRequest request)throws IOException {
+			float precioTotal = 0;
+			//precioTotal = carritoDAO.precioTotal();
+			String precioSalida = precioTotal + "mxn";
 			List<Carrito> listaCarrito = carritoDAO.muestraCarrito();
 		    model.addObject("listaCarrito", listaCarrito);	
-			model.setViewName("carrito");
+		    model.addObject("precio", precioSalida);
+		    model.setViewName("carrito");
 		    return model;
 		}
 	
@@ -48,5 +52,4 @@ public class CarritoControlador {
 		carritoDAO.aumentar(1,nom);
 		return new ModelAndView("redirect:/carrito");
 	}
-	
 }
