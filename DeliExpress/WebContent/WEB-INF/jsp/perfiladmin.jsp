@@ -124,7 +124,7 @@
 		
 </head>
 <body>
-<div id="headera"></div>
+<jsp:directive.include file="/menuportatilAdmin.html"/>
 
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
@@ -155,9 +155,11 @@
 		</div>
 		<div class="form-group">
 			<label for="contr">Contraseña</label>
-		    <form:input type="text" class="form-control" id="contr" path="contr" required="required" />
+		    <form:input type="password" class="form-control" id="contr" path="contr" required="required" />
 		</div>
-		
+		<div class="text-center">
+			 ${message}
+		</div>
 		<div class="text-center">
 			<button class="btn btn-default active btn-lg" type="submit"value="Actualizar Datos" name="actualizarCuenta">Actualizar Datos</button>
 		</div>
