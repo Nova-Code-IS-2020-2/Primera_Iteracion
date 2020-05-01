@@ -38,8 +38,8 @@ private JdbcTemplate template;
 	    return template.update(sql,id);    
 	}   
 	
-	public List<Alimento> list(){
-		String sql = "select * from Alimento";
+	public List<Alimento> list(int idCat){
+		String sql = "select * from Alimento where Categoria_id_cat="+idCat;
 		List<Alimento> listaAlim=template.query(sql, new RowMapper<Alimento>() {
 			 @Override
 		        public Alimento mapRow(ResultSet rs, int rowNum) throws SQLException {

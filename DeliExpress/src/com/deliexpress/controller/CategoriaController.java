@@ -36,7 +36,7 @@ public class CategoriaController{
 	    List<Categoria> listCat = categoriaDAO.list();
 	    List<Alimento> alimentos;
 	    for(Categoria cat:listCat) {
-	    	alimentos=alimentoDAO.list();
+	    	alimentos=alimentoDAO.list(cat.getId());
 	    	menu.put(cat,alimentos);
 	    }
 	    model.addObject("menu", menu);

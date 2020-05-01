@@ -79,6 +79,7 @@
                   <c:forEach var="elem" items="${menu}" varStatus="status">
                   <tr>
                       <td style="border: 1px solid #ffffff!important;">${elem.key.getNombre()}</td>
+                      <td style="border: 1px solid #ffffff!important; background-color: #ffffff;""></td>
                       <td style="border: 1px solid #ffffff!important;">
                           <a href="/DeliExpress/editarCategoria?id=${elem.key.getId()}">Editar</a>
                           &nbsp;&nbsp;&nbsp;&nbsp;
@@ -86,8 +87,13 @@
                       </td>
                       <c:forEach var="alimento" items="${elem.value}" varStatus="status">
 					 <tr>
-					 	<td class="border border-light shadow-sm" style="color:#6C3313 ;background-color: #ffffff;">${alimento.getNombre() }</td>
-					 	<td class="border border-light shadow-sm" style="color:#6C3313 ;background-color: #ffffff;">${alimento.getPrecio() }</td>
+					 	<td class="border border-light shadow-sm" style="border: 1px solid #6C3313!important;color:#6C3313 ;background-color: #ffffff;">${alimento.getNombre() }</td>
+					 	<td class="border border-light shadow-sm" style="border: 1px solid #6C3313!important;color:#6C3313 ;background-color: #ffffff;">${alimento.getPrecio() }</td>
+					 	<td class="border border-light shadow-sm" style="border: 1px solid #6C3313!important;color:#6C3313 ;background-color: #ffffff;">
+					 		<a href="/DeliExpress/editarAlimento?id=${alimento.getId()}">Editar</a>
+                          	&nbsp;&nbsp;&nbsp;&nbsp;
+                          	<a href="/DeliExpress/borrarAlimento?id=${alimento.getId()}">Borrar</a>
+                       	</td>
 					 </tr>
 					 </c:forEach>
                   </tr>
