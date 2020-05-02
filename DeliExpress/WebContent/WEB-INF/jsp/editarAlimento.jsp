@@ -74,7 +74,7 @@ $(function(){
 		<h1 style="font-family: ABeeZee, sans-serif;">DeliExpress</h1>
 		<h3 class="cat-alim" style="font-family: Actor, sans-serif;">Editar Alimento</h3>
 		<div class="card-body">
-			<form mothod="POST">
+			<form method="POST">
 				<label>Nombre</label>
 				<input type="text" name="Nombre" class="form-control" value="${lista[0].nombre}">
 				<label>Imagen</label>

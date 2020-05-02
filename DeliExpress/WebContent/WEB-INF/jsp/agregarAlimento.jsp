@@ -51,7 +51,7 @@ body {
 </style>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Crear Alimento</title>
+<title>agregarAlimento</title>
 <script src="//code.jquery.com/jquery-1.10.2.js"></script>
 <script> 
 $(function(){
@@ -74,22 +74,28 @@ $(function(){
 		<h1 style="font-family: ABeeZee, sans-serif;">DeliExpress</h1>
 		<h3 class="cat-alim" style="font-family: Actor, sans-serif;">Agregar Alimento</h3>
 		<div class="card-body">
-			<form:form  action="guardarAlimento" method="post" modelAttribute="alimento">
-				<form:hidden  path="id" />
+			<form action="guardarAlimento" method="POST" modelAttribute="categoria">
 				<label>Nombre</label>
-				<form:input type="text" path="Nombre" />
+				<input type="text" name="Nombre" class="form-control" maxlength="45">
 				<label>Imagen</label>
-				<form:input type="text" path="Categoria"/>
-				<label>Id Categoría</label>
-				<form:input type="text" path="DireccionFoto"/>
+				<input type="text" name="imgDir" class="form-control" maxlength="45">
 				<label>Descripcion</label>
-				<form:input type="text" path="Descripcion" />
+				<input type="text" name="Descripcion" class="form-control" maxlength="255">
 				<label>Precio</label>
-				<form:input type="number" path="Precio" />
-				</div><button class="btn btn-primary border rounded" type="submit" name="guardarAlimento" style="background-color: #6c3313;">Confirmar</button>
-   				<a href="menuAdmin" class="btn btn-primary border rounded" role="button" style="background-color: #6c3313;">Cancelar</a></div>
-			</form:form>
-		</div>
+				<input type="number" name="Precio" class="form-control" step="0.01">
+				<label>Categoría</label>
+				<!--  <select type="number" name="Cat" class="form-control">
+					<c:forEach var="elem" items="${menu}" varStatus="status">
+						<option value="${elem.key.getId()}">${elem.key.getNombre()}</option>
+                 	</c:forEach>
+				</select>-->
+				<input type="number" name="Cat" class="form-control">
+				
+				<div class="btn-group" role="group">
+					<button class="btn btn-primary border rounded" type="submit" name="guardarCategoria" style="background-color: #6c3313;">Confirmar</button>
+          			&nbsp;&nbsp;&nbsp;
+          			<a href="menuAdmin.jsp" class="btn btn-primary border rounded shadow-sm" role="button" style="color: #6c3313; background-color: #ffffff; border: 1px solid #6c3313!important;">Cancelar</a></div>
+				</div>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
 </body>
