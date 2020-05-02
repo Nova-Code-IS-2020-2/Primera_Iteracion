@@ -25,8 +25,8 @@ private JdbcTemplate template;
 	    this.template = template;    
 	}    
 	public int save(Alimento a){    
-	    String sql="insert into Alimento (direc_foto, descripcion, nombre_alim, precio, Categoria_id_cat) values(?,?,?,?,?)";    
-	    return template.update(sql,a.getDireccionFoto(), a.getDescripcion(), a.getNombre(), a.getPrecio(), a.getCategoria());    
+	    String sql="insert into Alimento (id_alim, direc_foto, descripcion, nombre_alim, precio, Categoria_id_cat) values (?,?,?,?,?,?)";    
+	    return template.update(sql, a.getId(), a.getDireccionFoto(), a.getDescripcion(), a.getNombre(), a.getPrecio(), a.getCategoria());    
 	}    
 	public int update(Alimento a){    
 	    String sql="update Alimento set direc_foto=?; descripcion=?; nombre_alim=?; precio=? Categoria_id_cat= ? where id=?";    
@@ -77,6 +77,20 @@ private JdbcTemplate template;
 	        }
 	 
 	    });
+	}
+	
+	private int sigId() {
+		String sql = "select AUTO_INCREMENT " + "from information_schema.TABLES " + "where TABLE_SCHEMA = \"deliexpress\" " + "and table_name = \"Alimento\"";
+		return template.query(sql, new ResultSetExtractor<Integer>() {
+			@Override
+			public Integer extractData(ResultSet rs) throws SQLException, 
+			DataAccessException{
+					if(rs.next()) {
+						return rs.getInt("AUTO_INCREMENT");
+					}
+					return null;
+				}
+		});
 	}
 
 }

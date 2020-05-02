@@ -30,7 +30,7 @@ public class CategoriaController{
 		return new ModelAndView();
 	}
  
-	@RequestMapping(value="/menuAdmin")
+	@RequestMapping(value= "/menuAdmin")
 	public ModelAndView listaCategoria(ModelAndView model) throws IOException{
 		Hashtable<Categoria,List<Alimento>> menu=new Hashtable<Categoria,List<Alimento>>();
 	    List<Categoria> listCat = categoriaDAO.list();
@@ -44,6 +44,16 @@ public class CategoriaController{
 	 
 	    return model;
 	}
+	
+	@RequestMapping(value= "/agregarAlimento")
+	public ModelAndView listaCategoriaAA(ModelAndView model) throws IOException{
+	    List<Categoria> listCat = categoriaDAO.list();
+	    model.addObject("menu", listCat);
+	    model.setViewName("agregarAlimento");
+	 
+	    return model;
+	}
+	
 	@RequestMapping(value = "/agregarCategoria", method = RequestMethod.GET)
 	public ModelAndView agregarCategoria(ModelAndView model) {
 	    Categoria categoria = new Categoria();

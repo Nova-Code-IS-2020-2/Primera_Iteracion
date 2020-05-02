@@ -50,7 +50,7 @@ public class AlimentoControlador {
 	public ModelAndView editarAlimento(HttpServletRequest request) {
 	    int alimId = Integer.parseInt(request.getParameter("id"));
 	    Alimento alimento = alimentoDAO.get(alimId);
-	    ModelAndView model = new ModelAndView("actualizarAlimento");
+	    ModelAndView model = new ModelAndView("editarAlimento");
 	    model.addObject("alimento", alimento);
 	 
 	    return model;
