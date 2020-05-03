@@ -28,22 +28,37 @@
 		<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>    
 		<property name="url" value="jdbc:mysql://localhost:3306/deliexpress"></property>    
 		<property name="username" value="root"></property>    
-		<property name="password" value=""></property>    
+		<property name="password" value="password"></property>    
 	</bean>
 	
 	<bean id="jt" class="org.springframework.jdbc.core.JdbcTemplate">    
 		<property name="dataSource" ref="ds"></property>    
 	</bean> 
 	
-	<bean id="dao" class="com.deliexpress.dao.CategoriaDAO">    
+	<bean id="daocat" class="com.deliexpress.dao.CategoriaDAO">    
 		<property name="template" ref="jt"></property>    
-	</bean>   
+	</bean>     
+	
+	<bean id="daoclient" class="com.deliexpress.dao.ClienteDAO">    
+		<property name="template" ref="jt"></property>    
+	</bean> 
+	
+	<bean id="daoord" class="com.deliexpress.dao.OrdenDAO">    
+		<property name="template" ref="jt"></property>    
+	</bean> 
+	 
 	<bean id="daoc" class="com.deliexpress.dao.CarritoDao">    
 		<property name="template" ref="jt"></property>    
 	</bean> 
+	
 	<bean id="daob" class="com.deliexpress.dao.CuentaDAO">    
 		<property name="template" ref="jt"></property>    
 	</bean>  
+	
+	<bean id="daoal" class="com.deliexpress.dao.AlimentoDAO">
+		<property name="template" ref="jt"></property>
+	</bean>
+
 	<bean id="daoord" class="com.deliexpress.dao.OrdenDAO">    
 		<property name="template" ref="jt"></property>    
 	</bean> 

@@ -169,11 +169,16 @@
 			<label for="direccion">Direccion</label>
 		    <form:input type="text" class="form-control" id="direccion" path="direccion" required="required"/>
 		</div>
+<<<<<<< HEAD
+		<div class="text-center">
+			<button class="btn btn-default active btn-lg" type="submit"value="Actualizar Datos" name="actualizarCuenta">Actualizar Datos</button>
+=======
 		<div class="text-center">
 			 ${message}
 		</div>
 		<div class="text-center">
 			<button class="btn btn-default active btn-lg" type="submit"value="Actualizar Datos" name="actualizarCuenta">Actualizar Datos</button>
+>>>>>>> 147efe101ef8c9488e6a2dd6e48fb20bec416711
 		</div>
 	
 	</form:form>
@@ -181,3 +186,4 @@
 </div>
 </body>
 </html>
+
