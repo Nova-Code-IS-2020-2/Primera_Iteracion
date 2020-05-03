@@ -15,6 +15,7 @@ import org.springframework.jdbc.core.RowMapper;
 import com.deliexpress.model.Cliente;
 import com.deliexpress.model.Repartidor;
 import com.deliexpress.model.Administrador;
+import com.deliexpress.model.Alimento;
 import com.deliexpress.model.Cuenta;
 
 
@@ -138,4 +139,5 @@ public class IniciarSesionDAO {
 		return dirs; 
 
 	}
+	
 }

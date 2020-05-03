@@ -1,17 +1,25 @@
 package com.deliexpress.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Carrito {
 	public float precio;
 	public String nombre;	
 	public int cantidad;
-	
-	public Carrito() {};
+	public List<Alimento> alimentos; 
+	public Carrito() {alimentos = new ArrayList<Alimento>();};
 	public Carrito(float precio, String nombre, int cantidad) {
 		this.cantidad = cantidad;
 		this.nombre = nombre;
 		this.cantidad = cantidad;
 	}
-
+	public List<Alimento> getAlimentos() {
+		return alimentos;
+	}
+	public void agregarAlimento(Alimento a) {
+		alimentos.add(a); 
+	}
 	public float getPrecio() {
 		return precio;
 	}
