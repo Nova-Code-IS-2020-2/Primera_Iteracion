@@ -25,10 +25,7 @@ public class CarritoDao {
 	}  
 	public List<Carrito> muestraCarrito(){
 		System.out.println("MUESTRACARRITO");
-		String sql = "SELECT a1.precio , a1.nombre_alim, c1.cantidad\r\n" + 
-				"FROM contenerordalim AS c1, alimento AS a1, orden, cliente\r\n" + 
-				"where orden.id_orden = c1.orden_id_orden AND cliente.id_cliente = 1\r\n" + 
-				"group by a1.id_alim;";
+		String sql = "SELECT a1.precio , a1.nombre_alim, c1.cantidad FROM contenerordalim AS c1 INNER JOIN alimento AS a1 INNER JOIN orden INNER JOIN cliente ON orden.id_orden = c1.orden_id_orden AND cliente.id_cliente = 1 where id_alim = Alimento_id_alim;";
 		List<Carrito> listaCarrito = template.query(sql, new RowMapper<Carrito>() { 
 			
 			@Override
@@ -59,10 +56,10 @@ public class CarritoDao {
 	}
 	
 	public float precioTotal(int id_carrito) {
-		String sql = "";
-		return template.queryForObject(sql,new Object[] {id_carrito}, Float.class);
-		
-
+		String sql = "SELECT sum(a1.precio * c1.cantidad) as 'precioTotal' FROM contenerordalim AS c1 INNER JOIN alimento AS a1 INNER JOIN orden INNER JOIN cliente ON orden.id_orden = c1.orden_id_orden AND cliente.id_cliente = 1 where id_alim = Alimento_id_alim;";
+		//return template.queryForObject(sql,new Object[] {id_carrito}, Float.class);
+		System.out.println("precioTotal");
+		return template.queryForObject(sql,Float.class);
 	}
 	
 	public int sigId() {

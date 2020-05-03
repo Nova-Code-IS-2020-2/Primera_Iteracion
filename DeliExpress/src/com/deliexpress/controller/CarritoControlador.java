@@ -27,8 +27,9 @@ public class CarritoControlador {
 	@RequestMapping(value="/carrito")
 		public ModelAndView listaCarrito(ModelAndView model,HttpServletRequest request)throws IOException {
 			float precioTotal = 0;
-			//precioTotal = carritoDAO.precioTotal();
+			precioTotal = carritoDAO.precioTotal(1);
 			String precioSalida = precioTotal + "mxn";
+			System.out.println(precioSalida);
 			List<Carrito> listaCarrito = carritoDAO.muestraCarrito();
 		    model.addObject("listaCarrito", listaCarrito);	
 		    model.addObject("precio", precioSalida);
