@@ -59,5 +59,9 @@
 		<property name="template" ref="jt"></property>
 	</bean>
 
+	<bean id="daoord" class="com.deliexpress.dao.OrdenDAO">    
+		<property name="template" ref="jt"></property>    
+	</bean> 
+	   
  
 </beans>

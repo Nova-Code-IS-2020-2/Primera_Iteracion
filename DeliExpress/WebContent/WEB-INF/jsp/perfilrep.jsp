@@ -118,14 +118,13 @@
 </style>
 <script>
 			$(function(){
- 			$("#header").load("menuportatil.html");
+ 			$("#headera").load("portatil.html");
 			});
 		</script>
 		
 </head>
 <body>
-
-<jsp:directive.include file="/menuportatil.html"/>
+<jsp:directive.include file="/menuportatilRepartidor.html"/>
 
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
@@ -133,8 +132,8 @@
 <div class="card mx-auto" style="width: 22rem;">
 <h5 class="card-header text-center">MI PERFIL</h5>
 <div class="card-body">
-	<form:form  action="actualizarCliente" method="post" modelAttribute="cliente">
-		<form:hidden  path="id_cliente"/>
+	<form:form  action="actualizarRep" method="post" modelAttribute="rep">
+		<form:hidden  path="id_repartidor"/>
 		<div class="form-group">
 			<label for="name">Nombre</label>
 		    <form:input type="text" class="form-control" id="name" path="Nombre" required="required"/>
@@ -156,29 +155,13 @@
 		</div>
 		<div class="form-group">
 			<label for="contr">Contraseña</label>
-		    <form:input type="text" class="form-control" id="contr" path="contr" required="required" />
+		    <form:input type="password" class="form-control" id="contr" path="contr" required="required" />
 		</div>
-		<div class="form-group">
-			<label for="telefono">Telefono</label>
-		    <form:input type="text" class="form-control" id="telefono" path="telefono" required="required"/>
-			<small id="HelpBlock" class="form-text text-muted">
-				Introduce un teléfono de máximo 8 caracteres
-			</small>
-		</div>
-		<div class="form-group">
-			<label for="direccion">Direccion</label>
-		    <form:input type="text" class="form-control" id="direccion" path="direccion" required="required"/>
-		</div>
-<<<<<<< HEAD
-		<div class="text-center">
-			<button class="btn btn-default active btn-lg" type="submit"value="Actualizar Datos" name="actualizarCuenta">Actualizar Datos</button>
-=======
 		<div class="text-center">
 			 ${message}
 		</div>
 		<div class="text-center">
 			<button class="btn btn-default active btn-lg" type="submit"value="Actualizar Datos" name="actualizarCuenta">Actualizar Datos</button>
->>>>>>> 147efe101ef8c9488e6a2dd6e48fb20bec416711
 		</div>
 	
 	</form:form>
@@ -186,4 +169,3 @@
 </div>
 </body>
 </html>
-

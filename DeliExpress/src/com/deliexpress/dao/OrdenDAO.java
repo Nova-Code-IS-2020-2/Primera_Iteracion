@@ -12,18 +12,18 @@ import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.jdbc.core.RowMapper;
 
 import com.deliexpress.beans.Orden;
-
+import com.deliexpress.model.Categoria;
 
 public class OrdenDAO {
 	
 	private JdbcTemplate template;
-	
+
 	public OrdenDAO(DataSource datasource) {
 		this.template=new JdbcTemplate(datasource);
 	}
     
 	public void setTemplate(JdbcTemplate template) {    
-	    this.template = template;    
+	    this.template = template; 
 	} 
 	
 	public List<Orden> list(){
@@ -68,4 +68,10 @@ public class OrdenDAO {
 	    });
 	}
 
+	}
+	public int updateRepartidor(int idOrden,int idRepartidor){    
+	    String sql="update Orden set Repartidor_id_repartidor=? , estado=\"enproceso\" "
+	    		+ "where id_orden=?";    
+	    return template.update(sql,idRepartidor,idOrden);    
+	}    
 }

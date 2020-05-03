@@ -3,57 +3,67 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
     "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-<title>agregarCategoria</title>
-
-<link rel="stylesheet" href="css/bootstrap.min.css">
-<!---- boostrap.min link local ----->
-
-<link rel="stylesheet" href="css/style.css">
-<!---- boostrap.min link local ----->
-
-<script src="js/bootstrap.min.js"></script>
-<!---- Boostrap js link local ----->
-
-<link rel="icon" href="images/icon.png" type="image/x-icon" />
-<!---- Icon link local ----->
-
-<link href="https://fonts.googleapis.com/css?family=Lobster"
-	rel="stylesheet">
-<!---- Font awesom link local ----->
-<script type="text/javascript"
-	src="/bower_components/jquery/jquery.min.js"></script>
-<script type="text/javascript"
-	src="/bower_components/moment/min/moment.min.js"></script>
-<script type="text/javascript"
-	src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-<script type="text/javascript"
-	src="/bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
-<link rel="stylesheet"
-	href="/bower_components/bootstrap/dist/css/bootstrap.min.css" />
-<link rel="stylesheet"
-	href="/bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" />
+<html style="font-family: ABeeZee, sans-serif;font-size: 20px;">
 <style type="text/css">
-body{
-background: url(cr120-melon.jpg) no-repeat center center fixed;
--webkit-background-size: cover;
--moz-background-size: cover;
--o-background-size: cover;
-background-size: cover;
+body {
+  margin: 0;
+  font-family: ABeeZee, sans-serif;
+  font-size: 20px;
+  color: #bd6d10;
+  text-align: left;
+  background-color: #ffffff;
+}
+.h1, h1 {
+  color: #bd6d10;
+}
+.page-name {
+  text-align: center;
+  padding: 60px 0;
+}
+form {
+}
+.cat-alim {
+  color: #6C3313;
+}
+.border.rounded-0.id-input {
+	border: 1px solid #6c3313!important;
+	border-style: groove;
+}
+.nombre {
+  font-family: SeoulNamsan CBL;
+  font-style: normal;
+  font-weight: normal;
+  color: #6c3313;
+}
+.id_cat {
+  color: #6C3313;
+  font-family: SeoulNamsan CBL;
+  font-style: normal;
+  font-weight: normal;
+}
+.border {
+  border: 1px solid #6c3313!important;
+  border-style: groove;
 }
 </style>
-
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Crear Categoría</title>
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script> 
+	$(function(){
+  	$("#header").load("menuportatil.html");
+	});
+</script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=ABeeZee">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abhaya+Libre">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Actor">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Amiko">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 </head>
-
-<body  >
-
-	
-<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
 <body>
     <div id="header"></div>
@@ -77,4 +87,5 @@ background-size: cover;
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
 </body>
+
 </html>

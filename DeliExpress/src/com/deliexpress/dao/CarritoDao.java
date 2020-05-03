@@ -25,10 +25,12 @@ public class CarritoDao {
 	}  
 	public List<Carrito> muestraCarrito(){
 		System.out.println("MUESTRACARRITO");
+		
 		String sql = "SELECT a1.precio, a1.nombre_alim, c1.cantidad\r\n" + 
 				"FROM ContenerOrdAlim AS c1, Alimento AS a1, Orden, Cliente\r\n" + 
 				"where Orden.id_orden = c1.Orden_id_orden AND Cliente.id_cliente = 3 "
 				+ "group by a1.id_alim;";
+		
 		List<Carrito> listaCarrito = template.query(sql, new RowMapper<Carrito>() { 
 			
 			@Override
@@ -38,7 +40,7 @@ public class CarritoDao {
 				 	System.out.println("mapRow");
 				 	
 				 	
-		            aCat.setPrecio(rs.getFloat("precio_al"));
+		            aCat.setPrecio(rs.getFloat("precio"));
 		            aCat.setNombre(rs.getString("nombre_alim"));
 		            aCat.setCantidad(rs.getInt("cantidad"));
 		            System.out.println(aCat.toString());
@@ -49,5 +51,33 @@ public class CarritoDao {
 		    return listaCarrito;
 	}
 	
+	public void aumentar(int id_orden, String alim) {
+		String sql = "CALL aumentar(1,?)" ;
+		template.update(sql,alim);
+	}
+	public void disminuir(int id_orden, String alim) {
+		String sql = "CALL disminuir(1,?)" ;
+		template.update(sql,alim);
+	}
 	
+	public float precioTotal(int id_carrito) {
+		String sql = "";
+		return template.queryForObject(sql,new Object[] {id_carrito}, Float.class);
+		
+
+	}
+	
+	public int sigId() {
+		String sql = "select AUTO_INCREMENT " + "from information_schema.TABLES " + "where TABLE_SCHEMA = \"deliexpress\" " + "and table_name = \"cliente\"";
+		return template.query(sql, new ResultSetExtractor<Integer>() {
+			@Override
+			public Integer extractData(ResultSet rs) throws SQLException, 
+			DataAccessException{
+					if(rs.next()) {
+						return rs.getInt("AUTO_INCREMENT");
+					}
+					return null;
+				}
+		});
+	}
 }
