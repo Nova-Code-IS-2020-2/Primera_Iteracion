@@ -27,20 +27,31 @@ public class CarritoControlador {
 	@RequestMapping(value="/carrito")
 		public ModelAndView listaCarrito(ModelAndView model,HttpServletRequest request)throws IOException {
 			float precioTotal = 0;
+			//Cambiar por id de carrito
 			precioTotal = carritoDAO.precioTotal(1);
 			String precioSalida = precioTotal + "mxn";
 			System.out.println(precioSalida);
 			List<Carrito> listaCarrito = carritoDAO.muestraCarrito();
-		    model.addObject("listaCarrito", listaCarrito);	
+			
+			model.addObject("listaCarrito", listaCarrito);	
 		    model.addObject("precio", precioSalida);
 		    model.setViewName("carrito");
 		    return model;
 		}
 	
+	@RequestMapping(value="/vaciarCarrito")
+	public ModelAndView vaciarCarrito(ModelAndView model,HttpServletRequest request)throws IOException {
+		float precioTotal = 0;
+		//cambiar por id orden
+		carritoDAO.vaciarCarrito(1);
+		return new ModelAndView("redirect:/carrito");
+	}
+	
 	@RequestMapping(value="/disminuir", method = RequestMethod.GET)
 	public ModelAndView disminuir(HttpServletRequest request)throws IOException {
 		String nom = request.getParameter("nom");
 		System.out.println("DISMININUIR EN " + nom);
+		//cambiar por id orden
 		carritoDAO.disminuir(1,nom);
 		return new ModelAndView("redirect:/carrito");
 	}
@@ -49,7 +60,7 @@ public class CarritoControlador {
 	public ModelAndView aumentar(HttpServletRequest request)throws IOException {
 		String nom = request.getParameter("nom");
 		System.out.println("AUMENTAR EN " + nom);
-		//carritoDAO.aumentar(id_orden,nom);
+		//cambiar por id orden
 		carritoDAO.aumentar(1,nom);
 		return new ModelAndView("redirect:/carrito");
 	}

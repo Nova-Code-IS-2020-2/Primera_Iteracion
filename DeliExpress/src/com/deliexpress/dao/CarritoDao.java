@@ -59,7 +59,18 @@ public class CarritoDao {
 		String sql = "SELECT sum(a1.precio * c1.cantidad) as 'precioTotal' FROM contenerordalim AS c1 INNER JOIN alimento AS a1 INNER JOIN orden INNER JOIN cliente ON orden.id_orden = c1.orden_id_orden AND cliente.id_cliente = 1 where id_alim = Alimento_id_alim;";
 		//return template.queryForObject(sql,new Object[] {id_carrito}, Float.class);
 		System.out.println("precioTotal");
-		return template.queryForObject(sql,Float.class);
+		float pt = 0;
+		try {
+			return template.queryForObject(sql,Float.class);
+		}catch(Exception e) {
+			
+		}
+		return pt;
+	}
+	
+	public void vaciarCarrito(int id_carrito) {
+		String sql = "CALL vaciarCarrito(?)" ;
+		template.update(sql,id_carrito);
 	}
 	
 	public int sigId() {
