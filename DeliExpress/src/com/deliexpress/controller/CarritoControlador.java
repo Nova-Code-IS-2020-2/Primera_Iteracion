@@ -84,14 +84,8 @@ public class CarritoControlador {
 		HttpSession s = request.getSession(); 
 		Carrito carrito = (Carrito) s.getAttribute("carrito"); 
 		//eliminar del carrito 
-		Iterator<Alimento> it = carrito.getAlimentos().iterator(); 
-		while(it.hasNext()) {
-			Alimento al = (Alimento)it.next(); 
-			if(al.getId() == idAlim) {
-				it.remove();
-			}
-		}
-		ModelAndView mav = new ModelAndView("verCarritoIH"); 
+		carrito.getAlimentos().remove(idAlim);
+		ModelAndView mav = new ModelAndView("redirect:/carrito"); 
 		return mav; 
 	}
 	@RequestMapping(value="/comprarComida",method=RequestMethod.GET)

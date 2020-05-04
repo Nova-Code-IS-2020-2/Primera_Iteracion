@@ -66,7 +66,6 @@ public class IniciarSesion extends HttpServlet{
         	    	alimentos=alimentoDAO.list(cat.getId());
         	    	menu.put(cat,alimentos);
         	    }
-        	    mav.addObject("menu", menu);
                 Carrito carrito = new Carrito(); 
                 session.setAttribute("carrito", carrito);
                 session.setAttribute("menu", menu);
