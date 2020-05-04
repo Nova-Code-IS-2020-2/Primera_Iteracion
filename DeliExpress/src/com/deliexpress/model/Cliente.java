@@ -54,8 +54,8 @@ public class Cliente extends Cuenta{
 	public void setEmail(String email) {
 		this.email=email;
 	}
-	public void setContraseÃ±a(String contraseÃ±a) {
-		this.contr=contraseÃ±a;
+	public void setContraseña(String contraseña) {
+		this.contr=contraseña;
 	}
 	public int getId() {
 		return id_cliente;
@@ -72,7 +72,7 @@ public class Cliente extends Cuenta{
 	public String getEmail() {
 		return email;
 	}
-	public String getContraseÃ±a() {
+	public String getContraseña() {
 		return contr;
 	}
 }

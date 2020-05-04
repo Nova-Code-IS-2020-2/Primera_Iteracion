@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.deliexpress.beans.Alimento;
+import com.deliexpress.model.Alimento;
 import com.deliexpress.dao.AlimentoDAO;
 
 import java.io.IOException;

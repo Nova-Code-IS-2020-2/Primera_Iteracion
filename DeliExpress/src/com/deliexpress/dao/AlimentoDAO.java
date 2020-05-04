@@ -11,7 +11,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.jdbc.core.RowMapper;
 
-import com.deliexpress.beans.Alimento;
+import com.deliexpress.model.Alimento;
 
 public class AlimentoDAO {
 	
@@ -72,7 +72,6 @@ private JdbcTemplate template;
 	                alimento.setNombre(rs.getString("nombre_alim"));
 	                return alimento;
 	            }
-	 
 	            return null;
 	        }
 	 

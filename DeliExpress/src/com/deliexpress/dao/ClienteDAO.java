@@ -39,7 +39,7 @@ public class ClienteDAO {
 	                cliente.setApPat(rs.getString("ap_pat"));
 	                cliente.setApMat(rs.getString("ap_mat"));
 	                cliente.setEmail(rs.getString("email"));
-	                cliente.setContraseña(rs.getString("contr"));
+	                cliente.setContr(rs.getString("contr"));
 	                cliente.setTelefono(rs.getString("telefono"));
 	                cliente.setDireccion(rs.getString("direccion"));
 	                return cliente;

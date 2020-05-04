@@ -1,7 +1,9 @@
 package com.deliexpress.controller;
 import java.io.IOException;
+import java.util.Hashtable;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,16 +16,24 @@ import java.sql.SQLException;
  
 import javax.servlet.*;
 import javax.servlet.http.*;
+
+import com.deliexpress.dao.AlimentoDAO;
+import com.deliexpress.dao.CategoriaDAO;
 import com.deliexpress.dao.IniciarSesionDAO;
 import com.deliexpress.model.Cliente;
 import com.deliexpress.model.Repartidor;
 import com.deliexpress.model.Administrador;
+import com.deliexpress.model.Alimento;
 import com.deliexpress.model.Carrito;
 
 @Controller
 public class IniciarSesion extends HttpServlet{
  
 	private static final long serialVersionUID = 1L;
+	@Autowired 
+	AlimentoDAO alimentoDAO; 
+	@Autowired 
+	CategoriaDAO categoriaDAO; 
 	 
     public IniciarSesion() {
         super();
@@ -49,7 +59,18 @@ public class IniciarSesion extends HttpServlet{
             if (cliente != null) {
             	HttpSession session = request.getSession();
                 session.setAttribute("cliente", cliente);
-            	 mav = new ModelAndView("menucliente");
+                Hashtable<Categoria,List<Alimento>> menu=new Hashtable<Categoria,List<Alimento>>();
+        	    List<Categoria> listCat = categoriaDAO.list();
+        	    List<Alimento> alimentos;
+        	    for(Categoria cat:listCat) {
+        	    	alimentos=alimentoDAO.list(cat.getId());
+        	    	menu.put(cat,alimentos);
+        	    }
+        	    mav.addObject("menu", menu);
+                Carrito carrito = new Carrito(); 
+                session.setAttribute("carrito", carrito);
+                session.setAttribute("menu", menu);
+            	mav = new ModelAndView("menucliente");
                 
             } else if(admin != null){
             	HttpSession session = request.getSession();
@@ -58,6 +79,8 @@ public class IniciarSesion extends HttpServlet{
             }else if(rep != null) {
             	HttpSession session = request.getSession();
                 session.setAttribute("rep", rep);
+                List<String[]> dirs = isDAO.dirIdOrd(); 
+                session.setAttribute("dirs",dirs );
             	mav = new ModelAndView("seleccionarcomida");
             }else {
             	String message = "email/contraseña Invalido ";

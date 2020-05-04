@@ -236,6 +236,24 @@ public class CuentaDAO {
 	        }
 	    });
 	}
+	//para obtener la lista de direcciones con id de la cuenta 
+	public List<String[]> dirIdOrd(){
+		String sql = "select id_orden , cliente.direccion " + 
+				"from orden  " + 
+				"inner join cliente " + 
+				"on orden.Cliente_id_cliente = cliente.id_cliente where estado = \"listo\";"; 
+		List<String[]> listaDir= template.query(sql, new RowMapper<String[]>() {
+			 @Override
+		        public String[] mapRow(ResultSet rs, int rowNum) throws SQLException { 
+					String[] tmp = new String[2]; 
+				 	tmp[0] = rs.getString("direccion"); 
+				 	tmp[1] = rs.getString("id_orden"); 
+		            return tmp;
+			 }
+		 
+		});
+		    return listaDir;
+	}
 	
 }
 	    

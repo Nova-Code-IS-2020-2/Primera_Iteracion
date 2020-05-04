@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.deliexpress.model.Categoria;
 import com.deliexpress.dao.CategoriaDAO;
-import com.deliexpress.beans.Alimento;
+import com.deliexpress.model.Alimento;
 import com.deliexpress.dao.AlimentoDAO;
 
 import java.util.List;
