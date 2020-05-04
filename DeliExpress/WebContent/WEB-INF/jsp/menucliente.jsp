@@ -69,5 +69,22 @@
         <b>${cliente.getDireccion()} ${cliente.getTelefono()}</b>
         <a href="/logout">Logout</a>
     </div>
+     <div align="center">
+            <h1>Tenemos los siguientes alimentos</h1>
+            <table border="1">
+                <th>Alimento</th> 
+                <th></th> 
+                <c:forEach var="al" items="${alims}" varStatus="status">
+                <tr>
+                    <td>${al.getNombre()}</td>
+                    <td>
+                        <a href="/DeliExpress/agregarCarrito?id_alim=${al.getId()}">Seleccionar</a>
+                    </td>
+                             
+                </tr>
+                </c:forEach>             
+            </table>
+             <a href="/DeliExpress/verCarrito">Seleccionar</a>
+        </div>
 </body>
 </html>

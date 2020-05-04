@@ -44,7 +44,12 @@
 	<bean id="daob" class="com.deliexpress.dao.CuentaDAO">    
 		<property name="template" ref="jt"></property>    
 	</bean>  
-	     
+	<bean id="daoord" class="com.deliexpress.dao.OrdenDAO">    
+		<property name="template" ref="jt"></property>    
+	</bean> 
+	<bean id="daoalim" class="com.deliexpress.dao.AlimentoDAO">    
+		<property name="template" ref="jt"></property>    
+	</bean> 
 	   
  
 </beans>

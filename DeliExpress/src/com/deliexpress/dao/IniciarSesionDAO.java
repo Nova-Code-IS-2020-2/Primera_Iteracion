@@ -1,9 +1,11 @@
 package com.deliexpress.dao;
 
-import java.sql.*;    
+import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;   
 import javax.sql.*;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;    
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -13,12 +15,12 @@ import org.springframework.jdbc.core.RowMapper;
 import com.deliexpress.model.Cliente;
 import com.deliexpress.model.Repartidor;
 import com.deliexpress.model.Administrador;
+import com.deliexpress.model.Alimento;
 import com.deliexpress.model.Cuenta;
 
 
 public class IniciarSesionDAO {
-	
-	
+
 	public Cliente checkLogin(String email, String password) throws SQLException, ClassNotFoundException {
 			String jdbcURL = "jdbc:mysql://localhost:3306/deliexpress";
 			String dbUser = "root";
@@ -112,4 +114,30 @@ public class IniciarSesionDAO {
 		System.out.println("CHECKLOGIN ADMIN");
 		return admin;
 	}
+	//para obtener la lista de direcciones con id de la cuenta 
+	//y ser pasados a la pagina principal del repartidor 
+	public List<String[]> dirIdOrd()  throws SQLException, ClassNotFoundException {
+		String jdbcURL = "jdbc:mysql://localhost:3306/deliexpress";
+		String dbUser = "root";
+		String dbPassword = "";
+		Class.forName("com.mysql.jdbc.Driver");
+		Connection connection = DriverManager.getConnection(jdbcURL, dbUser, dbPassword);
+		String sql = "select id_orden , cliente.direccion " + 
+				"from orden  " + 
+				"inner join cliente " + 
+				"on orden.Cliente_id_cliente = cliente.id_cliente where estado = \"lista\";"; 
+		PreparedStatement statement = connection.prepareStatement(sql);		
+		ResultSet result = statement.executeQuery();
+		List<String[]> dirs = new ArrayList<String[]>(); 
+		while(result.next()){
+			String[] temp = new String[2];
+			temp[0] = result.getString("cliente.direccion"); 
+			temp[1] = result.getString("id_orden"); 
+			dirs.add(temp); 
+		}
+		connection.close(); 
+		return dirs; 
+
+	}
+	
 }

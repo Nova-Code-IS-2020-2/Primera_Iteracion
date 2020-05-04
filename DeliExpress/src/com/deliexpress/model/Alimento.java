@@ -15,6 +15,10 @@ public class Alimento {
 		this.precio = precio;
 	} 
 	
+	public Alimento() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public int getId() {
 		return id;
 	}
