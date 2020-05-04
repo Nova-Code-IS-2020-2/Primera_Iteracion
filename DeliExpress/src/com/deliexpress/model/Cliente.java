@@ -2,9 +2,14 @@ package com.deliexpress.model;
 
 public class Cliente extends Cuenta{
 
-	public int id_cliente;
-	public String direccion;
-	public String telefono;
+	private  int id_cliente;
+	private String nombre;
+	private String ap_pat;
+	private String ap_mat;
+	private String email;
+	private String contr;
+	private String telefono;
+	private String direccion;
 	
 	public Cliente() {}
 	
@@ -35,5 +40,39 @@ public class Cliente extends Cuenta{
 	}
 	public void setTelefono(String telefono) {
 		this.telefono = telefono;
+	}
+	public void setNombre(String nombre) {
+		this.nombre=nombre;
+	}
+	
+	public void setApPat(String apPat) {
+		this.ap_pat=apPat;
+	}
+	public void setApMat(String apMat) {
+		this.ap_mat=apMat;
+	}
+	public void setEmail(String email) {
+		this.email=email;
+	}
+	public void setContraseña(String contraseña) {
+		this.contr=contraseña;
+	}
+	public int getId() {
+		return id_cliente;
+	}
+	public String getNombre() {
+		return nombre;
+	}
+	public String getApPat() {
+		return ap_pat;
+	}
+	public String getApMat() {
+		return ap_mat;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public String getContraseña() {
+		return contr;
 	}
 }

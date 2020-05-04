@@ -6,6 +6,12 @@
 <html style="font-family: ABeeZee, sans-serif;font-size: 20px;">
 <style type="text/css">
 body {
+
+  background: url(cr120-melon.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
   margin: 0;
   font-family: ABeeZee, sans-serif;
   font-size: 20px;
@@ -89,3 +95,4 @@ form {
 </body>
 
 </html>
+

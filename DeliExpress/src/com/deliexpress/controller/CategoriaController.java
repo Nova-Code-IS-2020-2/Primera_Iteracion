@@ -8,8 +8,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.deliexpress.model.Categoria;
 import com.deliexpress.dao.CategoriaDAO;
+import com.deliexpress.model.Alimento;
+import com.deliexpress.dao.AlimentoDAO;
 
 import java.util.List;
+import java.util.Hashtable;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -19,16 +22,24 @@ public class CategoriaController{
 	
 	@Autowired
     private CategoriaDAO categoriaDAO;
+	@Autowired
+    private AlimentoDAO alimentoDAO;
 	
-	@RequestMapping("/principalAdmin")
+	@RequestMapping(value="/principalAdmin")
 	public ModelAndView principalAdmin() {
 		return new ModelAndView();
 	}
  
 	@RequestMapping(value="/menuAdmin")
 	public ModelAndView listaCategoria(ModelAndView model) throws IOException{
+		Hashtable<Categoria,List<Alimento>> menu=new Hashtable<Categoria,List<Alimento>>();
 	    List<Categoria> listCat = categoriaDAO.list();
-	    model.addObject("listCat", listCat);
+	    List<Alimento> alimentos;
+	    for(Categoria cat:listCat) {
+	    	alimentos=alimentoDAO.list(cat.getId());
+	    	menu.put(cat,alimentos);
+	    }
+	    model.addObject("menu", menu);
 	    model.setViewName("menuAdmin");
 	 
 	    return model;
@@ -67,6 +78,4 @@ public class CategoriaController{
 	 
 	    return model;
 	}
-	
-	
 }
