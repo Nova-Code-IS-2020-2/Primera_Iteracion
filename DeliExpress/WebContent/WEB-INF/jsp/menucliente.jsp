@@ -105,7 +105,7 @@
                   </c:forEach>
               </tbody>
           </table>
-          <a  href="DeliExpress/carrito" class="btn btn-primary border rounded shadow-sm" role="button" style="color: #6c3313; background-color: #ffffff; border: 1px solid #6c3313!important; ">Carrito</a>
+          <a  href="carrito" class="btn btn-primary border rounded shadow-sm" role="button" style="color: #6c3313; background-color: #ffffff; border: 1px solid #6c3313!important; ">Carrito</a>
           				
       </div>
       </div>

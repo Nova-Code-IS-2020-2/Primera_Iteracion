@@ -70,6 +70,8 @@ private JdbcTemplate template;
 	                Alimento alimento = new Alimento();
 	                alimento.setId(rs.getInt("id_alim"));
 	                alimento.setNombre(rs.getString("nombre_alim"));
+	                alimento.setPrecio(rs.getFloat("precio"));
+	                alimento.setCategoria(rs.getInt("Categoria_id_cat"));
 	                return alimento;
 	            }
 	            return null;

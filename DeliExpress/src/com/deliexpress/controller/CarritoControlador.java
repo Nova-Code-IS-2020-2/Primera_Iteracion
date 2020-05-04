@@ -69,6 +69,7 @@ public class CarritoControlador {
 		  HttpSession s = request.getSession();
 		  Carrito carrito = (Carrito) s.getAttribute("carrito"); 
 		  carrito.agregarAlimento(alimentoDAO.get(idAlim)); 
+		  System.out.println(alimentoDAO.get(idAlim).getPrecio());
 		  System.out.println("el carrito tiene " + carrito.alimentos.size()); 
 		  ModelAndView mav = new ModelAndView("menucliente");
 		  return mav; 

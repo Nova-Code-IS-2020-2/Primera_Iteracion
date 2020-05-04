@@ -89,16 +89,16 @@
                       <th class="border border-light shadow-sm" style="color:#6C3313 ;background-color: #ffffff;">Menos</th>
                   </tr>
                  
-                <c:forEach var="carrito" items="${listaCarrito}" varStatus="status">
+                <c:forEach var="alimento" items="${carrito.getAlimentos()}" varStatus="status">
                 <tr>
-                    <td style="border: 1px solid #ffffff!important;">${carrito.getPrecio()}</td>
-                      <td style="border: 1px solid #ffffff!important;">${carrito.getNombre()}</td>
-                      <td style="border: 1px solid #ffffff!important;">${carrito.getCantidad()}</td>
+                    <td style="border: 1px solid #ffffff!important;">${alimento.getPrecio()}</td>
+                      <td style="border: 1px solid #ffffff!important;">${alimento.getNombre()}</td>
+                      <td style="border: 1px solid #ffffff!important;"></td>
                     <td style="border: 1px solid #ffffff!important;" align="center" color: #fff;>
-                          <a href="/DeliExpress/aumentar?nom=${carrito.getNombre()}">+</a></td>
+                          <a href="/DeliExpress/aumentar?nom=${alimento.getNombre()}">+</a></td>
                           &nbsp;&nbsp;&nbsp;&nbsp;
                        <td style="border: 1px solid #ffffff!important;" align="center" color: #fff;>
-                          <a href="/DeliExpress/disminuir?nom=${carrito.getNombre()}">-</a></td>
+                          <a href="/DeliExpress/disminuir?nom=${alimento.getNombre()}">-</a></td>
                              
                 </tr>
                 </c:forEach>             
