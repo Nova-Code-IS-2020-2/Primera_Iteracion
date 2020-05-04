@@ -2,49 +2,42 @@ package com.deliexpress.model;
 
 public class Orden {
 	
-	private int idOrden;
-	private int idRepartidor;
-	private int idCliente;
+	private int id_orden;
 	private float precio;
+	private int id_repartidor;
+	private int id_cliente;
 	
-	public Orden(int idOrden, int idRepartidor, int idCliente, float precio) {
-		this.idCliente = idCliente;
-		this.idOrden = idOrden;
-		this.idRepartidor = idRepartidor;
-		this.precio = precio;
-		
+	public void setId(int id ){
+		this.id_orden=id;
 	}
-
-	public int getIdOrden() {
-		return idOrden;
+	
+	public void setPrecio(float precio) {
+		this.precio=precio;
 	}
-
-	public void setIdOrden(int idOrden) {
-		this.idOrden = idOrden;
+	
+	public void setRepartidor(int id_repartidor) {
+		this.id_repartidor=id_repartidor;
 	}
-
-	public int getIdRepartidor() {
-		return idRepartidor;
+	
+	public void setCliente(int id_cliente) {
+		this.id_cliente=id_cliente;
 	}
-
-	public void setIdRepartidor(int idRepartidor) {
-		this.idRepartidor = idRepartidor;
+	
+	public int getId() {
+		return id_orden;
 	}
-
-	public int getIdCliente() {
-		return idCliente;
-	}
-
-	public void setIdCliente(int idCliente) {
-		this.idCliente = idCliente;
-	}
-
+	
 	public float getPrecio() {
 		return precio;
 	}
-
-	public void setPrecio(float precio) {
-		this.precio = precio;
+	
+	public int getRepartidor() {
+		return id_repartidor;
 	}
 	
+	public int getCliente() {
+		return id_cliente;
+	}
+
 }
+

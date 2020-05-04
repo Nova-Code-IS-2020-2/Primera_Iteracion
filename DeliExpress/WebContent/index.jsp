@@ -8,10 +8,10 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-<title>Index</title>
+<title>DeliExpress</title>
 </head>
 <body>
-<div class="container">
+	<div class="container">
 
 	<div style="background:black !important" class="jumbotron jumbotron-fluid text-center">
 	
@@ -20,21 +20,18 @@
 	
 		<table class="table table-light table-striped" border="1" width="100%">
 			<tr >
-				<td align="center"><a href="welcome.jsp">Welcome</a></td>			
-			</tr>
-			<tr >
 				<td align="center"><a href="iniciarSesion">Iniciar Sesion</a></td>			
-			</tr>
-			<tr >
-				<td align="center"><a href="menuportatil.html">Menu Portatil</a></td>
-			</tr>
-			<tr >
-				<td align="center"><a href="agregarCategoria">Agregar Categoria</a></td>
 			</tr>
 			<tr >
 				<td align="center"><a href="carrito">Carrito</a></td>			
 			</tr>
-		</table>
+			<tr>
+				<td align="center"><a href="/DeliExpress/principalAdmin">Principal Admin</a></td>
+			</tr>
+			<tr>
+				<td align="center"><a href="/DeliExpress/ordenes">Ver Ordenes Rep</a></td>
+			</tr>
+		</table></div>
 
 	
 	

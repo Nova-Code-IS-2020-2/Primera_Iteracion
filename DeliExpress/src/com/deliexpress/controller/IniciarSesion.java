@@ -1,5 +1,6 @@
 package com.deliexpress.controller;
 import java.io.IOException;
+import java.util.Hashtable;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 
 import com.deliexpress.dao.AlimentoDAO;
+import com.deliexpress.dao.CategoriaDAO;
 import com.deliexpress.dao.IniciarSesionDAO;
 import com.deliexpress.model.Cliente;
 import com.deliexpress.model.Repartidor;
@@ -30,6 +32,8 @@ public class IniciarSesion extends HttpServlet{
 	private static final long serialVersionUID = 1L;
 	@Autowired 
 	AlimentoDAO alimentoDAO; 
+	@Autowired 
+	CategoriaDAO categoriaDAO; 
 	 
     public IniciarSesion() {
         super();
@@ -55,10 +59,16 @@ public class IniciarSesion extends HttpServlet{
             if (cliente != null) {
             	HttpSession session = request.getSession();
                 session.setAttribute("cliente", cliente);
-                List<Alimento> alims = alimentoDAO.alimentos(); 
+                Hashtable<Categoria,List<Alimento>> menu=new Hashtable<Categoria,List<Alimento>>();
+        	    List<Categoria> listCat = categoriaDAO.list();
+        	    List<Alimento> alimentos;
+        	    for(Categoria cat:listCat) {
+        	    	alimentos=alimentoDAO.list(cat.getId());
+        	    	menu.put(cat,alimentos);
+        	    }
                 Carrito carrito = new Carrito(); 
                 session.setAttribute("carrito", carrito);
-                session.setAttribute("alims", alims);
+                session.setAttribute("menu", menu);
             	mav = new ModelAndView("menucliente");
                 
             } else if(admin != null){
