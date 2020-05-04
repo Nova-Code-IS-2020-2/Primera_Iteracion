@@ -73,7 +73,7 @@
         <div class="btn-group" role="group">
           <a  href="/DeliExpress/agregarCategoria"
             class="btn btn-primary border rounded shadow-sm" role="button" style="color: #6c3313; background-color: #ffffff; border: 1px solid #6c3313!important; ">Vaciar</a>
-          <a class="btn btn-primary border rounded shadow-sm" role="button" style="color: #6c3313; background-color: #ffffff; border: 1px solid #6c3313!important;">Ordenar</a></div>
+          <a href="/DeliExpress/comprarComida" class="btn btn-primary border rounded shadow-sm" role="button" style="color: #6c3313; background-color: #ffffff; border: 1px solid #6c3313!important;">Ordenar</a></div>
 
           <div class="btn-group" role="group"></div>
       </div>     
