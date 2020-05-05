@@ -138,22 +138,22 @@
 		<form:hidden  path="id_cliente" />
 		<div class="form-group">
 			<label for="name">Nombre</label>
-		    <form:input type="text" class="form-control" path="Nombre" required="required"/>
+		    <form:input type="text" class="form-control" maxlength="45" path="Nombre" required="required"/>
 		</div>
 		
 		<div class="form-group">
 			<label for="ap_pat">Apellido Paterno</label>
-		    <form:input type="text" class="form-control"  path="ap_pat" required="required"/>
+		    <form:input type="text" class="form-control" maxlength="45"  path="ap_pat" required="required"/>
 		</div>
 		
 		<div class="form-group">
 			<label for="ap_mat">Apellido Materno</label>
-		    <form:input type="text" class="form-control"  path="ap_mat" required="required"/>
+		    <form:input type="text" class="form-control" maxlength="45" path="ap_mat" required="required"/>
 		</div>
 		
 		<div class="form-group">
 			<label for="email">Dirección De correo electronico</label>
-		    <form:input type="email" class="form-control"  path="email" required="required"/>
+		    <form:input type="email" class="form-control" maxlength="45" path="email" required="required"/>
 			<small id="HelpBlock" class="form-text text-muted">
 				Introduce un email nuevo
 			</small>
@@ -161,12 +161,12 @@
 		
 		<div class="form-group">
 			<label for="contr">Contraseña</label>
-		    <form:input type="text" class="form-control"  path="contr" required="required" />
+		    <form:input type="text" class="form-control" maxlength="8" path="contr" required="required" />
 		</div>
 		
 		<div class="form-group">
 			<label for="telefono">Telefono</label>
-		    <form:input type="text" class="form-control"  path="telefono" required="required"/>
+		    <form:input type="text" class="form-control" maxlength="8" path="telefono" required="required"/>
 			<small id="HelpBlock" class="form-text text-muted">
 				Introduce un teléfono de máximo 8 caracteres
 			</small>
@@ -174,7 +174,7 @@
 		
 		<div class="form-group">
 			<label for="direccion">Direccion</label>
-		    <form:input type="text" class="form-control"  path="direccion" required="required"/>
+		    <form:input type="text" class="form-control" maxlength="100" path="direccion" required="required"/>
 		</div>
 		<div class="text-center">
 			 ${message}

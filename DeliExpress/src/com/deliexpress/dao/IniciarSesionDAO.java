@@ -23,38 +23,39 @@ public class IniciarSesionDAO {
 
 
 	public Cliente checkLogin(String email, String password) throws SQLException, ClassNotFoundException {
-			String jdbcURL = "jdbc:mysql://localhost:3306/deliexpress";
-			String dbUser = "root";
-			String dbPassword = "deliPollo04";
-			
-			Class.forName("com.mysql.jdbc.Driver");
-			Connection connection = DriverManager.getConnection(jdbcURL, dbUser, dbPassword);
-			String sql = "select * from Cliente where email = ? && contr = ?";
-			PreparedStatement statement = connection.prepareStatement(sql);
-			statement.setString(1, email);
-			statement.setString(2, password);
-			
-			ResultSet result = statement.executeQuery();
-			
-			Cliente cliente = null;
+		String jdbcURL = "jdbc:mysql://localhost:3306/deliexpress";
+		String dbUser = "root";
+		String dbPassword = "deliPollo04";
 		
-			if (result.next()) {
-			    cliente = new Cliente();
-			    cliente.setId_cliente(result.getInt("id_cliente"));
-			    cliente.setNombre(result.getString("nombre"));
-			    cliente.setAp_mat(result.getString("ap_mat"));
-			    cliente.setAp_pat(result.getString("ap_pat"));
-			    cliente.setTelefono(result.getString("telefono"));
-			    cliente.setDireccion(result.getString("direccion"));
-			    cliente.setEmail(result.getString("email"));
-			    cliente.setContr(result.getString("contr"));
-			}
-			
-			connection.close();
-			System.out.println("CHECKLOGIN CLIENTE");
-			System.out.println(cliente.getNombre());
-			return cliente;
+		Class.forName("com.mysql.jdbc.Driver");
+		Connection connection = DriverManager.getConnection(jdbcURL, dbUser, dbPassword);
+		String sql = "select * from cliente where email = ? && contr = ?";
+		PreparedStatement statement = connection.prepareStatement(sql);
+		statement.setString(1, email);
+		statement.setString(2, password);
+		
+		ResultSet result = statement.executeQuery();
+		
+		Cliente cliente = null;
+	
+		if (result.next()) {
+		    cliente = new Cliente();
+		    cliente.setId_cliente(result.getInt("id_cliente"));
+		    cliente.setNombre(result.getString("nombre"));
+		    cliente.setAp_mat(result.getString("ap_mat"));
+		    cliente.setAp_pat(result.getString("ap_pat"));
+		    cliente.setTelefono(result.getString("telefono"));
+		    cliente.setDireccion(result.getString("direccion"));
+		    cliente.setEmail(result.getString("email"));
+		    cliente.setContr(result.getString("contr"));
+		}
+		
+		connection.close();
+		System.out.println("CHECKLOGIN CLIENTE");
+		return cliente;
 	}
+
+
 		
 	public Repartidor checkLoginRepartidor(String email, String password) throws SQLException, ClassNotFoundException {
 		String jdbcURL = "jdbc:mysql://localhost:3306/deliexpress";
@@ -122,7 +123,7 @@ public class IniciarSesionDAO {
 	public List<String[]> dirIdOrd()  throws SQLException, ClassNotFoundException {
 		String jdbcURL = "jdbc:mysql://localhost:3306/deliexpress";
 		String dbUser = "root";
-		String dbPassword = "";
+		String dbPassword = "deliPollo04";
 		Class.forName("com.mysql.jdbc.Driver");
 		Connection connection = DriverManager.getConnection(jdbcURL, dbUser, dbPassword);
 		String sql = "select id_orden , cliente.direccion " + 

@@ -168,7 +168,7 @@ public class MiPerfil{
 	        //String password = request.getParameter("password");
 	        //Administrador adminNuevo = isDAO.checkLoginAdmin(email,password);
 	    	//model.addObject("admin", adminNuevo);
-	    	model.setViewName("seleccionarcomida");
+	    	model.setViewName("menuAdmin");
     	    return model;
 	    }
 	    model.addObject("rep", rep);

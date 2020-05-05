@@ -63,22 +63,25 @@
 <body>
 	<div id="header"></div>
     <div style="text-align: center">
-        <h1>Welcome to Deli Express Repartidor ${rep.getId_repartidor()}</h1>
+        <h1>Las ordenes disponibles son las siguientes:${rep.getId_repartidor()}</h1>
      </div>
-     <div align="center">
-        <br><br>
-         <table border="1">
-                <th>Dirección</th>
-                <th></th>
+      <div class="table-responsive table-bordered border rounded shadow">
+            <table class="table table-striped table-bordered" >
+              <thead>
+                  <tr>
+                      <th class="border border-light shadow-sm" style="color:#6C3313 ;background-color: #ffffff;" >Dirección</th>
+                      <th class="border border-light shadow-sm" style="color:#6C3313 ;background-color: #ffffff;"></th>
+                  </tr>
                  
                 <c:forEach var="dirId" items="${dirs}" varStatus="status">
                 <tr>
-                    <td>${dirId[0]}</td>
-                    <td><a href="/DeliExpress/seleccionarComida?id_orden=${dirId[1]}">Seleccionar</a></td>
+                    <td style="border: 1px solid #ffffff!important;">${dirId[0]}</td>
+                       <td style="border: 1px solid #ffffff!important;" align="center" color: #fff;>
+                          <a href="/DeliExpress/seleccionarComida?id_orden=${dirId[1]}">Seleccionar</a></td>
+                             
                 </tr>
                 </c:forEach>             
             </table>
-        <a href="/logout">Logout</a>
-    </div>
+        </div>
 </body>
 </html>

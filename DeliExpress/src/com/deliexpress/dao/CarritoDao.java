@@ -25,6 +25,7 @@ public class CarritoDao {
 	}  
 	public List<Carrito> muestraCarrito(){
 		System.out.println("MUESTRACARRITO");
+		//String sql = "SELECT a1.precio , a1.nombre_alim, c1.cantidad FROM contenerordalim AS c1 INNER JOIN alimento AS a1 INNER JOIN orden INNER JOIN cliente ON orden.id_orden = c1.orden_id_orden AND cliente.id_cliente = 1 where id_alim = Alimento_id_alim;";
 		String sql = "SELECT a1.precio, a1.nombre_alim, c1.cantidad\r\n" + 
 				"FROM ContenerOrdAlim AS c1, Alimento AS a1, Orden, Cliente\r\n" + 
 				"where Orden.id_orden = c1.Orden_id_orden AND Cliente.id_cliente = 3 "
@@ -59,10 +60,21 @@ public class CarritoDao {
 	}
 	
 	public float precioTotal(int id_carrito) {
-		String sql = "";
-		return template.queryForObject(sql,new Object[] {id_carrito}, Float.class);
-		
-
+		String sql = "SELECT sum(a1.precio * c1.cantidad) as 'precioTotal' FROM contenerordalim AS c1 INNER JOIN alimento AS a1 INNER JOIN orden INNER JOIN cliente ON orden.id_orden = c1.orden_id_orden AND cliente.id_cliente = 1 where id_alim = Alimento_id_alim;";
+		//return template.queryForObject(sql,new Object[] {id_carrito}, Float.class);
+		System.out.println("precioTotal");
+		float pt = 0;
+		try {
+			return template.queryForObject(sql,Float.class);
+		}catch(Exception e) {
+			
+		}
+		return pt;
+	}
+	
+	public void vaciarCarrito(int id_carrito) {
+		String sql = "CALL vaciarCarrito(?)" ;
+		template.update(sql,id_carrito);
 	}
 	
 	public int sigId() {

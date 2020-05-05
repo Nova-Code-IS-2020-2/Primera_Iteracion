@@ -68,7 +68,6 @@
 	href="/bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" />
 
 <style type="text/css">
-
 <style type="text/css">
     .page-name {
       text-align: center;
@@ -103,7 +102,6 @@
   color: #fff;
   background-color: #6C3313;
 }
-
 .btn.btn-default {
   /*text-decoration: none;*/
   /*padding: 10px;*/
