@@ -82,7 +82,7 @@
       <div class="btn-toolbar">
         <div class="btn-group" role="group">
           <button onclick="location.href = 'vaciarCarrito';" id="myButton" class="btn btn-default active btn-lg"  style="font-size: 25px;font-family: Lato, sans-serif;width: 186px;height: 56px;margin: 30px;">Vaciar</button>
-          <button onclick="location.href = 'ordenarCarrito';" id="myButton" class="btn btn-default active btn-lg"  style="font-size: 25px;font-family: Lato, sans-serif;width: 186px;height: 56px;margin: 30px;">Ordenar</button>
+          <button onclick="location.href = 'comprarComida';" id="myButton" class="btn btn-default active btn-lg"  style="font-size: 25px;font-family: Lato, sans-serif;width: 186px;height: 56px;margin: 30px;">Ordenar</button>
           <div class="btn-group" role="group"></div>
       </div>     
       <h3 class="categorias" style="font-family: Actor, sans-serif;">Carrito </h3>
