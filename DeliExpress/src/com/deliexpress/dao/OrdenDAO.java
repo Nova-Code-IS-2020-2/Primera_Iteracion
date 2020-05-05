@@ -104,7 +104,7 @@ private JdbcTemplate template;
 		System.out.print("se guardo en " + idOrd);
 		//modificar el precio 
 		sql = "update orden "
-				+ "set precio=?" + 
+				+ "set precio=?,estado=\"lista\"" + 
 				"where id_orden=?"; 
 		return template.update(sql,precio,idOrd); 
 	}
