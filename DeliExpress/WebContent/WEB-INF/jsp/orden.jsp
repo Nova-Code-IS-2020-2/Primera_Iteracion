@@ -45,7 +45,7 @@
   </style>
   <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>menuAdmin</title>
+        <title>Orden</title>
         <script src="//code.jquery.com/jquery-1.10.2.js"></script>
         <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=ABeeZee">
@@ -56,7 +56,7 @@
   		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 		<script>
 			$(function(){
- 			$("#header").load("menuportatilAdmin.html");
+ 			$("#header").load("menuportatilRepartidor.html");
 			});
 		</script>
   </head>
@@ -72,12 +72,10 @@
                   <tr>
                       <td class="border border-light shadow-sm" style="color:#6C3313 ;background-color: #ffffff;" >Nombre Cliente</td>
                       <td class="border border-light shadow-sm" style="color:#6C3313 ;background-color: #ffffff;">Precio Total</td>
-                      <td class="border border-light shadow-sm" style="color:#6C3313 ;background-color: #ffffff;">Dirección</td>
                   </tr>
                   <tr>
-                      <td style="border: 1px solid #ffffff!important;">${cliente.getNombre()}</td>
+                      <td style="border: 1px solid #ffffff!important;">${cliente.getNombre()} ${cliente.getApPat()} ${cliente.getApMat()}</td>
                       <td style="border: 1px solid #ffffff!important;">${orden.getPrecio()}</td>
-                      <td style="border: 1px solid #ffffff!important;">${cliente.getDireccion()}</td>
 
                   </tr>
               </thead>
