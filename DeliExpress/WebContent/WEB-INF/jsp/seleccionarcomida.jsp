@@ -63,7 +63,8 @@
 <body>
 	<div id="header"></div>
     <div style="text-align: center">
-        <h1>Las ordenes disponibles son las siguientes:${rep.getId_repartidor()}</h1>
+        <h1 style="font-family: ABeeZee, sans-serif;">DeliExpress</h1>
+      	<h3 class="categorias" style="font-family: Actor, sans-serif;">Ordenes Disponibles </h3>
      </div>
       <div class="table-responsive table-bordered border rounded shadow">
             <table class="table table-striped table-bordered" >
@@ -77,7 +78,7 @@
                 <tr>
                     <td style="border: 1px solid #ffffff!important;">${dirId[0]}</td>
                        <td style="border: 1px solid #ffffff!important;" align="center" color: #fff;>
-                          <a href="/DeliExpress/seleccionarComida?id_orden=${dirId[1]}">Seleccionar</a></td>
+                          <a href="/DeliExpress/verOrden?id=${dirId[1]}">Ver Orden</a></td>
                              
                 </tr>
                 </c:forEach>             
