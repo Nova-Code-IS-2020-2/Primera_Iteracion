@@ -76,7 +76,7 @@
 		</script>
     </head>
     <body>
-	<div id="header"></div>
+	<jsp:directive.include file="/menuportatil.html"/>
     <div class="container page-name">
       <h1 style="font-family: ABeeZee, sans-serif;">DeliExpress</h1>
       <div class="btn-toolbar">

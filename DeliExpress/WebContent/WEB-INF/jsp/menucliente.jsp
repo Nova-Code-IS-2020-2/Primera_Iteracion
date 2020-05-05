@@ -39,7 +39,7 @@
   </style>
   <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>menuAdmin</title>
+        <title>menu cliente</title>
         <script src="//code.jquery.com/jquery-1.10.2.js"></script>
         <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=ABeeZee">
@@ -56,7 +56,7 @@
   </head>
 
   <body>
-	<div id="header"></div>
+	<jsp:directive.include file="/menuportatil.html"/>
     <div class="container page-name">
       <h1 style="font-family: ABeeZee, sans-serif;">DeliExpress</h1>
       

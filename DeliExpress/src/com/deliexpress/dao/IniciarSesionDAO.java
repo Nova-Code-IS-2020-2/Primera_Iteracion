@@ -25,7 +25,7 @@ public class IniciarSesionDAO {
 	public Cliente checkLogin(String email, String password) throws SQLException, ClassNotFoundException {
 		String jdbcURL = "jdbc:mysql://localhost:3306/deliexpress";
 		String dbUser = "root";
-		String dbPassword = "deliPollo04";
+		String dbPassword = "";
 		
 		Class.forName("com.mysql.jdbc.Driver");
 		Connection connection = DriverManager.getConnection(jdbcURL, dbUser, dbPassword);
@@ -60,7 +60,7 @@ public class IniciarSesionDAO {
 	public Repartidor checkLoginRepartidor(String email, String password) throws SQLException, ClassNotFoundException {
 		String jdbcURL = "jdbc:mysql://localhost:3306/deliexpress";
 		String dbUser = "root";
-		String dbPassword = "deliPollo04";
+		String dbPassword = "";
 		
 		Class.forName("com.mysql.jdbc.Driver");
 		Connection connection = DriverManager.getConnection(jdbcURL, dbUser, dbPassword);
@@ -91,7 +91,7 @@ public class IniciarSesionDAO {
 	public Administrador checkLoginAdmin(String email, String password) throws SQLException, ClassNotFoundException {
 		String jdbcURL = "jdbc:mysql://localhost:3306/deliexpress";
 		String dbUser = "root";
-		String dbPassword = "deliPollo04";
+		String dbPassword = "";
 		
 		Class.forName("com.mysql.jdbc.Driver");
 		Connection connection = DriverManager.getConnection(jdbcURL, dbUser, dbPassword);
@@ -123,7 +123,7 @@ public class IniciarSesionDAO {
 	public List<String[]> dirIdOrd()  throws SQLException, ClassNotFoundException {
 		String jdbcURL = "jdbc:mysql://localhost:3306/deliexpress";
 		String dbUser = "root";
-		String dbPassword = "deliPollo04";
+		String dbPassword = "";
 		Class.forName("com.mysql.jdbc.Driver");
 		Connection connection = DriverManager.getConnection(jdbcURL, dbUser, dbPassword);
 		String sql = "select id_orden , cliente.direccion " + 

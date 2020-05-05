@@ -147,8 +147,8 @@
 		    <form:input type="text" class="form-control" id="ap_mat" maxlength="45" path="ap_mat" required="required"/>
 		</div>
 		<div class="form-group">
-			<label for="email">Dirección De correo electronico</label>
-		    <form:input type="email" class="form-control" id="email" maxlength="45" path="email" required="required"/>
+			<label for="email">Dirección de correo electronico</label>
+		    <form:input type="email" class="form-control" id="noSpacesField" maxlength="45" path="email" required="required"/>
 			<small id="HelpBlock" class="form-text text-muted">
 				Introduce un email nuevo
 			</small>
@@ -168,4 +168,9 @@
 </div>
 </div>
 </body>
+<script type="text/javascript">
+    document.getElementById("myButton").onclick = function () {
+        location.href = "agregarCliente";
+    };
+</script>
 </html>
