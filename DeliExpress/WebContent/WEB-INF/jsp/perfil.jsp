@@ -124,9 +124,7 @@
 		
 </head>
 <body>
-
 <jsp:directive.include file="/menuportatil.html"/>
-
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
@@ -137,37 +135,37 @@
 		<form:hidden  path="id_cliente"/>
 		<div class="form-group">
 			<label for="name">Nombre</label>
-		    <form:input type="text" class="form-control" id="name" path="Nombre" required="required"/>
+		    <form:input type="text" class="form-control" maxlength="45" id="name" path="Nombre" required="required"/>
 		</div>
 		<div class="form-group">
 			<label for="ap_pat">Apellido Paterno</label>
-		    <form:input type="text" class="form-control" id="ap_pat" path="ap_pat" required="required"/>
+		    <form:input type="text" class="form-control" maxlength="45" id="ap_pat" path="ap_pat" required="required"/>
 		</div>
 		<div class="form-group">
 			<label for="ap_mat">Apellido Materno</label>
-		    <form:input type="text" class="form-control" id="ap_mat" path="ap_mat" required="required"/>
+		    <form:input type="text" class="form-control" maxlength="45"  id="ap_mat" path="ap_mat" required="required"/>
 		</div>
 		<div class="form-group">
 			<label for="email">Dirección De correo electronico</label>
-		    <form:input type="text" class="form-control" id="email" path="email" required="required"/>
+		    <form:input type="email" class="form-control" maxlength="45" id="email" path="email" required="required"/>
 			<small id="HelpBlock" class="form-text text-muted">
 				Introduce un email nuevo
 			</small>
 		</div>
 		<div class="form-group">
 			<label for="contr">Contraseña</label>
-		    <form:input type="text" class="form-control" id="contr" path="contr" required="required" />
+		    <form:input type="password" class="form-control" maxlength="8" id="contr" path="contr" required="required" />
 		</div>
 		<div class="form-group">
 			<label for="telefono">Telefono</label>
-		    <form:input type="text" class="form-control" id="telefono" path="telefono" required="required"/>
+		    <form:input type="text" class="form-control" maxlength="8" id="telefono" path="telefono" required="required"/>
 			<small id="HelpBlock" class="form-text text-muted">
 				Introduce un teléfono de máximo 8 caracteres
 			</small>
 		</div>
 		<div class="form-group">
 			<label for="direccion">Direccion</label>
-		    <form:input type="text" class="form-control" id="direccion" path="direccion" required="required"/>
+		    <form:input type="text" class="form-control" maxlength="100" id="direccion" path="direccion" required="required"/>
 		</div>
 		<div class="text-center">
 			 ${message}
@@ -180,5 +178,6 @@
 </div>
 </div>
 </body>
+
 </html>
 

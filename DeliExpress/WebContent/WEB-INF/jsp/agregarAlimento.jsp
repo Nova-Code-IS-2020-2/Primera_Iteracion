@@ -17,6 +17,10 @@ body {
   color: #bd6d10;
 }
 
+.h4, h4 {
+  color: #bd6d10;
+}
+
 .border.rounded-0.id-input {
 	border: 1px solid #6c3313!important;
 	border-style: groove;
@@ -51,11 +55,11 @@ body {
 </style>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Crear Alimento</title>
+<title>Deli Express</title>
 <script src="//code.jquery.com/jquery-1.10.2.js"></script>
 <script> 
 $(function(){
-  $("#header").load("menuportatil.html");
+  $("#header").load("menuportatilAdmin.html");
 });
 </script>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=ABeeZee">
@@ -71,23 +75,38 @@ $(function(){
 <body>
 	<div id="header"></div>
 	<div class="container page-name">
-		<h1 style="font-family: ABeeZee, sans-serif;">DeliExpress</h1>
-		<h3 class="cat-alim" style="font-family: Actor, sans-serif;">Agregar Alimento</h3>
-		<div class="card-body">
+		<h1 style="font-family: ABeeZee, sans-serif;">Deli Express</h1>
+		<br>
+		<h4 class="cat-alim" style="font-family: Actor, sans-serif;">Agregar Alimento</h4>
+		<div class="table-responsive table-bordered text-center shadow">
 			<form:form  action="guardarAlimento" method="post" modelAttribute="alimento">
+			<table class="table table-bordered">
 				<form:hidden  path="id" />
-				<label>Nombre</label>
-				<form:input type="text" path="Nombre" />
-				<label>Imagen</label>
-				<form:input type="text" path="Categoria"/>
-				<label>Id Categoría</label>
-				<form:input type="text" path="DireccionFoto"/>
-				<label>Descripcion</label>
-				<form:input type="text" path="Descripcion" />
-				<label>Precio</label>
-				<form:input type="number" path="Precio" />
-				</div><button class="btn btn-primary border rounded" type="submit" name="guardarAlimento" style="background-color: #6c3313;">Confirmar</button>
-   				<a href="menuAdmin" class="btn btn-primary border rounded" role="button" style="background-color: #6c3313;">Cancelar</a></div>
+				<tbody>
+                    <tr>	
+                    	<td class="text-left nombre" style="font-family: Actor, sans-serif;">Nombre del producto:</td>
+						<td><form:input type="text"  inputmode="text" style="filter: blur(0px) brightness(100%) invert(0%);color: #6c3313;background-color: #fff ;font-size: 20px;font-family: Lato, sans-serif;padding: 0px;margin: 30px;height: 60px;width: 440px;" path="Nombre" /></td>
+					</tr>	
+						<td class="text-left nombre" style="font-family: Actor, sans-serif;">Direccion de foto:</td>
+						<td><form:input type="text"  inputmode="text" style="filter: blur(0px) brightness(100%) invert(0%);color: #6c3313;background-color: #fff ;font-size: 25px;font-family: Lato, sans-serif;padding: 0px;margin: 30px;height: 60px;width: 440px;" path="Categoria"/></td>
+					</tr>
+					<tr>
+						<td class="text-left nombre" style="font-family: Actor, sans-serif;">Categoria (id):</td>
+						<td><form:input type="text"  inputmode="text" style="filter: blur(0px) brightness(100%) invert(0%);color: #6c3313;background-color: #fff ;font-size: 20px;font-family: Lato, sans-serif;padding: 0px;margin: 30px;height: 60px;width: 440px;" path="DireccionFoto"/></td>
+					</tr>
+					<tr>
+						<td class="text-left nombre" style="font-family: Actor, sans-serif;">Precio</td>
+						<td><form:input inputmode="text" style="filter: blur(0px) brightness(100%) invert(0%);color: #6c3313;background-color: #fff ;font-size: 20px;font-family: Lato, sans-serif;padding: 0px;margin: 30px;height: 60px;width: 440px;" type="number" path="Precio" /></td>
+					</tr>
+					<tr>
+						<td class="text-left nombre" style="font-family: Actor, sans-serif;">Descripción:</td>
+						<td><form:textarea  inputmode="text" style="filter: blur(0px) brightness(100%) invert(0%);color: #6c3313;background-color: #fff ;font-size: 20px;font-family: Lato, sans-serif;padding: 0px;margin: 30px;height: 250px;width: 440px;" path="Descripcion" /></td>
+					</tr>
+				</tbody>
+            </table>
+			</div><button class="btn btn-primary border rounded" type="submit" name="guardarAlimento" style="background-color: #6c3313;">Confirmar</button>
+   				
+   			<a href="menuAdmin" class="btn btn-primary border rounded" role="button" style="background-color: #6c3313;">Cancelar</a></div>
 			</form:form>
 		</div>
     <script src="assets/js/jquery.min.js"></script>

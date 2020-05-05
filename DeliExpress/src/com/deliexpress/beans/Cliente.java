@@ -30,8 +30,8 @@ public class Cliente {
 		this.email=email;
 	}
 	
-	public void setContraseña(String contraseña) {
-		this.contr=contraseña;
+	public void setContrasenia(String contrasenia) {
+		this.contr=contrasenia;
 	}
 	
 	public void setTelefono(String tel) {
@@ -62,7 +62,7 @@ public class Cliente {
 		return email;
 	}
 	
-	public String getContraseña() {
+	public String getContrasenia() {
 		return contr;
 	}
 	

@@ -36,15 +36,25 @@
       	
     }
     table.table-striped.table-bordered{
-      color:#ffffff;
-      background-color: #6C3313;
+      color:#6C3313;
+      background-color: #ffffff;
       font-family: Actor, sans-serif;
     }
-    btn.btn-primary.border.rounded.shadow-sm{
-      background-color: #ffff;
-      border: 1px solid #6c3313!important;
-      border-style: groove;
-    }
+    .btn.btn-default:hover {
+	  color: #fff;
+	  background-color: #6C3313;
+	}
+	
+	.btn.btn-default {
+	  /*text-decoration: none;*/
+	  /*padding: 10px;*/
+	  /*font-weight: 600;*/
+	  /*font-size: 20px;*/
+	  color: #6C3313;
+	  /*font-family: Arial;*/
+	  background-color: Transparent;
+	  border: 2px solid #6C3313;
+	}
   </style>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -71,10 +81,8 @@
       <h1 style="font-family: ABeeZee, sans-serif;">DeliExpress</h1>
       <div class="btn-toolbar">
         <div class="btn-group" role="group">
-          <a  href="/DeliExpress/agregarCategoria"
-            class="btn btn-primary border rounded shadow-sm" role="button" style="color: #6c3313; background-color: #ffffff; border: 1px solid #6c3313!important; ">Vaciar</a>
-          <a href="/DeliExpress/comprarComida" class="btn btn-primary border rounded shadow-sm" role="button" style="color: #6c3313; background-color: #ffffff; border: 1px solid #6c3313!important;">Ordenar</a></div>
-
+          <button onclick="location.href = 'vaciarCarrito';" id="myButton" class="btn btn-default active btn-lg"  style="font-size: 25px;font-family: Lato, sans-serif;width: 186px;height: 56px;margin: 30px;">Vaciar</button>
+          <button onclick="location.href = 'ordenarCarrito';" id="myButton" class="btn btn-default active btn-lg"  style="font-size: 25px;font-family: Lato, sans-serif;width: 186px;height: 56px;margin: 30px;">Ordenar</button>
           <div class="btn-group" role="group"></div>
       </div>     
       <h3 class="categorias" style="font-family: Actor, sans-serif;">Carrito </h3>

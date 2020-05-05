@@ -55,7 +55,7 @@ body {
 <script src="//code.jquery.com/jquery-1.10.2.js"></script>
 <script> 
 $(function(){
-  $("#header").load("menuportatil.html");
+  $("#header").load("menuportatilAdmin.html");
 });
 </script>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=ABeeZee">
