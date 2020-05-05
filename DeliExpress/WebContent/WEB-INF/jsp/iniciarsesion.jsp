@@ -50,7 +50,7 @@ input {
     <h1 style="font-size: 86px;height: 53px;padding: 75px;margin: 58px;">Deli Express</h1>
    <form action="login" method="post" >
 	    
-         <input type="text" placeholder="example@email.com" inputmode="email" required="@" name="email" style="filter: blur(0px) brightness(100%) invert(0%);color: rgb(255,255,255);background-color: #6c3313;font-size: 25px;font-family: Lato, sans-serif;padding: 0px;margin: 30px;height: 60px;width: 440px;">
+         <input id="noSpacesField" type="text" placeholder="example@email.com" inputmode="email" required="@" name="email" style="filter: blur(0px) brightness(100%) invert(0%);color: rgb(255,255,255);background-color: #6c3313;font-size: 25px;font-family: Lato, sans-serif;padding: 0px;margin: 30px;height: 60px;width: 440px;">
          <br>
          <input type="password" placeholder="contraseña" inputmode="password"  name="password" style="filter: blur(0px) brightness(100%) invert(0%);color: rgb(255,255,255);background-color: #6c3313;font-size: 25px;font-family: Lato, sans-serif;padding: 0px;margin: 30px;height: 60px;width: 440px;">
          <br>${message}
@@ -69,7 +69,13 @@ input {
     };
 </script>
 <script type="text/javascript">
- 
+	$(function(){
+		  $('#noSpacesField').bind('input', function(){
+		    $(this).val(function(_, v){
+		     return v.replace(/\s+/g, '');
+		    });
+		  });
+		});
     $(document).ready(function() {
         $("#login").validate({
             rules: {

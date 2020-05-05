@@ -74,7 +74,7 @@ public class IniciarSesion extends HttpServlet{
             } else if(admin != null){
             	HttpSession session = request.getSession();
                 session.setAttribute("admin", admin);
-            	mav = new ModelAndView("principaladmin");
+            	mav = new ModelAndView("redirect:/principalAdmin");
             }else if(rep != null) {
             	HttpSession session = request.getSession();
                 session.setAttribute("rep", rep);
@@ -101,7 +101,7 @@ public class IniciarSesion extends HttpServlet{
     
     @RequestMapping(value="/principaladmin")
 	public ModelAndView menuAdmin(ModelAndView model)throws IOException {
-		model.setViewName("principaladmin");
+		model.setViewName("menuAdmin");
 	    return model;
 	}
     
