@@ -76,7 +76,7 @@
 		</script>
     </head>
     <body>
-	<div id="header"></div>
+	<jsp:directive.include file="/menuportatil.html"/>
     <div class="container page-name">
       <h1 style="font-family: ABeeZee, sans-serif;">DeliExpress</h1>
       <div class="btn-toolbar">
@@ -95,23 +95,25 @@
                       <th class="border border-light shadow-sm" style="color:#6C3313 ;background-color: #ffffff;">Cantidad</th>
                       <th class="border border-light shadow-sm" style="color:#6C3313 ;background-color: #ffffff;">Más</th>
                       <th class="border border-light shadow-sm" style="color:#6C3313 ;background-color: #ffffff;">Menos</th>
+                       <th class="border border-light shadow-sm" style="color:#6C3313 ;background-color: #ffffff;"></th>
                   </tr>
                  
-                <c:forEach var="alimento" items="${carrito.getAlimentos()}" varStatus="status">
+                <c:forEach var="alimento" items="${carrito.getAlimentos().keySet()}" varStatus="status">
                 <tr>
                     <td style="border: 1px solid #ffffff!important;">${alimento.getPrecio()}</td>
                       <td style="border: 1px solid #ffffff!important;">${alimento.getNombre()}</td>
-                      <td style="border: 1px solid #ffffff!important;"></td>
+                      <td style="border: 1px solid #ffffff!important;">${carrito.getAlimentos().get(alimento)}</td>
                     <td style="border: 1px solid #ffffff!important;" align="center" color: #fff;>
-                          <a href="/DeliExpress/aumentar?nom=${alimento.getNombre()}">+</a></td>
+                          <a href="/DeliExpress/aumentarCarrito?id_alim=${alimento.getId()}">+</a></td>
                           &nbsp;&nbsp;&nbsp;&nbsp;
                        <td style="border: 1px solid #ffffff!important;" align="center" color: #fff;>
-                          <a href="/DeliExpress/disminuir?nom=${alimento.getNombre()}">-</a></td>
-                             
+                          <a href="/DeliExpress/disminuirCarrito?id_alim=${alimento.getId()}">-</a></td>
+                     <td style="border: 1px solid #ffffff!important;" align="center" color: #fff;>
+                         
                 </tr>
                 </c:forEach>             
             </table>
-        <h5> Total: $ ${precio}</h5>
+        <h5> Total: $ ${carrito.getPrecio()}</h5>
         </div>
       </div>
       <script src="assets/js/jquery.min.js"></script>

@@ -2,101 +2,26 @@
 <html lang = "es">
     <head>
         <title></title>
-        <style type="text/css">
-        	body{
-			   	 margin: 0;
-			    font-family: sans-serif;
-			}
-			header{
-			    width: 100%;
-			    background:  #6C3313;
-			}
-			
-			#btn-menu{
-			    display: none;
-			}
-			
-			header label{
-			    display: none;
-			    width: 30px;
-			    height: 30px;
-			    padding: 10px;
-			    border-right: 1px solid #fff;
-			}
-			
-			header label:hover{
-			    cursor: pointer;
-			    background: rgba(0,0,0,0.3);
-			}
-			
-			.menu ul{
-			    margin: 0;
-			    list-style: none;
-			    padding: 0;
-			    display: flex;
-			}
-			
-			.menu li{
-			    border-right: 1px solid #fff;
-			}
-			
-			.menu li:hover{
-			    background: rgba(0,0,0,0.3);
-			    
-			}
-			
-			.menu li a{
-			    display: block;
-			    padding: 15px 20px;
-			    color: #ffffff;
-			    text-decoration: none;
-			    
-			}
-			
-			@media (max-width: 1800px){
-			    header label{
-			        display: block;
-			    }
-			    
-			    .menu{
-			        position: absolute;
-			        background: #6C3313;
-			        width: 70%;
-			        margin-left: -70%;
-			        transition: all 0.4s;
-			    }
-			    
-			    .menu ul{
-			        flex-direction: column;
-			    }
-			    
-			    .menu il{
-			        border-top: 1px solid #fff;
-			    }
-			    
-			    #btn-menu:checked ~ .menu {
-			        margin: 0;
-			    }
-			
-			}
-        </style>
         <meta charset="utf-8">
         <meta name = "viewport" content="width=devise-width, user-scalable=no, initial-scale=1,maximum-scale=1,minimum-scale = 1">
-        <link rel="stylesheet" href = css/estilo-menu.css>
+        <link rel="stylesheet" href = estilo-menu.css>
     </head>
     <body>
         <header>
             <input type= "checkbox" id="btn-menu">
-            <label for = "btn-menu"><img src = "menu-2.png" alt=""></label>
+            <label for = "btn-menu"><img src = "menu-1.png" alt=""></label>
             <nav class="menu">
                 <ul>
-                   <li><a href="/DeliExpress/mostrarPerfil">Perfil</li>
-                    <li><a href = "/DeliExpress/verCarrito">Carrito</a></li>
                     <li><a href="/DeliExpress/mostrarPerfil">Perfil</li>
-                    <li><a href = "/DeliExpress/carrito">Carrito</a></li>
                     <li><a href = "/DeliExpress/menucliente">Menu principal</a></li>
+                    <li><a href = "/DeliExpress/carrito">Ver Carrito</a></li>
+                    <li><a href = "index.jsp" onload="noBack();">Cerrar Sesi&oacute;n</a></li>
                 </ul>
             </nav>
         </header>
     </body>
+    <SCRIPT type="text/javascript">
+	    window.history.forward();
+	    function noBack() { window.history.forward(); }
+	</SCRIPT>
 </html>

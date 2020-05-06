@@ -29,6 +29,11 @@ public class CuentaDAO {
 	    return template.update(sql,c.getId_cliente(),c.getNombre(),c.getAp_pat(),c.getAp_mat(),c.getEmail(),c.getContr(),c.getTelefono(),c.getDireccion());    
 	} 
 	
+	public int save(Repartidor c){    
+	    String sql="insert into Repartidor(id_repartidor,nombre, ap_pat, ap_mat, email, contr ) values(?,?,?,?,?,?)";    
+	    return template.update(sql,c.getId_repartidor(),c.getNombre(),c.getAp_pat(),c.getAp_mat(),c.getEmail(),c.getContr());    
+	} 
+	
 	
 	
 	public int update(Cliente c){    
