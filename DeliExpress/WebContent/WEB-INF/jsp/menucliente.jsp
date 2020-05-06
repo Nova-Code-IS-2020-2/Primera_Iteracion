@@ -89,7 +89,7 @@
                       <table class="table table-striped table-bordered" >
                       <c:forEach var="alimento" items="${elem.value}" varStatus="status">
                       <tr>
-                      	 <td style="border: 1px solid #ffffff!important;" width="25%" ><img src="${alimento.getDireccionFoto()}" alt="${alimento.getNombre() }" width="100%"></td>
+                      	 <td style="border: 1px solid #ffffff!important;" width="25%" ><img src="$/jsp/imagenes/pastelchoco.jpg" alt="${alimento.getNombre()}" width="100%"></td>
                       	 <td width="55%">
                       	 	<table>
                       	 		<tr>
