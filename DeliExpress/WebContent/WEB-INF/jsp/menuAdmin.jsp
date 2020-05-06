@@ -9,11 +9,9 @@
       text-align: center;
       padding: 60px 0;
     }
-
     .h1, h1 {
       color: #bd6d10;
     }
-
     body {
       margin: 0;
       font-family: ABeeZee, sans-serif;
@@ -24,12 +22,10 @@
       text-align: left;
       background-color: #fff;
     }
-
     .h3, h3 {
       color: #6C3313;
       font-family: Actor, sans-serif;
     }
-
     table.table-striped.table-bordered{
       color:#ffffff;
       background-color: #6C3313;
@@ -40,8 +36,6 @@
       border: 1px solid #6c3313!important;
       border-style: groove;
     }
-
-
   </style>
   <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -69,38 +63,64 @@
         <div class="btn-group" role="group">
           <a  href="/DeliExpress/agregarCategoria"
             class="btn btn-primary border rounded shadow-sm" role="button" style="color: #6c3313; background-color: #ffffff; border: 1px solid #6c3313!important; ">+Categoría</a>
-          <a href="/DeliExpress/agregarAlimento"class="btn btn-primary border rounded shadow-sm" role="button" style="color: #6c3313; background-color: #ffffff; border: 1px solid #6c3313!important;">+Alimento</a></div>
-          <div class="btn-group" role="group"></div>
+          &nbsp;&nbsp;&nbsp;
+          <a href="/DeliExpress/agregarAlimento"class="btn btn-primary border rounded shadow-sm" role="button" style="color: #6c3313; background-color: #ffffff; border: 1px solid #6c3313!important;">+Alimento</a>
+          &nbsp;&nbsp;&nbsp;
+        </div>
+          
       </div>
       <h3 class="categorias" style="font-family: Actor, sans-serif;">Menú de alimentos </h3>
       <div class="table-responsive table-bordered border rounded shadow">
           <table class="table table-striped table-bordered" >
-              <thead>
+              <thead> </thead>
+              <tbody>
                   <c:forEach var="elem" items="${menu}" varStatus="status">
                   <tr>
-                      <td style="border: 1px solid #ffffff!important;">${elem.key.getNombre()}</td>
-                      <td style="border: 1px solid #ffffff!important; background-color: #ffffff;""></td>
-                      <td style="border: 1px solid #ffffff!important;">
-                          <a href="/DeliExpress/editarCategoria?id=${elem.key.getId()}">Editar</a>
-                          &nbsp;&nbsp;&nbsp;&nbsp;
-                          <a href="/DeliExpress/borrarCategoria?id=${elem.key.getId()}">Borrar</a>
+                      <td style="border: 1px solid #ffffff!important; background-color: #ffffff;""  width="10%"></td>
+                      <td style="border: 1px solid #ffffff!important;" width="60%">${elem.key.getNombre()}</td>
+                      <td style="border: 1px solid #ffffff!important; background-color: #ffffff;"" width="10%"></td>
+                      <td style="border: 1px solid #ffffff!important;" >
+                          <div class="btn-group" role="group">
+				          	<a  href="/DeliExpress/editarCategoria?id=${elem.key.getId()}"
+				            	class="btn btn-primary border rounded shadow-sm" role="button" style="color: #6c3313; background-color: #ffffff; border: 1px solid #6c3313!important; ">Editar</a>
+          					&nbsp;&nbsp;&nbsp;
+          					<a href="/DeliExpress/borrarCategoria?id=${elem.key.getId()}"
+          						class="btn btn-primary border rounded shadow-sm" role="button" style="color: #6c3313; background-color: #ffffff; border: 1px solid #6c3313!important;">Borrar</a></div>
+          				<div class="btn-group" role="group"></div>
                       </td>
+                    </tr>
+                    <tr>
+                      <table class="table table-striped table-bordered" >
                       <c:forEach var="alimento" items="${elem.value}" varStatus="status">
-					 <tr>
-					 	<td class="border border-light shadow-sm" style="border: 1px solid #6C3313!important;color:#6C3313 ;background-color: #ffffff;">${alimento.getNombre() }</td>
-					 	<td class="border border-light shadow-sm" style="border: 1px solid #6C3313!important;color:#6C3313 ;background-color: #ffffff;">${alimento.getPrecio() }</td>
-					 	<td class="border border-light shadow-sm" style="border: 1px solid #6C3313!important;color:#6C3313 ;background-color: #ffffff;">
-					 		<a href="/DeliExpress/editarAlimento?id=${alimento.getId()}">Editar</a>
-                          	&nbsp;&nbsp;&nbsp;&nbsp;
-                          	<a href="/DeliExpress/borrarAlimento?id=${alimento.getId()}">Borrar</a>
-                       	</td>
-					 </tr>
+                      <tr>
+                      	 <td style="border: 1px solid #ffffff!important;" width="25%" ><img src="${alimento.getDireccionFoto()}" alt="${alimento.getNombre() }" width="100%"></td>
+                      	 <td width="55%">
+                      	 	<table>
+                      	 		<tr>
+								 	<td class="border border-light shadow-sm" style="border: 1px solid #6C3313!important;color:#6C3313 ;background-color: #ffffff;" width="70%">${alimento.getNombre() }</td>
+								 	<td class="border border-light shadow-sm" style="border: 1px solid #6C3313!important;color:#6C3313 ;background-color: #ffffff;" width="30%">${alimento.getPrecio() }</td>
+								 </tr>
+								 <tr>
+								 	<td class="border border-light shadow-sm" style="border: 1px solid #6C3313!important;color:#6C3313 ;background-color: #ffffff;" width="100%" colspan="2">${alimento.getDescripcion() }</td>
+								 </tr>
+                      	 	</table>
+                      	 
+                      	 </td>
+                      	 <td class="border border-light shadow-sm" style="border: 1px solid #6C3313!important;color:#6C3313 ;background-color: #ffffff;" width="30%">
+                      	 	 <div class="btn-group" role="group">
+				          	<a  href="/DeliExpress/editarAlimento?id=${alimento.getId()}"
+				            	class="btn btn-primary border rounded shadow-sm" role="button" style="color: #6c3313; background-color: #ffffff; border: 1px solid #6c3313!important; ">Editar</a>
+          					&nbsp;&nbsp;&nbsp;
+          					<a href="/DeliExpress//borrarAlimento?id=${alimento.getId()}" 
+          						class="btn btn-primary border rounded shadow-sm" role="button" style="color: #6c3313; background-color: #ffffff; border: 1px solid #6c3313!important;">Borrar</a></div>
+          					<div class="btn-group" role="group"></div>
+			             </td>
+                      </tr>
+					 
 					 </c:forEach>
+					 </table>
                   </tr>
                   </c:forEach>
-              </thead>
-              <tbody>
-                  <tr></tr>
               </tbody>
           </table>
       </div>
@@ -110,4 +130,3 @@
   </body>
 
 </html>
-
