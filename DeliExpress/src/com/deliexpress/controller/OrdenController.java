@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.deliexpress.model.Administrador;
 import com.deliexpress.model.Categoria;
 import java.io.*;
 import java.sql.SQLException;
@@ -71,11 +72,20 @@ public class OrdenController {
 	    HttpSession s = request.getSession();
 	    Repartidor r = (Repartidor) s.getAttribute("rep");
 	    Orden orden = (Orden) s.getAttribute("orden");
-	    ModelAndView model = new ModelAndView("orden");
-	    if(orden == null) {
+	    ModelAndView model;
+	    if(r != null) {
+	    	if(orden == null) {
+	    		orden = ordenDAO.get(ordId);
+	    		s.setAttribute("orden", orden);
+	    		ordenDAO.updateRepartidor(ordId, r.getId_repartidor());
+	    	}
+	    	System.out.println("Repartidor");
+	    	model= new ModelAndView("orden");
+	    }else {
+	    	System.out.println("Admin");
+	    	model = new ModelAndView("ordenAdmin");
 	    	orden = ordenDAO.get(ordId);
-	    	s.setAttribute("orden", orden);
-	    	ordenDAO.updateRepartidor(ordId, r.getId_repartidor());
+	    	model.addObject("orden", orden);
 	    }
 	    Cliente cliente=clienteDAO.get(orden.getCliente());
 	    model.addObject("cliente",cliente);
