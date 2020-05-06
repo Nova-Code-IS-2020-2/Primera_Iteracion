@@ -31,15 +31,27 @@
       background-color: #6C3313;
       font-family: Actor, sans-serif;
     }
-    btn.btn-primary.border.rounded.shadow-sm{
-      background-color: #ffff;
-      border: 1px solid #6c3313!important;
-      border-style: groove;
-    }
+	.btn.btn-default:hover {
+	  color: #fff;
+	  background-color: #6C3313;
+	}
+	
+	.btn.btn-default {
+	  /*text-decoration: none;*/
+	  /*padding: 10px;*/
+	  /*font-weight: 600;*/
+	  /*font-size: 20px;*/
+	  color: #6C3313;
+	  /*font-family: Arial;*/
+	  background-color: Transparent;
+	  border: 2px solid #6C3313;
+	}
+
+ 	
   </style>
   <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>menuAdmin</title>
+        <title>menu cliente</title>
         <script src="//code.jquery.com/jquery-1.10.2.js"></script>
         <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=ABeeZee">
@@ -56,7 +68,7 @@
   </head>
 
   <body>
-	<div id="header"></div>
+	<jsp:directive.include file="/menuportatil.html"/>
     <div class="container page-name">
       <h1 style="font-family: ABeeZee, sans-serif;">DeliExpress</h1>
       
@@ -92,7 +104,7 @@
                       	 </td>
                       	 <td class="border border-light shadow-sm" style="border: 1px solid #6C3313!important;color:#6C3313 ;background-color: #ffffff;" width="30%">
                       	 	 <div class="btn-group" role="group">
-				          	<a  href="/DeliExpress/agregarCarrito?id_alim=${alimento.getId()}" class="btn btn-primary border rounded shadow-sm" role="button" style="color: #6c3313; background-color: #ffffff; border: 1px solid #6c3313!important; ">Seleccionar</a>
+				          	<a  href="/DeliExpress/agregarCarrito?id_alim=${alimento.getId()}" class="btn btn-default active btn-lg"  style="font-size: 25px;font-family: Lato, sans-serif;width: 186px;height: 56px;margin: 30px;">Seleccionar</a>
           					&nbsp;&nbsp;&nbsp;
 
           					<div class="btn-group" role="group"></div>
@@ -105,7 +117,7 @@
                   </c:forEach>
               </tbody>
           </table>
-          <a  href="carrito" class="btn btn-primary border rounded shadow-sm" role="button" style="color: #6c3313; background-color: #ffffff; border: 1px solid #6c3313!important; ">Carrito</a>
+          <a  href="carrito"class="btn btn-default active btn-lg" role="button" style="font-size: 25px;font-family: Lato, sans-serif;width: 186px;height: 56px;margin: 30px;">Carrito</a>
           				
       </div>
       </div>

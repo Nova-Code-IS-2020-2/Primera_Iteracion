@@ -136,26 +136,26 @@
 		<form:hidden  path="id_repartidor"/>
 		<div class="form-group">
 			<label for="name">Nombre</label>
-		    <form:input type="text" class="form-control" id="name" path="Nombre" required="required"/>
+		    <form:input type="text" class="form-control" id="name" maxlength="45" path="Nombre" required="required"/>
 		</div>
 		<div class="form-group">
 			<label for="ap_pat">Apellido Paterno</label>
-		    <form:input type="text" class="form-control" id="ap_pat" path="ap_pat" required="required"/>
+		    <form:input type="text" class="form-control" id="ap_pat" maxlength="45"  path="ap_pat" required="required"/>
 		</div>
 		<div class="form-group">
 			<label for="ap_mat">Apellido Materno</label>
-		    <form:input type="text" class="form-control" id="ap_mat" path="ap_mat" required="required"/>
+		    <form:input type="text" class="form-control" id="ap_mat" maxlength="45" path="ap_mat" required="required"/>
 		</div>
 		<div class="form-group">
-			<label for="email">Dirección De correo electronico</label>
-		    <form:input type="email" class="form-control" id="email" path="email" required="required"/>
+			<label for="email">Dirección de correo electronico</label>
+		    <form:input type="email" class="form-control" id="noSpacesField" maxlength="45" path="email" required="required"/>
 			<small id="HelpBlock" class="form-text text-muted">
 				Introduce un email nuevo
 			</small>
 		</div>
 		<div class="form-group">
 			<label for="contr">Contraseña</label>
-		    <form:input type="password" class="form-control" id="contr" path="contr" required="required" />
+		    <form:input type="password" class="form-control" maxlength="8" id="contr" path="contr" required="required" />
 		</div>
 		<div class="text-center">
 			 ${message}
@@ -168,4 +168,9 @@
 </div>
 </div>
 </body>
+<script type="text/javascript">
+    document.getElementById("myButton").onclick = function () {
+        location.href = "agregarCliente";
+    };
+</script>
 </html>

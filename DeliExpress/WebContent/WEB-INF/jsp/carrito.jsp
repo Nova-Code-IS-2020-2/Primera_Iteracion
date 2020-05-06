@@ -76,7 +76,7 @@
 		</script>
     </head>
     <body>
-	<div id="header"></div>
+	<jsp:directive.include file="/menuportatil.html"/>
     <div class="container page-name">
       <h1 style="font-family: ABeeZee, sans-serif;">DeliExpress</h1>
       <div class="btn-toolbar">
@@ -109,7 +109,7 @@
                        <td style="border: 1px solid #ffffff!important;" align="center" color: #fff;>
                           <a href="/DeliExpress/disminuirCarrito?id_alim=${alimento.getId()}">-</a></td>
                      <td style="border: 1px solid #ffffff!important;" align="center" color: #fff;>
-                          <a href="/DeliExpress/eliminarCarrito?id_alim=${alimento.getId()}">eliminar</a></td>
+                         
                 </tr>
                 </c:forEach>             
             </table>

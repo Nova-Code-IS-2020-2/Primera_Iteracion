@@ -90,7 +90,7 @@ $(function(){
 		</div>
 		<div class="form-group">
 			<label for="email">Dirección De correo electronico</label>
-		    <form:input type="email" class="form-control" maxlength="45" id="email" path="email" required="required"/>
+		    <form:input type="email" class="form-control" maxlength="45"  id="noSpacesField"  path="email" required="required"/>
 			<small id="HelpBlock" class="form-text text-muted">
 				Introduce un email nuevo
 			</small>
@@ -112,5 +112,9 @@ $(function(){
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
 </body>
-
+<script type="text/javascript">
+    document.getElementById("myButton").onclick = function () {
+        location.href = "agregarCliente";
+    };
+</script>
 </html>
