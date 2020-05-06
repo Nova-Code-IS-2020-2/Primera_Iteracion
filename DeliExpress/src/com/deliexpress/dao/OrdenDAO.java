@@ -4,6 +4,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Iterator;
 import java.util.List;
+import java.util.HashMap; 
 
 import javax.sql.DataSource;
 
@@ -91,15 +92,14 @@ private JdbcTemplate template;
 	}
 	public int guardarOrden(Carrito carrito,int idCliente) {
 		float precio = 0; 
-		Iterator<Alimento> it = carrito.getAlimentos().iterator();
+		// Iterator<Alimento> it = carrito.getAlimentos().iterator();
 		int idOrd = this.sigId(); 
 		String sql="insert into orden (Cliente_id_cliente) values (?)"; 
 		template.update(sql,idCliente); 
-		while(it.hasNext()) {
-			Alimento al = (Alimento)it.next();
-			sql = "insert into contenerordalim (Alimento_id_alim,Orden_id_orden,cantidad) values (?,?,1)"; 
-			template.update(sql,al.getId(),idOrd); 
-			precio+=al.getPrecio(); 
+		for(Alimento a : carrito.getAlimentos().keySet()) {
+			sql = "insert into contenerordalim (Alimento_id_alim,Orden_id_orden,cantidad) values (?,?,?)"; 
+			template.update(sql,a.getId(),idOrd,carrito.getAlimentos().get(a)); 
+			precio+=a.getPrecio()*carrito.getAlimentos().get(a); 
 		}
 		System.out.print("se guardo en " + idOrd);
 		//modificar el precio 

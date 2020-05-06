@@ -52,9 +52,10 @@ public class CarritoControlador {
 	
 	@RequestMapping(value="/vaciarCarrito")
 	public ModelAndView vaciarCarrito(ModelAndView model,HttpServletRequest request)throws IOException {
-		float precioTotal = 0;
-		//cambiar por id orden
-		carritoDAO.vaciarCarrito(1);
+		HttpSession s = request.getSession(); 
+		Carrito carrito = (Carrito)s.getAttribute("carrito");
+		carrito.getAlimentos().clear();
+		carrito.setPrecio(0);
 		return new ModelAndView("redirect:/carrito");
 	}
 	
@@ -75,12 +76,39 @@ public class CarritoControlador {
 		carritoDAO.aumentar(1,nom);
 		return new ModelAndView("redirect:/carrito");
 	}
+	
+	@RequestMapping(value="/aumentarCarrito", method = RequestMethod.GET)
+	public ModelAndView aumentarCarrito(HttpServletRequest request)throws IOException {
+		 int idAlim = Integer.parseInt(request.getParameter("id_alim"));
+		HttpSession s = request.getSession(); 
+		Carrito carrito = (Carrito)s.getAttribute("carrito"); 
+		Alimento a = alimentoDAO.get(idAlim);
+		carrito.setPrecio(carrito.getPrecio()+a.getPrecio());
+		System.out.println("el numero es " + carrito.getAlimentos().get(a)); 
+		carrito.getAlimentos().put(a, carrito.getAlimentos().get(a)+1); 
+		return new ModelAndView("redirect:/carrito");
+	}
+	@RequestMapping(value="/disminuirCarrito", method = RequestMethod.GET)
+	public ModelAndView disminuirCarrito(HttpServletRequest request)throws IOException {
+		 int idAlim = Integer.parseInt(request.getParameter("id_alim"));
+		HttpSession s = request.getSession(); 
+		Carrito carrito = (Carrito)s.getAttribute("carrito"); 
+		Alimento a = alimentoDAO.get(idAlim);
+		carrito.setPrecio(carrito.getPrecio()-a.getPrecio());
+		System.out.println("el numero es " + carrito.getAlimentos().get(a)); 
+		carrito.getAlimentos().put(a, carrito.getAlimentos().get(a)-1); 
+		return new ModelAndView("redirect:/carrito");
+	}
+	
+	
 	@RequestMapping(value="/agregarCarrito", method = RequestMethod.GET)
 	public ModelAndView agregarCarrito(HttpServletRequest request)throws IOException {
 		 int idAlim = Integer.parseInt(request.getParameter("id_alim"));
 		  HttpSession s = request.getSession();
-		  Carrito carrito = (Carrito) s.getAttribute("carrito"); 
-		  carrito.agregarAlimento(alimentoDAO.get(idAlim)); 
+		  Carrito carrito = (Carrito) s.getAttribute("carrito");
+		  Alimento a = alimentoDAO.get(idAlim); 
+		  carrito.setPrecio(carrito.getPrecio()+a.getPrecio());
+		  carrito.getAlimentos().put(a,1); 
 		  System.out.println(alimentoDAO.get(idAlim).getPrecio());
 		  System.out.println("el carrito tiene " + carrito.alimentos.size()); 
 		  ModelAndView mav = new ModelAndView("menucliente");
@@ -97,7 +125,9 @@ public class CarritoControlador {
 		HttpSession s = request.getSession(); 
 		Carrito carrito = (Carrito) s.getAttribute("carrito"); 
 		//eliminar del carrito 
-		carrito.getAlimentos().remove(idAlim);
+		Alimento a = alimentoDAO.get(idAlim);
+		carrito.setPrecio(carrito.getPrecio()-carrito.getAlimentos().get(a)*a.getPrecio());
+		carrito.getAlimentos().remove(a);
 		ModelAndView mav = new ModelAndView("redirect:/carrito"); 
 		return mav; 
 	}
@@ -106,7 +136,9 @@ public class CarritoControlador {
 		HttpSession s = request.getSession(); 
 		Carrito carrito = (Carrito) s.getAttribute("carrito");
 		//eliminar del carrito 
-		ordenDAO.guardarOrden(carrito, ((Cliente)s.getAttribute("cliente")).getId_cliente()); 
+		ordenDAO.guardarOrden(carrito, ((Cliente)s.getAttribute("cliente")).getId_cliente());
+		carrito.getAlimentos().clear();
+		carrito.setPrecio(0);
 		return new ModelAndView("menucliente");
 	}
 }
