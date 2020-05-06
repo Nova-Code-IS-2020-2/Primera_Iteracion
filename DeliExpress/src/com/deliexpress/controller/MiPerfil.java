@@ -214,6 +214,42 @@ public class MiPerfil{
         }
 	}
 	
+	@RequestMapping(value = "/mostrarPerfilRep", method = RequestMethod.GET)
+	public ModelAndView mostrarPerfilRep(HttpServletRequest request ) {
+		HttpSession session = request.getSession();
+        System.out.println(session.toString());
+        Cliente cliente = new Cliente();
+        Administrador admin = new Administrador();
+        Repartidor rep = new Repartidor();
+        
+        if(session.getAttribute("rep") != null) {
+        	rep = (Repartidor) session.getAttribute("rep");
+    		System.out.println(admin.toString());
+    	    ModelAndView model = new ModelAndView("perfilrep");
+    	    model.addObject("rep", rep);
+    	    return model;
+        }else {
+        	return new ModelAndView("index");
+        }
+	}
+	@RequestMapping(value = "/mostrarPerfilAdmin", method = RequestMethod.GET)
+	public ModelAndView mostrarPerfilAdmin(HttpServletRequest request ) {
+		HttpSession session = request.getSession();
+        System.out.println(session.toString());
+        Cliente cliente = new Cliente();
+        Administrador admin = new Administrador();
+        Repartidor rep = new Repartidor();
+        
+        if(session.getAttribute("admin") != null) {
+        	admin = (Administrador) session.getAttribute("admin");
+    		System.out.println(admin.toString());
+    	    ModelAndView model = new ModelAndView("perfiladmin");
+    	    model.addObject("admin", admin);
+    	    return model;
+        }else {
+        	return new ModelAndView("index");
+        }
+	}
 	
 	@RequestMapping(value = "/actualizarAdmin", method = RequestMethod.POST)
 	public ModelAndView actualizarAdmin(@ModelAttribute Administrador admin,HttpServletRequest request,HttpServletResponse response) throws ClassNotFoundException, SQLException {
@@ -250,11 +286,38 @@ public class MiPerfil{
         }
 	}
 	
+	@RequestMapping(value = "/crearRep", method = RequestMethod.POST)
+	public ModelAndView crearRep(@ModelAttribute Repartidor repo,HttpServletRequest request, HttpServletResponse response) {
+	    System.out.println("Entro CrearRep" + repo.toString());
+	    String message = "¡Email ya registrado!";
+        ModelAndView mav = new  ModelAndView("redirect:/agregarRep") ;
+        if(repValido(repo)) {
+        	System.out.println("repValidoTrue");
+        	cuentaDAO.save(repo);
+        	return mav;
+        }else {
+        	System.out.println("repValidoFalse");
+        	Repartidor rep = new Repartidor();
+        	mav.addObject("rep", rep);
+        	mav.setViewName("registrarep");
+        	request.setAttribute("message", message);
+        	return mav;
+}
+	}
+	
 	@RequestMapping(value = "/agregarCliente", method = RequestMethod.GET)
 	public ModelAndView agregarCliente(ModelAndView model) {
 	    Cliente cliente = new Cliente();
 	    model.addObject("cliente", cliente);
 	    model.setViewName("registrarcliente");
+	    return model;
+	}
+	
+	@RequestMapping(value = "/agregarRep", method = RequestMethod.GET)
+	public ModelAndView agregarRep(ModelAndView model) {
+	    Repartidor rep = new Repartidor();
+	    model.addObject("rep", rep);
+	    model.setViewName("registrarep");
 	    return model;
 	}
 	
@@ -287,6 +350,34 @@ public class MiPerfil{
 		return true;
 			
 		}
+		
+	public boolean repValido(Repartidor rep) {
+		List<Cliente> clientes = cuentaDAO.list();
+		List<Administrador> admins = cuentaDAO.listAdmin();
+		List<Repartidor> reps = cuentaDAO.listaRep();
+		
+		//Verificas que su email no sea el mismo al de algún rep
+		for(Cliente c : clientes) {
+			if(c.getEmail().equals(rep.getEmail()) ) {
+				return false;
+			}
+		}
+		//Verifica que su email no sea el mismo al de algún Admin
+		for(Administrador c : admins) {
+			if(c.getEmail().equals(rep.getEmail())) {
+				return false;
+			}
+		}
+		//Verifica que su email no sea el mismo al de algún Repartidor
+		for(Repartidor c : reps) {
+			if(c.getEmail().equals(rep.getEmail())) {
+				return false;
+			}
+		}
+		return true;
+			
+		}
+	
 	
 	
 }

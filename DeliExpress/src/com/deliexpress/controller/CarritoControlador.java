@@ -90,13 +90,18 @@ public class CarritoControlador {
 	}
 	@RequestMapping(value="/disminuirCarrito", method = RequestMethod.GET)
 	public ModelAndView disminuirCarrito(HttpServletRequest request)throws IOException {
-		 int idAlim = Integer.parseInt(request.getParameter("id_alim"));
+		
+		int idAlim = Integer.parseInt(request.getParameter("id_alim"));
 		HttpSession s = request.getSession(); 
 		Carrito carrito = (Carrito)s.getAttribute("carrito"); 
 		Alimento a = alimentoDAO.get(idAlim);
 		carrito.setPrecio(carrito.getPrecio()-a.getPrecio());
-		System.out.println("el numero es " + carrito.getAlimentos().get(a)); 
-		carrito.getAlimentos().put(a, carrito.getAlimentos().get(a)-1); 
+		//System.out.println("el numero es " + carrito.getAlimentos().get(a)); 
+		if(carrito.getAlimentos().get(a) != 1) {
+			carrito.getAlimentos().put(a, carrito.getAlimentos().get(a)-1); 
+		}else {
+			carrito.getAlimentos().remove(a);
+		}
 		return new ModelAndView("redirect:/carrito");
 	}
 	

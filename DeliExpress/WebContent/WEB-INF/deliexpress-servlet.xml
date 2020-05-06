@@ -59,5 +59,6 @@
 		<property name="template" ref="jt"></property>    
 	</bean> 
 	   
+ 	<mvc:resources location="/jsp/media/" mapping="/media/**"></mvc:resources>
  
 </beans>

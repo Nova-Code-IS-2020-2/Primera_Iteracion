@@ -62,7 +62,7 @@
   </head>
 
   <body>
-	<div id="header"></div>
+	<jsp:directive.include file="/menuportatilAdmin.html"/>
     <div class="container page-name">
       <h1 style="font-family: ABeeZee, sans-serif;">DeliExpress</h1>
       <h3 class="categorias" style="font-family: Actor, sans-serif;">Orden </h3>

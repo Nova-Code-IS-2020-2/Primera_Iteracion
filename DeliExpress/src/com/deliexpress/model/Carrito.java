@@ -19,17 +19,8 @@ public class Carrito {
 		return alimentos;
 	}
 	public void agregarAlimento(Alimento a) {
-<<<<<<< HEAD
-		if(alimentos.containsKey(a)){
-			int cant = alimentos.get(a);
-			alimentos.replace(a,cant,cant++);
-		}else {
-			alimentos.put(a, 1);
-		}
-=======
 		precio+= a.getPrecio(); 
 		alimentos.put(a,1); 
->>>>>>> 1f2586cd3d9874569949231670b0bf0a5cd74823
 	}
 	public float getPrecio() {
 		return precio;
