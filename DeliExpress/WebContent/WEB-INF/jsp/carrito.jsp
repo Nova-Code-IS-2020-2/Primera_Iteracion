@@ -109,6 +109,8 @@
                        <td style="border: 1px solid #ffffff!important;" align="center" color: #fff;>
                           <a href="/DeliExpress/disminuirCarrito?id_alim=${alimento.getId()}">-</a></td>
                      <td style="border: 1px solid #ffffff!important;" align="center" color: #fff;>
+                      <a href="/DeliExpress/eliminarCarrito?id_alim=${alimento.getId()}">Eliminar</a></td>
+                     </td>
                          
                 </tr>
                 </c:forEach>             
