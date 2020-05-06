@@ -57,7 +57,7 @@
   </head>
 
   <body>
-	<jsp:directive.include file="/menuportatilRepartidor.html"/>
+	<jsp:directive.include file="/menuportatilAdmin.html"/>
     <div class="container page-name">
       <h1 style="font-family: ABeeZee, sans-serif;">DeliExpress</h1>
       <h3 class="categorias" style="font-family: Actor, sans-serif;">Orden </h3>
@@ -67,20 +67,18 @@
                   <tr>
                       <td class="border border-light shadow-sm" style="color:#6C3313 ;background-color: #ffffff;" >Nombre Cliente</td>
                       <td class="border border-light shadow-sm" style="color:#6C3313 ;background-color: #ffffff;">Precio Total</td>
+                      <td class="border border-light shadow-sm" style="color:#6C3313 ;background-color: #ffffff;">Dirección</td>
                   </tr>
                   <tr>
                       <td style="border: 1px solid #ffffff!important;">${cliente.getNombre()} ${cliente.getApPat()} ${cliente.getApMat()}</td>
                       <td style="border: 1px solid #ffffff!important;">${orden.getPrecio()}</td>
-
+					  <td style="border: 1px solid #ffffff!important;">${cliente.getDireccion()}</td>
                   </tr>
               </thead>
               <tbody>
                   <tr></tr>
               </tbody>
           </table>
-          <div>
-          	<a href="verDireccion?id_cliente=${cliente.getId()}&id_orden=${orden.getId()}" class="btn btn-primary border rounded" role="button" style="background-color: #6c3313;">Ver Dirección</a>
-          </div>
       </div>
       </div>
       <script src="assets/js/jquery.min.js"></script>
