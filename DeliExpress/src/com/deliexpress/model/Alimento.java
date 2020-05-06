@@ -1,12 +1,28 @@
 package com.deliexpress.model;
 
+import java.util.Objects;
+
 public class Alimento {
 	
 	private int id;
 	private String nombre, descripcion, foto;
 	private Float precio; 
 	private int categoria;
-	
+	@Override 
+	public int hashCode() {
+		return Objects.hash(id); 
+	}
+	@Override 
+	public boolean equals(Object o) {
+		if(o == this) {
+			return true; 
+		}
+		if(!(o instanceof Alimento)){
+			return false; 
+		}
+		Alimento a = (Alimento)o; 
+		return this.id == a.getId(); 
+	}
 	public Alimento() {
 	}
 	
