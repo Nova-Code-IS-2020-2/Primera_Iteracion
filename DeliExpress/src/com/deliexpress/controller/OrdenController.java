@@ -79,7 +79,6 @@ public class OrdenController {
 	    		s.setAttribute("orden", orden);
 	    		ordenDAO.updateRepartidor(ordId, r.getId_repartidor());
 	    	}
-	    	System.out.println("Repartidor");
 	    	model= new ModelAndView("orden");
 	    }else {
 	    	System.out.println("Admin");

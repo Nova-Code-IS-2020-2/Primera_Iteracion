@@ -42,7 +42,6 @@ public class CarritoDao {
 		            aCat.setPrecio(rs.getFloat("precio"));
 		            aCat.setNombre(rs.getString("nombre_alim"));
 		            aCat.setCantidad(rs.getInt("cantidad"));
-		            System.out.println(aCat.toString());
 		            return aCat;
 			 }
 		 

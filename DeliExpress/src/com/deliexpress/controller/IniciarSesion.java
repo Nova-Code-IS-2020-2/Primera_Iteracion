@@ -43,6 +43,13 @@ public class IniciarSesion extends HttpServlet{
 	public ModelAndView iniciarSesion() {
 		return new ModelAndView("iniciarsesion");
 	}
+    
+    @RequestMapping(value = "/logout", method = RequestMethod.GET)
+    public String closeSession(HttpServletRequest request){
+        HttpSession session=request.getSession();  
+        session.invalidate();  
+        return "redirect:/";
+    }
  
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public ModelAndView loginProcess(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
