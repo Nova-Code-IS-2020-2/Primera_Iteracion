@@ -44,7 +44,12 @@ public class OrdenController {
 			 try {
 				 IniciarSesionDAO isDAO = new IniciarSesionDAO();
 				 List<String[]> dirs = isDAO.dirIdOrd();
-				 ModelAndView mav=new ModelAndView("seleccionarcomida");
+				 ModelAndView mav = null;
+				 if (s.getAttribute("admin") == null) {
+					 mav=new ModelAndView("seleccionarcomida");
+				 }else {
+					 mav=new ModelAndView("seleccionarcomidaAdmin");
+				 }
 				 mav.addObject("dirs", dirs);
 				 return mav;
 			 }catch (SQLException | ClassNotFoundException ex) {
