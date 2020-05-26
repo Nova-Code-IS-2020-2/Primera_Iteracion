@@ -147,7 +147,9 @@ public class MiPerfil{
 		String message = "Email o telefono incorrectos";
 		ModelAndView model = new ModelAndView();
 		if(esValida(cliente)) {
-	    	cuentaDAO.update(cliente);
+			HttpSession session = request.getSession();
+	    	session.removeAttribute("cliente");
+	    	session.setAttribute("cliente", cliente);
 		    model.setViewName("menucliente");
 		    return model;
 	    }
@@ -159,7 +161,7 @@ public class MiPerfil{
 	
 	@RequestMapping(value = "/actualizarRep", method = RequestMethod.POST)
 	public ModelAndView actualizarRep(@ModelAttribute Repartidor rep,HttpServletRequest request,HttpServletResponse response) {
-		System.out.println("actualizarAdmin-------------------------------"+rep.toString());
+		System.out.println("actualizarRep-------------------------------"+rep.toString());
 		String message = "Email repetido";
 		ModelAndView model = new ModelAndView();
 		if(esValidaRep(rep)) {
@@ -168,8 +170,10 @@ public class MiPerfil{
 	        //String password = request.getParameter("password");
 	        //Administrador adminNuevo = isDAO.checkLoginAdmin(email,password);
 	    	//model.addObject("admin", adminNuevo);
-	    	model.setViewName("menuAdmin");
-    	    return model;
+	    	HttpSession session = request.getSession();
+	    	session.removeAttribute("rep");
+	    	session.setAttribute("rep", rep);
+	    	return new ModelAndView("redirect:/ordenes");
 	    }
 	    model.addObject("rep", rep);
 	    model.setViewName("perfilrep");
@@ -262,7 +266,10 @@ public class MiPerfil{
 	        //String password = request.getParameter("password");
 	        //Administrador adminNuevo = isDAO.checkLoginAdmin(email,password);
 	    	//model.addObject("admin", adminNuevo);
-	    	model.setViewName("principaladmin");
+	    	HttpSession session = request.getSession();
+	    	session.removeAttribute("admin");
+	    	session.setAttribute("admin", admin);
+	    	model.setViewName("redirect:/menuAdmin");
     	    return model;
 	    }
 	    //model.addObject("admin", admin);
