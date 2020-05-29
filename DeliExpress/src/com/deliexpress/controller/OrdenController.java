@@ -61,6 +61,8 @@ public class OrdenController {
 	}
 	
 	
+	
+	
 	@RequestMapping(value = "/orden",  method = RequestMethod.GET)
 	public ModelAndView orden(HttpServletRequest request) {  
 	    HttpSession s = request.getSession();
@@ -71,6 +73,16 @@ public class OrdenController {
 	 
 	    return model;
 	}
+	@RequestMapping(value = "/entregar", method = RequestMethod.GET)
+	public ModelAndView entregar(HttpServletRequest request){
+		HttpSession s = request.getSession();
+	    Repartidor r = (Repartidor) s.getAttribute("rep");
+	    Orden orden = (Orden) s.getAttribute("orden");
+	    
+	    s.setAttribute("orden", null);
+		ordenDAO.updateRepartidor2(orden.getId(), r.getId_repartidor());
+		return new ModelAndView("entregado");
+	}
 	@RequestMapping(value = "/verOrden", method = RequestMethod.GET)
 	public ModelAndView verOrden(HttpServletRequest request) {  
 	    int ordId = Integer.parseInt(request.getParameter("id"));
@@ -80,11 +92,14 @@ public class OrdenController {
 	    ModelAndView model;
 	    if(r != null) {
 	    	if(orden == null) {
+	    		
 	    		orden = ordenDAO.get(ordId);
 	    		s.setAttribute("orden", orden);
 	    		ordenDAO.updateRepartidor(ordId, r.getId_repartidor());
 	    	}
 	    	model= new ModelAndView("orden");
+	    	model.addObject("idRepartidor", r.getId_repartidor());
+		    model.addObject("ordId",ordId);
 	    }else {
 	    	System.out.println("Admin");
 	    	model = new ModelAndView("ordenAdmin");
