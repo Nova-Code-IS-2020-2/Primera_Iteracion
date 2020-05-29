@@ -228,7 +228,7 @@ public class MiPerfil{
         
         if(session.getAttribute("rep") != null) {
         	rep = (Repartidor) session.getAttribute("rep");
-    		System.out.println(admin.toString());
+    
     	    ModelAndView model = new ModelAndView("perfilrep");
     	    model.addObject("rep", rep);
     	    return model;

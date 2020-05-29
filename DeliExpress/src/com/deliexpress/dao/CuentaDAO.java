@@ -50,7 +50,6 @@ public class CuentaDAO {
 	}    
 	
 	public List<Cliente> list(){
-		System.out.println("List");
 		String sql = "select * from cliente";
 		List<Cliente> listaClientes=template.query(sql, new RowMapper<Cliente>() {
 			 @Override
@@ -69,7 +68,6 @@ public class CuentaDAO {
 			 }
 		 
 		});
-		System.out.println("List2");
 		    return listaClientes;
 	}
 	public List<Administrador> listAdmin(){
