@@ -77,6 +77,13 @@ private JdbcTemplate template;
 	    		+ "where id_orden=?";    
 	    return template.update(sql,idRepartidor,idOrden);    
 	}    
+	
+	public int updateRepartidor2(int idOrden,int idRepartidor){    
+	    String sql="update Orden set Repartidor_id_repartidor=? , estado=\"entregado\" "
+	    		+ "where id_orden=?";    
+	    return template.update(sql,idRepartidor,idOrden);    
+	} 
+	
 	public int sigId() {
 		String sql = "select AUTO_INCREMENT " + "from information_schema.TABLES " + "where TABLE_SCHEMA = \"deliexpress\" " + "and table_name = \"orden\"";
 		return template.query(sql, new ResultSetExtractor<Integer>() {
