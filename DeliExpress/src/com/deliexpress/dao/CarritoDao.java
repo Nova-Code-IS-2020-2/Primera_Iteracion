@@ -36,9 +36,6 @@ public class CarritoDao {
 		        public Carrito mapRow(ResultSet rs, int rowNum) throws SQLException {
 				 	
 				 	Carrito aCat = new Carrito();
-				 	System.out.println("mapRow");
-				 	
-				 	
 		            aCat.setPrecio(rs.getFloat("precio"));
 		            aCat.setNombre(rs.getString("nombre_alim"));
 		            aCat.setCantidad(rs.getInt("cantidad"));
