@@ -161,7 +161,7 @@
 			 ${message}
 		</div>
 		<div class="text-center">
-			<button class="btn btn-default active btn-lg" type="submit"value="Actualizar Datos" name="actualizarCuenta">Actualizar Datos</button>
+			<button class="btn btn-default active btn-lg" type="submit"value="Actualizar Datos" name="actualizarRep">Actualizar Datos</button>
 		</div>
 	
 	</form:form>

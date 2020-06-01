@@ -49,10 +49,8 @@ public class AlimentoControlador {
 
 	@RequestMapping(value = "/editarAlimento", method = RequestMethod.GET)
 	public ModelAndView editarAlimento(HttpServletRequest request) {
-		System.out.println("Request");
 	    int alimId = Integer.parseInt(request.getParameter("id"));
 	    Alimento alimento = alimentoDAO.get(alimId);
-			System.out.println("Get dao");
 	    ModelAndView model = new ModelAndView("editarAlimento");
 	    model.addObject("alimento", alimento);
 			return model;
