@@ -49,31 +49,10 @@ body {
         <div><a class="btn btn-primary shadow" role="button" style="margin: 10px;padding: 9px 12px;color: #6c3313;background-color: rgb(255,255,255); border: 1px solid #6c3313!important; border-style: groove;" href="agregarRep">Agregar repartidor</a></div>
         <div><a class="btn btn-primary shadow" role="button" style="margin: 10px;padding: 9px 12px;color: #6c3313;background-color: rgb(255,255,255); border: 1px solid #6c3313!important; border-style: groove;" href="/DeliExpress/menuAdmin">Editar Menú</a></div>
         <div><a class="btn btn-primary shadow" role="button" style="margin: 10px;padding: 9px 12px;color: #6c3313;background-color: rgb(255,255,255); border: 1px solid #6c3313!important; border-style: groove;" href="/DeliExpress/ordenes">Ordenes</a></div>
+        <div><a class="btn btn-primary shadow" role="button" style="margin: 10px;padding: 9px 12px;color: #6c3313;background-color: rgb(255,255,255); border: 1px solid #6c3313!important; border-style: groove;" href="/DeliExpress/correo.jsp">Enviar Correo</a></div>
     </div>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-
-    <form action="EmailSendingServlet" method="post">
-        <table border="0" width="35%" align="center">
-            <caption><h2>Send New E-mail</h2></caption>
-            <tr>
-                <td width="50%">Recipient address </td>
-                <td><input type="text" name="recipient" size="50"/></td>
-            </tr>
-            <tr>
-                <td>Subject </td>
-                <td><input type="text" name="subject" size="50"/></td>
-            </tr>
-            <tr>
-                <td>Content </td>
-                <td><textarea rows="10" cols="39" name="content"></textarea> </td>
-            </tr>
-            <tr>
-                <td colspan="2" align="center"><input type="submit" value="Send"/></td>
-            </tr>
-        </table>
-
-    </form>
 </body>
 
 </html>
