@@ -24,6 +24,11 @@
       text-align: left;
       background-color: #fff;
     }
+    
+    .h2, h2{
+      color: #6C3313;
+      font-family: Actor, sans-serif;
+    }
 
     .h3, h3 {
       color: #6C3313;
@@ -45,7 +50,7 @@
   </style>
   <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Orden</title>
+        <title>Entregado</title>
         <script src="//code.jquery.com/jquery-1.10.2.js"></script>
         <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=ABeeZee">
@@ -57,37 +62,14 @@
   </head>
 
   <body>
-	<jsp:directive.include file="/menuportatilRepartidor.html"/>
+  	<jsp:directive.include file="/menuportatilRepartidor.html"/>
+	<div id="header"></div>
     <div class="container page-name">
       <h1 style="font-family: ABeeZee, sans-serif;">DeliExpress</h1>
-      <h3 class="categorias" style="font-family: Actor, sans-serif;">Orden </h3>
-      <div class="table-responsive table-bordered border rounded shadow">
-          <table class="table table-striped table-bordered" >
-              <thead>
-                  <tr>
-                      <td class="border border-light shadow-sm" style="color:#6C3313 ;background-color: #ffffff;" >Nombre Cliente</td>
-                      <td class="border border-light shadow-sm" style="color:#6C3313 ;background-color: #ffffff;">Precio Total</td>
-                  </tr>
-                  <tr>
-                      <td style="border: 1px solid #ffffff!important;">${cliente.getNombre()} ${cliente.getApPat()} ${cliente.getApMat()}</td>
-                      <td style="border: 1px solid #ffffff!important;">${orden.getPrecio()}</td>
-                  </tr>
-              </thead>
-              <tbody>
-                  <tr></tr>
-              </tbody>
-          </table>
-          <div>
-          	<a href="verDireccion?id_cliente=${cliente.getId()}&id_orden=${orden.getId()}" class="btn btn-primary border rounded" role="button" style="background-color: #6c3313;">Ver Dirección</a>
-          </div>
-          <div>
-          	<a href="entregar" class="btn btn-primary border rounded" role="button" style="background-color: #6c3313;">Entregado</a>
-          </div>
-          
-      </div>
+      <h2 class="categorias" style="font-family: Actor, sans-serif;">Orden Entregada Exitosamente</h2>
+    
+      <a href="ordenes" class="btn btn-primary border rounded" role="button" style="background-color: #6c3313;">Regresar</a>
       </div>
       <script src="assets/js/jquery.min.js"></script>
       <script src="assets/bootstrap/js/bootstrap.min.js"></script>
   </body>
-
-</html>
