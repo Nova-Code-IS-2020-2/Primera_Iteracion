@@ -46,13 +46,14 @@ body {
 	<div id="header"></div>
     <div class="container page_name">
         <h1 style="margin: 30 px;">DeliExpress</h1>
+        
+            <h3 style="margin: 30 px;">Enviar Nuevo Correo</h3>
     </div>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
 
     <form action="EmailSendingServlet" method="post">
         <table border="0" width="35%" align="center">
-            <caption><h2>Enviar Nuevo Correo</h2></caption>
             <tr>
                 <td width="50%">Dirección</td>
                 <td><input type="text" name="recipient" size="50"/></td>
