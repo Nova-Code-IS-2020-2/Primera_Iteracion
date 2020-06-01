@@ -57,7 +57,7 @@ body {
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Deli Express</title>
 <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-<script> 
+<script>
 $(function(){
   $("#header").load("menuportatilAdmin.html");
 });
@@ -83,20 +83,20 @@ $(function(){
 			<table class="table table-bordered">
 				<form:hidden  path="id" />
 				<tbody>
-                    <tr>	
-                    	<td class="text-left nombre" style="font-family: Actor, sans-serif;">Nombre del producto:</td>
-						<td><form:input type="text"  inputmode="text" style="filter: blur(0px) brightness(100%) invert(0%);color: #6c3313;background-color: #fff ;font-size: 20px;font-family: Lato, sans-serif;padding: 0px;margin: 30px;height: 60px;width: 440px;" path="Nombre" /></td>
-					</tr>	
+          <tr>
+            <td class="text-left nombre" style="font-family: Actor, sans-serif;">Nombre del producto:</td>
+					  <td><form:input type="text"  inputmode="text" style="filter: blur(0px) brightness(100%) invert(0%);color: #6c3313;background-color: #fff ;font-size: 20px;font-family: Lato, sans-serif;padding: 0px;margin: 30px;height: 60px;width: 440px;" path="Nombre" /></td>
+					</tr>
 						<td class="text-left nombre" style="font-family: Actor, sans-serif;">Direccion de foto:</td>
-						<td><form:input type="text"  inputmode="text" style="filter: blur(0px) brightness(100%) invert(0%);color: #6c3313;background-color: #fff ;font-size: 25px;font-family: Lato, sans-serif;padding: 0px;margin: 30px;height: 60px;width: 440px;" path="Categoria"/></td>
+						<td><form:input type="text"  inputmode="text" style="filter: blur(0px) brightness(100%) invert(0%);color: #6c3313;background-color: #fff ;font-size: 25px;font-family: Lato, sans-serif;padding: 0px;margin: 30px;height: 60px;width: 440px;" path="DireccionFoto"/></td>
 					</tr>
 					<tr>
 						<td class="text-left nombre" style="font-family: Actor, sans-serif;">Categoria (id):</td>
-						<td><form:input type="text"  inputmode="text" style="filter: blur(0px) brightness(100%) invert(0%);color: #6c3313;background-color: #fff ;font-size: 20px;font-family: Lato, sans-serif;padding: 0px;margin: 30px;height: 60px;width: 440px;" path="DireccionFoto"/></td>
+						<td><form:input  inputmode="text" style="filter: blur(0px) brightness(100%) invert(0%);color: #6c3313;background-color: #fff ;font-size: 20px;font-family: Lato, sans-serif;padding: 0px;margin: 30px;height: 60px;width: 440px;" path="Categoria" type="number"/></td>
 					</tr>
 					<tr>
 						<td class="text-left nombre" style="font-family: Actor, sans-serif;">Precio</td>
-						<td><form:input inputmode="text" style="filter: blur(0px) brightness(100%) invert(0%);color: #6c3313;background-color: #fff ;font-size: 20px;font-family: Lato, sans-serif;padding: 0px;margin: 30px;height: 60px;width: 440px;" type="number" path="Precio" /></td>
+						<td><form:input inputmode="text" style="filter: blur(0px) brightness(100%) invert(0%);color: #6c3313;background-color: #fff ;font-size: 20px;font-family: Lato, sans-serif;padding: 0px;margin: 30px;height: 60px;width: 440px;" type="number" step="0.01" path="Precio" /></td>
 					</tr>
 					<tr>
 						<td class="text-left nombre" style="font-family: Actor, sans-serif;">Descripción:</td>
@@ -105,7 +105,7 @@ $(function(){
 				</tbody>
             </table>
 			</div><button class="btn btn-primary border rounded" type="submit" name="guardarAlimento" style="background-color: #6c3313;">Confirmar</button>
-   				
+
    			<a href="menuAdmin" class="btn btn-primary border rounded" role="button" style="background-color: #6c3313;">Cancelar</a></div>
 			</form:form>
 		</div>

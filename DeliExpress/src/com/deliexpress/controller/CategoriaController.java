@@ -19,17 +19,17 @@ import javax.servlet.http.HttpServletRequest;
 import java.io.*;
 @Controller
 public class CategoriaController{
-	
+
 	@Autowired
     private CategoriaDAO categoriaDAO;
 	@Autowired
     private AlimentoDAO alimentoDAO;
-	
+
 	@RequestMapping(value="/principalAdmin")
 	public ModelAndView principalAdmin() {
 		return new ModelAndView();
 	}
- 
+
 	@RequestMapping(value="/menuAdmin")
 	public ModelAndView listaCategoria(ModelAndView model) throws IOException{
 		Hashtable<Categoria,List<Alimento>> menu=new Hashtable<Categoria,List<Alimento>>();
@@ -41,9 +41,10 @@ public class CategoriaController{
 	    }
 	    model.addObject("menu", menu);
 	    model.setViewName("menuAdmin");
-	 
+
 	    return model;
 	}
+	
 	@RequestMapping(value = "/agregarCategoria", method = RequestMethod.GET)
 	public ModelAndView agregarCategoria(ModelAndView model) {
 	    Categoria categoria = new Categoria();
@@ -61,21 +62,21 @@ public class CategoriaController{
 	    categoriaDAO.update(categoria);
 	    return new ModelAndView("redirect:/menuAdmin");
 	}
-	
+
 	@RequestMapping(value = "/borrarCategoria", method = RequestMethod.GET)
 	public ModelAndView borrarCategoria(HttpServletRequest request) {
 	    int catId = Integer.parseInt(request.getParameter("id"));
 	    categoriaDAO.delete(catId);
 	    return new ModelAndView("redirect:/menuAdmin");
 	}
-	
+
 	@RequestMapping(value = "/editarCategoria", method = RequestMethod.GET)
 	public ModelAndView editarCategoria(HttpServletRequest request) {
 	    int catId = Integer.parseInt(request.getParameter("id"));
 	    Categoria categoria = categoriaDAO.get(catId);
 	    ModelAndView model = new ModelAndView("cateditform");
 	    model.addObject("categoria", categoria);
-	 
+
 	    return model;
 	}
 }
