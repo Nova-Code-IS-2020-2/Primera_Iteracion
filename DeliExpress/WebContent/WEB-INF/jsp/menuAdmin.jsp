@@ -114,7 +114,7 @@
 				          	<a  href="/DeliExpress/editarAlimento?id=${alimento.getId()}"
 				            	class="btn btn-primary border rounded shadow-sm" role="button" style="color: #6c3313; background-color: #ffffff; border: 1px solid #6c3313!important; ">Editar</a>
           					&nbsp;&nbsp;&nbsp;
-          					<a href="/DeliExpress//borrarAlimento?id=${alimento.getId()}"
+          					<a href="/DeliExpress/borrarAlimento?id=${alimento.getId()}"
           						class="btn btn-primary border rounded shadow-sm" role="button" style="color: #6c3313; background-color: #ffffff; border: 1px solid #6c3313!important;">Borrar</a></div>
           					<div class="btn-group" role="group"></div>
 			             </td>

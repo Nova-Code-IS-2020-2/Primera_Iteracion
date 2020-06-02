@@ -75,7 +75,7 @@ $(function(){
 		<h1 style="font-family: ABeeZee, sans-serif;">DeliExpress</h1>
 		<h3 class="cat-alim" style="font-family: Actor, sans-serif;">Editar Alimento:</h3>
 		<div class="table-responsive table-bordered text-center shadow">
-			<form:form  action="editarAlimento" method="post" modelAttribute="alimento">
+			<form:form  action="actualizarAlimento" method="post" modelAttribute="alimento">
 			<table class="table table-bordered">
 				<form:hidden path="id" />
 				<tbody>
@@ -101,7 +101,7 @@ $(function(){
 					</tr>
 				</tbody>
 			</table>
-    </div><button class="btn btn-primary border rounded" type="submit" name="editarAlimento" style="background-color: #6c3313;">Confirmar</button>
+    </div><button class="btn btn-primary border rounded" type="submit" name="actualizarAlimento" style="background-color: #6c3313;">Confirmar</button>
    			<a href="menuAdmin" class="btn btn-primary border rounded" role="button" style="background-color: #6c3313;">Cancelar</a></div>
    			</form:form>
     <script src="assets/js/jquery.min.js"></script>
