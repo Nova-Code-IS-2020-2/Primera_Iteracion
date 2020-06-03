@@ -291,7 +291,7 @@ public class MiPerfil{
 					ess.registroCliente(cliente.getEmail());
 			 } catch (Exception ex) {
 					ex.printStackTrace();
-			 		String resultMessage = "There were an error: " + ex.getMessage();
+			 		String resultMessage = "Hubo un error: " + ex.getMessage();
 			 }
         	return mav;
         }else {

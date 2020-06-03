@@ -19,8 +19,10 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jdk-11">
 		<attributes>
+			<attribute name="module" value="true"/>
 			<attribute name="owner.project.facets" value="java"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/gisib/Documents/Ingeniería/Primera_Iteracion/DeliExpress/javax.mail.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
