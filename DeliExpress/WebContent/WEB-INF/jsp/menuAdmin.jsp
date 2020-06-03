@@ -62,12 +62,13 @@
       <div class="btn-toolbar">
         <div class="btn-group" role="group">
           <a  href="/DeliExpress/agregarCategoria"
-            class="btn btn-primary border rounded shadow-sm" role="button" style="color: #6c3313; background-color: #ffffff; border: 1px solid #6c3313!important; ">+Categoría</a>
+            class="btn btn-primary border rounded shadow-sm" role="button" style="color: #6c3313; background-color: #ffffff; border: 1px solid #6c3313!important;">+Categoría</a>
           &nbsp;&nbsp;&nbsp;
-          <a href="/DeliExpress/agregarAlimento"class="btn btn-primary border rounded shadow-sm" role="button" style="color: #6c3313; background-color: #ffffff; border: 1px solid #6c3313!important;">+Alimento</a>
+          <a href="/DeliExpress/agregarAlimento"
+            class="btn btn-primary border rounded shadow-sm" role="button" style="color: #6c3313; background-color: #ffffff; border: 1px solid #6c3313!important;">+Alimento</a>
           &nbsp;&nbsp;&nbsp;
         </div>
-          
+
       </div>
       <h3 class="categorias" style="font-family: Actor, sans-serif;">Menú de alimentos </h3>
       <div class="table-responsive table-bordered border rounded shadow">
@@ -94,7 +95,7 @@
                       <c:forEach var="alimento" items="${elem.value}" varStatus="status">
                       <tr>
                       	 <td style="border: 1px solid #ffffff!important;" width="25%" >
-                      	 	<img src="${pageContext.request.contextPath}/${alimento.getDireccionFoto()}" alt="${alimento.getNombre()}" width="100%">
+                      	 	<img src="${pageContext.request.contextPath}/${alimento.getDireccionFoto()}" alt="${alimento.getNombre() }" width="100%" >
                       	 </td>
                       	 <td width="55%">
                       	 	<table>
@@ -106,19 +107,19 @@
 								 	<td class="border border-light shadow-sm" style="border: 1px solid #6C3313!important;color:#6C3313 ;background-color: #ffffff;" width="100%" colspan="2">${alimento.getDescripcion() }</td>
 								 </tr>
                       	 	</table>
-                      	 
+
                       	 </td>
                       	 <td class="border border-light shadow-sm" style="border: 1px solid #6C3313!important;color:#6C3313 ;background-color: #ffffff;" width="30%">
                       	 	 <div class="btn-group" role="group">
 				          	<a  href="/DeliExpress/editarAlimento?id=${alimento.getId()}"
 				            	class="btn btn-primary border rounded shadow-sm" role="button" style="color: #6c3313; background-color: #ffffff; border: 1px solid #6c3313!important; ">Editar</a>
           					&nbsp;&nbsp;&nbsp;
-          					<a href="/DeliExpress//borrarAlimento?id=${alimento.getId()}" 
+          					<a href="/DeliExpress/borrarAlimento?id=${alimento.getId()}"
           						class="btn btn-primary border rounded shadow-sm" role="button" style="color: #6c3313; background-color: #ffffff; border: 1px solid #6c3313!important;">Borrar</a></div>
           					<div class="btn-group" role="group"></div>
 			             </td>
                       </tr>
-					 
+
 					 </c:forEach>
 					 </table>
                   </tr>

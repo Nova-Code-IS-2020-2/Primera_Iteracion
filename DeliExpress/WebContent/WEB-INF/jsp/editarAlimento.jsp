@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
@@ -53,9 +54,9 @@ body {
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Crear Alimento</title>
 <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-<script> 
+<script>
 $(function(){
-  $("#header").load("menuportatilAdmin.html");
+  $("#header").load("menuportatil.html");
 });
 </script>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=ABeeZee">
@@ -72,22 +73,38 @@ $(function(){
 	<div id="header"></div>
 	<div class="container page-name">
 		<h1 style="font-family: ABeeZee, sans-serif;">DeliExpress</h1>
-		<h3 class="cat-alim" style="font-family: Actor, sans-serif;">Editar Alimento</h3>
-		<div class="card-body">
-			<form mothod="POST">
-				<label>Nombre</label>
-				<input type="text" name="Nombre" class="form-control" value="${lista[0].nombre}">
-				<label>Imagen</label>
-				<input type="text" name="imgDir" class="form-control" value="${lista[1].direccion}">
-				<label>Descripcion</label>
-				<input type="text" name="Descripcion" class="form-control" value="${lista[0].descripcion}">
-				<label>Precio</label>
-				<input type="number" name="Precio" class="form-control" value="${lista[0].precio}">
-				<input type="submit" value="Actualizar" class="btn">
-				<a href="menuAdmin.jsp">Cancelar</a>
-		</div>
+		<h3 class="cat-alim" style="font-family: Actor, sans-serif;">Editar Alimento:</h3>
+		<div class="table-responsive table-bordered text-center shadow">
+			<form:form  action="actualizarAlimento" method="post" modelAttribute="alimento">
+			<table class="table table-bordered">
+				<form:hidden path="id" />
+				<tbody>
+					<tr>
+						<td class="text-left nombre" style="font-family: Actor, sans-serif;">Nombre del Alimento:</td>
+						<td class="text-left"><form:input class="border rounded-0 id-input" path="Nombre" value="${alimento.getNombre()}" type="text" maxlength="45" size="45"/></td>
+					</tr>
+					<tr>
+						<td class="text-left nombre" style="font-family: Actor, sans-serif;">Descripción:</td>
+						<td class="text-left"><form:input class="border rounded-0 id-input" path="Descripcion" value="${alimento.getDescripcion()}" type="text" maxlength="255" size="45"/></td>
+					</tr>
+					<tr>
+						<td class="text-left nombre" style="font-family: Actor, sans-serif;">Direccion de la Imagen:</td>
+						<td class="text-left"><form:input class="border rounded-0 id-input" path="DireccionFoto" value="${alimento.getDireccionFoto()}" type="text" maxlength="45" size="45"/></td>
+					</tr>
+					<tr>
+						<td class="text-left nombre" style="font-family: Actor, sans-serif;">Número de la categoría:</td>
+						<td class="text-left"><form:input class="border rounded-0 id-input" path="Categoria" value="${alimento.getCategoria()}" type="number"/></td>
+					</tr>
+					<tr>
+						<td class="text-left nombre" style="font-family: Actor, sans-serif;">Precio:</td>
+						<td class="text-left"><form:input class="border rounded-0 id-input" path="Precio" value="${alimento.getPrecio()}" type="number" step="0.01"/></td>
+					</tr>
+				</tbody>
+			</table>
+    </div><button class="btn btn-primary border rounded" type="submit" name="actualizarAlimento" style="background-color: #6c3313;">Confirmar</button>
+   			<a href="menuAdmin" class="btn btn-primary border rounded" role="button" style="background-color: #6c3313;">Cancelar</a></div>
+   			</form:form>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
 </body>
-
 </html>

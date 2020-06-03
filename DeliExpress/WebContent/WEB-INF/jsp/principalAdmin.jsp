@@ -29,7 +29,7 @@ body {
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Deli Express - Administrador</title>
     <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-	<script> 
+	<script>
 		$(function(){
   		$("#header").load("menuportatilAdmin.html");
 		});
@@ -49,6 +49,7 @@ body {
         <div><a class="btn btn-primary shadow" role="button" style="margin: 10px;padding: 9px 12px;color: #6c3313;background-color: rgb(255,255,255); border: 1px solid #6c3313!important; border-style: groove;" href="agregarRep">Agregar repartidor</a></div>
         <div><a class="btn btn-primary shadow" role="button" style="margin: 10px;padding: 9px 12px;color: #6c3313;background-color: rgb(255,255,255); border: 1px solid #6c3313!important; border-style: groove;" href="/DeliExpress/menuAdmin">Editar Menú</a></div>
         <div><a class="btn btn-primary shadow" role="button" style="margin: 10px;padding: 9px 12px;color: #6c3313;background-color: rgb(255,255,255); border: 1px solid #6c3313!important; border-style: groove;" href="/DeliExpress/ordenes">Ordenes</a></div>
+        <div><a class="btn btn-primary shadow" role="button" style="margin: 10px;padding: 9px 12px;color: #6c3313;background-color: rgb(255,255,255); border: 1px solid #6c3313!important; border-style: groove;" href="/DeliExpress/correo.jsp">Enviar Correo</a></div>
     </div>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>

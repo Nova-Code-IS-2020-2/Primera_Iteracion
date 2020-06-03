@@ -20,10 +20,10 @@ import javax.servlet.http.HttpSession;
 
 @Controller
 public class MiPerfil{
-	
+
 	@Autowired
     private CuentaDAO cuentaDAO;
- 
+
 	@RequestMapping(value = "/registrate", method = RequestMethod.GET)
 	public ModelAndView registrate(ModelAndView model) {
 	    Cliente cliente = new Cliente();
@@ -38,13 +38,13 @@ public class MiPerfil{
 	}
 	@RequestMapping(value = "/guardarCliente", method = RequestMethod.POST)
 	public ModelAndView guardarCliente(@ModelAttribute Cliente cliente) {
-		
+
 		if(esValida(cliente)) {
 			int id = cuentaDAO.sigId();
 			cuentaDAO.save(nuevaCliente(cliente));
 		    ModelAndView model = new ModelAndView();
 		    System.out.println("mostrarperfil  "+id);
-		    
+
 		    model.addObject("id", id);
 		    model.setViewName("main");
 		    return model;
@@ -52,96 +52,96 @@ public class MiPerfil{
 		ModelAndView model = new ModelAndView();
 	    model.setViewName("clienteNoValidaRegistro");
 	    return model;
-	    
+
 	}
 	public boolean esValida(Cliente cliente) {
-		
+
 		if(cliente.getId_cliente()!= 0) {
 			if(cliente.getTelefono().length() > 8) {
 				return false;
 			}
 		}
-		
+
 		List<Cliente> clientes = cuentaDAO.list();
 		List<Administrador> admins = cuentaDAO.listAdmin();
 		List<Repartidor> reps = cuentaDAO.listaRep();
-		
-		//Verificas que su email no sea el mismo al de algún cliente
+
+		//Verificas que su email no sea el mismo al de algï¿½n cliente
 		for(Cliente c : clientes) {
 			if(c.getEmail().equals(cliente.getEmail()) && c.getId_cliente()!=cliente.getId_cliente()) {
 				return false;
 			}
 		}
-		//Verifica que su email no sea el mismo al de algún Admin
+		//Verifica que su email no sea el mismo al de algï¿½n Admin
 		for(Administrador c : admins) {
 			if(c.getEmail().equals(cliente.getEmail())) {
 				return false;
 			}
 		}
-		//Verifica que su email no sea el mismo al de algún Repartidor
+		//Verifica que su email no sea el mismo al de algï¿½n Repartidor
 		for(Repartidor c : reps) {
 			if(c.getEmail().equals(cliente.getEmail())) {
 				return false;
 			}
 		}
 		return true;
-		
+
 	}
 	public boolean esValidaAdmin(Administrador admin) {
-		
+
 		List<Cliente> clientes = cuentaDAO.list();
 		List<Administrador> admins = cuentaDAO.listAdmin();
 		List<Repartidor> reps = cuentaDAO.listaRep();
-		
-		//Verificas que su email no sea el mismo al de algún cliente
+
+		//Verificas que su email no sea el mismo al de algï¿½n cliente
 		for(Cliente c : clientes) {
 			if(c.getEmail().equals(admin.getEmail())) {
 				return false;
 			}
 		}
-		//Verificas que su email no sea el mismo al de algún Admin
+		//Verificas que su email no sea el mismo al de algï¿½n Admin
 		for(Administrador c : admins) {
 			if(c.getEmail().equals(admin.getEmail()) && c.getId_admin()!=admin.getId_admin() ) {
 				return false;
 			}
 		}
-		//Verificas que su email no sea el mismo al de algún Repartidor
+		//Verificas que su email no sea el mismo al de algï¿½n Repartidor
 		for(Repartidor c : reps) {
 			if(c.getEmail().equals(admin.getEmail())) {
 				return false;
 			}
 		}
 		return true;
-		
+
 	}
 	public boolean esValidaRep(Repartidor rep) {
-		
+
 		List<Cliente> clientes = cuentaDAO.list();
 		List<Administrador> admins = cuentaDAO.listAdmin();
 		List<Repartidor> reps = cuentaDAO.listaRep();
-		
-		//Verificas que su email no sea el mismo al de algún cliente
+
+		//Verificas que su email no sea el mismo al de algï¿½n cliente
 		for(Cliente c : clientes) {
 			if(c.getEmail().equals(rep.getEmail())) {
 				return false;
 			}
 		}
-		//Verificas que su email no sea el mismo al de algún Admin
+		//Verificas que su email no sea el mismo al de algï¿½n Admin
 		for(Administrador c : admins) {
 			if(c.getEmail().equals(rep.getEmail()) ) {
 				return false;
 			}
 		}
-		//Verificas que su email no sea el mismo al de algún Repartidor
+		//Verificas que su email no sea el mismo al de algï¿½n Repartidor
 		for(Repartidor c : reps) {
 			if(c.getEmail().equals(rep.getEmail()) && c.getId_repartidor()!=rep.getId_repartidor()) {
 				return false;
 			}
 		}
 		return true;
-		
+
 	}
-	
+
 	@RequestMapping(value = "/actualizarCliente", method = RequestMethod.POST)
 	public ModelAndView actualizarCliente(@ModelAttribute Cliente cliente,HttpServletRequest request,HttpServletResponse response) {
 		String message = "Email o telefono incorrectos";
@@ -158,7 +158,7 @@ public class MiPerfil{
 	    request.setAttribute("message", message);
 	    return model;
 	}
-	
+
 	@RequestMapping(value = "/actualizarRep", method = RequestMethod.POST)
 	public ModelAndView actualizarRep(@ModelAttribute Repartidor rep,HttpServletRequest request,HttpServletResponse response) {
 		System.out.println("actualizarRep-------------------------------"+rep.toString());
@@ -188,7 +188,7 @@ public class MiPerfil{
 	    model.setViewName("main");
 	    return model;
 	}
-	
+
 	@RequestMapping(value = "/mostrarPerfil", method = RequestMethod.GET)
 	public ModelAndView mostrarPerfil(HttpServletRequest request ) {
 		HttpSession session = request.getSession();
@@ -196,7 +196,7 @@ public class MiPerfil{
         Cliente cliente = new Cliente();
         Administrador admin = new Administrador();
         Repartidor rep = new Repartidor();
-        
+
         if(session.getAttribute("cliente") != null) {
         	cliente = (Cliente) session.getAttribute("cliente");
         	System.out.println(cliente.toString());
@@ -217,7 +217,7 @@ public class MiPerfil{
     	    return model;
         }
 	}
-	
+
 	@RequestMapping(value = "/mostrarPerfilRep", method = RequestMethod.GET)
 	public ModelAndView mostrarPerfilRep(HttpServletRequest request ) {
 		HttpSession session = request.getSession();
@@ -225,7 +225,7 @@ public class MiPerfil{
         Cliente cliente = new Cliente();
         Administrador admin = new Administrador();
         Repartidor rep = new Repartidor();
-        
+
         if(session.getAttribute("rep") != null) {
         	rep = (Repartidor) session.getAttribute("rep");
     
@@ -243,7 +243,7 @@ public class MiPerfil{
         Cliente cliente = new Cliente();
         Administrador admin = new Administrador();
         Repartidor rep = new Repartidor();
-        
+
         if(session.getAttribute("admin") != null) {
         	admin = (Administrador) session.getAttribute("admin");
     		System.out.println(admin.toString());
@@ -254,7 +254,7 @@ public class MiPerfil{
         	return new ModelAndView("index");
         }
 	}
-	
+
 	@RequestMapping(value = "/actualizarAdmin", method = RequestMethod.POST)
 	public ModelAndView actualizarAdmin(@ModelAttribute Administrador admin,HttpServletRequest request,HttpServletResponse response) throws ClassNotFoundException, SQLException {
 		System.out.println("actualizarAdmin-------------------------------"+admin.toString());
@@ -277,7 +277,7 @@ public class MiPerfil{
 	    request.setAttribute("message", message);
 	    return model;
 	}
-	
+
 	@RequestMapping(value = "/crearCliente", method = RequestMethod.POST)
 	public ModelAndView crearCliente(@ModelAttribute Cliente cliente,HttpServletRequest request, HttpServletResponse response) {
 	    System.out.println("Entro CrearCliente" + cliente.toString());
@@ -285,6 +285,14 @@ public class MiPerfil{
         ModelAndView mav = new  ModelAndView("iniciarsesion") ;
         if(clienteValido(cliente)) {
         	cuentaDAO.save(cliente);
+        	
+        	EmailSendingServlet ess = new EmailSendingServlet();
+			 try{
+					ess.registroCliente(cliente.getEmail());
+			 } catch (Exception ex) {
+					ex.printStackTrace();
+			 		String resultMessage = "Hubo un error: " + ex.getMessage();
+			 }
         	return mav;
         }else {
         	mav.setViewName("registrarcliente");
@@ -292,15 +300,23 @@ public class MiPerfil{
         	return mav;
         }
 	}
-	
+
 	@RequestMapping(value = "/crearRep", method = RequestMethod.POST)
 	public ModelAndView crearRep(@ModelAttribute Repartidor repo,HttpServletRequest request, HttpServletResponse response) {
 	    System.out.println("Entro CrearRep" + repo.toString());
-	    String message = "¡Email ya registrado!";
+	    String message = "Email ya registrado!";
         ModelAndView mav = new  ModelAndView("redirect:/agregarRep") ;
         if(repValido(repo)) {
         	System.out.println("repValidoTrue");
         	cuentaDAO.save(repo);
+
+            EmailSendingServlet ess = new EmailSendingServlet();
+			 try{
+					ess.registroRepartidor(repo.getEmail());
+			 } catch (Exception ex) {
+					ex.printStackTrace();
+			 		String resultMessage = "There were an error: " + ex.getMessage();
+			 }
         	return mav;
         }else {
         	System.out.println("repValidoFalse");
@@ -311,7 +327,7 @@ public class MiPerfil{
         	return mav;
 }
 	}
-	
+
 	@RequestMapping(value = "/agregarCliente", method = RequestMethod.GET)
 	public ModelAndView agregarCliente(ModelAndView model) {
 	    Cliente cliente = new Cliente();
@@ -319,7 +335,7 @@ public class MiPerfil{
 	    model.setViewName("registrarcliente");
 	    return model;
 	}
-	
+
 	@RequestMapping(value = "/agregarRep", method = RequestMethod.GET)
 	public ModelAndView agregarRep(ModelAndView model) {
 	    Repartidor rep = new Repartidor();
@@ -327,7 +343,7 @@ public class MiPerfil{
 	    model.setViewName("registrarep");
 	    return model;
 	}
-	
+
 	public boolean clienteValido(Cliente cliente) {
 		if(cliente.getTelefono().length() > 8) {
 			return false;
@@ -335,56 +351,56 @@ public class MiPerfil{
 		List<Cliente> clientes = cuentaDAO.list();
 		List<Administrador> admins = cuentaDAO.listAdmin();
 		List<Repartidor> reps = cuentaDAO.listaRep();
-		
-		//Verificas que su email no sea el mismo al de algún cliente
+
+		//Verificas que su email no sea el mismo al de algï¿½n cliente
 		for(Cliente c : clientes) {
 			if(c.getEmail().equals(cliente.getEmail()) || c.getTelefono().equals(cliente.getTelefono())) {
 				return false;
 			}
 		}
-		//Verifica que su email no sea el mismo al de algún Admin
+		//Verifica que su email no sea el mismo al de algï¿½n Admin
 		for(Administrador c : admins) {
 			if(c.getEmail().equals(cliente.getEmail())) {
 				return false;
 			}
 		}
-		//Verifica que su email no sea el mismo al de algún Repartidor
+		//Verifica que su email no sea el mismo al de algï¿½n Repartidor
 		for(Repartidor c : reps) {
 			if(c.getEmail().equals(cliente.getEmail())) {
 				return false;
 			}
 		}
 		return true;
-			
+
 		}
-		
+
 	public boolean repValido(Repartidor rep) {
 		List<Cliente> clientes = cuentaDAO.list();
 		List<Administrador> admins = cuentaDAO.listAdmin();
 		List<Repartidor> reps = cuentaDAO.listaRep();
-		
-		//Verificas que su email no sea el mismo al de algún rep
+
+		//Verificas que su email no sea el mismo al de algï¿½n rep
 		for(Cliente c : clientes) {
 			if(c.getEmail().equals(rep.getEmail()) ) {
 				return false;
 			}
 		}
-		//Verifica que su email no sea el mismo al de algún Admin
+		//Verifica que su email no sea el mismo al de algï¿½n Admin
 		for(Administrador c : admins) {
 			if(c.getEmail().equals(rep.getEmail())) {
 				return false;
 			}
 		}
-		//Verifica que su email no sea el mismo al de algún Repartidor
+		//Verifica que su email no sea el mismo al de algï¿½n Repartidor
 		for(Repartidor c : reps) {
 			if(c.getEmail().equals(rep.getEmail())) {
 				return false;
 			}
 		}
 		return true;
-			
+
 		}
-	
-	
-	
+
+
+
 }
